@@ -1,10 +1,16 @@
 import React from 'react';
+import {Container} from "react-bootstrap";
+import NavigationBar from "./components/navbar/NavigationBar";
+import Welcome from "./components/welcomeImage/Welcome";
+import './App.scss';
 
 const App: React.FC = () => {
     return (
-        <div>
-          
-        </div>
+        <React.Fragment>
+            <NavigationBar/>
+            <Welcome/>
+        </React.Fragment>
+
     );
 };
 
