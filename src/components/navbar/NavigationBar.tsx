@@ -3,7 +3,7 @@ import {Nav, Navbar, NavDropdown} from "react-bootstrap";
 
 const NavigationBar: React.FC = () => {
     return (
-        <Navbar collapseOnSelect expand="xl" bg="dark" variant="dark" className='mx-0 px-0'>
+        <Navbar collapseOnSelect expand="xl" bg="dark" variant="dark" className='navigation-bar mx-0 px-0'>
             <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
