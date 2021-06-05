@@ -6,10 +6,10 @@ import './App.scss';
 
 const App: React.FC = () => {
     return (
-        <React.Fragment>
+        <div className='shopping-cart'>
             <NavigationBar/>
             <Welcome/>
-        </React.Fragment>
+        </div>
 
     );
 };

@@ -1,20 +1,26 @@
+@import "variables";
+
 .welcome-section {
-  position: relative;
+  max-width: 100%;
+  height: auto;
+
   .banner-image {
-    width: 100%;
+    position: relative;
+    max-width: 100%;
+    height: auto;
   }
   .banner-content {
     width: 100%;
     position: absolute;
-    bottom: 250px;
+    bottom: 200px;
 
     h3 {
       font-family:  'Knewave', cursive;
       color: #4A8601;
     }
    .leave-image {
-     width: 4.8em;
-     height: 4.5em;
+     width: 20vh;
+     height: 10ch;
    }
   }
 }
