@@ -2,25 +2,200 @@
 
 .welcome-section {
   max-width: 100%;
-  height: auto;
+  height: fit-content;
 
   .banner-image {
-    position: relative;
     max-width: 100%;
     height: auto;
   }
   .banner-content {
     width: 100%;
     position: absolute;
-    bottom: 200px;
+    top: 12em;
+    height: auto;
 
     h3 {
+      font-size: 3.0em;
       font-family:  'Knewave', cursive;
       color: #4A8601;
     }
+    span {
+      font-size: 1.5em;
+      color: black;
+    }
    .leave-image {
-     width: 20vh;
-     height: 10ch;
+     width: 20%;
+     height: auto;
    }
+    .btnShop {
+      font-size: 1.5em;
+    }
   }
 }
+@media only screen and (max-width: 320px) {
+  .welcome-section {
+    max-width: 100%;
+    height: auto;
+
+    .banner-image {
+      max-width: 100%;
+      height: auto;
+    }
+    .banner-content {
+
+      width: 100%;
+      position: absolute;
+      top: 4em;
+
+      h3 {
+        position: absolute;
+        top: 2.5em;
+        font-size: .8em;
+        font-family:  'Knewave', cursive;
+        color: #4A8601;
+      }
+      span {
+        visibility: hidden;
+        font-size: .6em;
+        color: black;
+      }
+      .btnShop {
+        position: absolute;
+        top: 9em;
+        font-size: .4em;
+      }
+    }
+  }
+}
+/* Extra small devices (phones, 576px and down) */
+@media only screen and (min-width: $extra_small) {
+  .welcome-section {
+    max-width: 100%;
+    height: auto;
+
+    .banner-image {
+      max-width: 100%;
+      height: auto;
+    }
+    .banner-content {
+
+      width: 100%;
+      position: absolute;
+      top: 3.5em;
+
+      h3 {
+        font-size: .9em;
+        font-family:  'Knewave', cursive;
+        color: #4A8601;
+      }
+      span {
+        font-size: .6em;
+        color: black;
+      }
+      .btnShop {
+        font-size: .6em;
+      }
+    }
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: $medium) {
+  .welcome-section {
+    max-width: 100%;
+    height: auto;
+
+    .banner-image {
+      max-width: 100%;
+      height: auto;
+    }
+    .banner-content {
+
+      width: 100%;
+      position: absolute;
+      top: 6em;
+
+      h3 {
+        font-size: .8em;
+        font-family:  'Knewave', cursive;
+        color: #4A8601;
+      }
+      span {
+        font-size: .9em;
+        color: black;
+      }
+      .btnShop {
+        font-size: .8em;
+      }
+
+    }
+  }
+
+}
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: $large) {
+  .welcome-section {
+    max-width: 100%;
+    height: auto;
+
+    .banner-image {
+      max-width: 100%;
+      height: auto;
+    }
+    .banner-content {
+
+      width: 100%;
+      position: absolute;
+      top: 10em;
+
+      h3 {
+        font-size: 2em;
+        font-family:  'Knewave', cursive;
+        color: #4A8601;
+      }
+      span {
+        font-size: 1em;
+        color: black;
+      }
+      .btnShop {
+        font-size: 1em;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: $extra_large) {
+  .welcome-section {
+    max-width: 100%;
+    height: auto;
+
+    .banner-image {
+      max-width: 100%;
+      height: auto;
+    }
+    .banner-content {
+
+      width: 100%;
+      position: absolute;
+      top: 12em;
+
+      h3 {
+        font-size: 2.1em;
+        font-family:  'Knewave', cursive;
+        color: #4A8601;
+      }
+      span {
+        font-size: 1.2em;
+        color: black;
+      }
+      .btnShop {
+        font-size: 1.2em;
+      }
+    }
+  }
+}
+
+
+
+
+
