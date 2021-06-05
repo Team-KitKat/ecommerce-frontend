@@ -1,0 +1,28 @@
+@import "variables";
+
+.login{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height:100vh;
+  font-size: 1.2em;
+}
+
+.login-text {
+  font-family: 'Montserrat', sans-serif;
+  color: $common-green;
+  font-size: 2.0em;
+}
+
+.login-button{
+  background-color: $common-green;
+  border: $common-green;
+  &:hover {
+    background-color: $common-green;
+  }
+}
+
+.fp-text{
+  font-size: 0.8em;
+  cursor: pointer;
+}
