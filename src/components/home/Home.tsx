@@ -3,12 +3,12 @@ import NavigationBar from "../navbar/NavigationBar";
 import Welcome from "../welcomeImage/Welcome";
 
 const Home: React.FC = () => {
-    return (
-      <React.Fragment>
-        <NavigationBar/>
-        <Welcome/>
-      </React.Fragment>
-    );
+  return (
+    <div className='shopping-cart'>
+      <NavigationBar/>
+      <Welcome/>
+    </div>
+  );
 };
 
 export default Home;
