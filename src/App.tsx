@@ -1,16 +1,15 @@
 import React from 'react';
-import {Container} from "react-bootstrap";
-import NavigationBar from "./components/navbar/NavigationBar";
-import Welcome from "./components/welcomeImage/Welcome";
 import './App.scss';
+import Login from "./components/login/Login";
+import {BrowserRouter as Router, Route} from "react-router-dom";
+import Home from "./components/home/Home";
 
 const App: React.FC = () => {
     return (
-        <div className='shopping-cart'>
-            <NavigationBar/>
-            <Welcome/>
-        </div>
-
+      <Router>
+        <Route exact path={'/'} component={Login}/>
+        <Route exact path={'/home'} component={Home}/>
+      </Router>
     );
 };
 
