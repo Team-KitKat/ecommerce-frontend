@@ -27,11 +27,13 @@
      width: 20%;
      height: auto;
    }
-    .btnShop {
+    .btn-shop {
       font-size: 1.5em;
+
     }
   }
 }
+
 @media only screen and (max-width: 320px) {
   .welcome-section {
     max-width: 100%;
@@ -59,10 +61,14 @@
         font-size: .6em;
         color: black;
       }
-      .btnShop {
+      .btn-shop {
         position: absolute;
-        top: 9em;
+        top: 10em;
         font-size: .4em;
+        color: black;
+        background-color: white;
+        border-radius: 15px;
+        border: none;
       }
     }
   }
@@ -92,8 +98,12 @@
         font-size: .6em;
         color: black;
       }
-      .btnShop {
+      .btn-shop {
         font-size: .6em;
+        color: black;
+        background-color: white;
+        border-radius: 15px;
+        border: none;
       }
     }
   }
@@ -124,8 +134,12 @@
         font-size: .9em;
         color: black;
       }
-      .btnShop {
+      .btn-shop {
         font-size: .8em;
+        color: black;
+        background-color: white;
+        border-radius: 15px;
+        border: none;
       }
 
     }
@@ -146,7 +160,7 @@
 
       width: 100%;
       position: absolute;
-      top: 10em;
+      top: 8em;
 
       h3 {
         font-size: 2em;
@@ -157,8 +171,12 @@
         font-size: 1em;
         color: black;
       }
-      .btnShop {
+      .btn-shop {
         font-size: 1em;
+        color: black;
+        background-color: white;
+        border-radius: 15px;
+        border: none;
       }
     }
   }
@@ -188,8 +206,12 @@
         font-size: 1.2em;
         color: black;
       }
-      .btnShop {
+      .btn-shop {
         font-size: 1.2em;
+        color: black;
+        background-color: white;
+        border-radius: 15px;
+        border: none;
       }
     }
   }
