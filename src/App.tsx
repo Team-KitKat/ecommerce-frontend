@@ -3,6 +3,10 @@ import './App.scss';
 import Login from "./components/login/Login";
 import {BrowserRouter as Router, Route} from "react-router-dom";
 import Home from "./components/home/Home";
+import 'react-toastify/dist/ReactToastify.css';
+import {toast} from "react-toastify";
+
+toast.configure();
 
 const App: React.FC = () => {
     return (
