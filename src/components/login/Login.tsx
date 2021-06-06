@@ -10,6 +10,22 @@ const Login: React.FC = () => {
     history.push('/home');
   }
 
+  const renderLoginForm = () => {
+    return (
+      <Form onSubmit={handleOnSubmit}>
+        <Form.Group controlId="formUserName" className={'mb-4'}>
+          <Form.Label>Username</Form.Label>
+          <Form.Control required type="text" placeholder=""/>
+        </Form.Group>
+        <Form.Group controlId="formPassword">
+          <Form.Label>Password</Form.Label>
+          <Form.Control required type="password" placeholder=""/>
+        </Form.Group>
+        <Button variant={'login-button'} type={'submit'} className={'mt-3 float-right'}>Login</Button>
+      </Form>
+    );
+  }
+
   return (
     <Container fluid={true} className={'login'}>
       <Row>
@@ -17,23 +33,12 @@ const Login: React.FC = () => {
           LOGO
         </Col>
         <Col>
-          <Form onSubmit={handleOnSubmit}>
-            <Form.Group controlId="formUserName" className={'mb-4'}>
-              <Form.Label>Username</Form.Label>
-              <Form.Control required type="text" placeholder=""/>
-            </Form.Group>
-            <Form.Group controlId="formPassword">
-              <Form.Label>Password</Form.Label>
-              <Form.Control required type="password" placeholder=""/>
-            </Form.Group>
-            <Button type={'submit'} className={'mt-3 float-right login-button'} >Login</Button>
-          </Form>
+          {renderLoginForm()}
         </Col>
         <Col xs={12} className={'text-center mt-4 fp-text'}>
           Forget Password
         </Col>
       </Row>
-
     </Container>
   );
 };
