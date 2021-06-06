@@ -16,7 +16,7 @@ const Welcome: React.FC = () => {
                     <h3>Organic Vegetables</h3>
                     <span>Small Changes Big Difference</span>
                     <br/>
-                    <Button className='btnShop'>Shop Now</Button>
+                    <Button className='btn-shop'>Shop Now</Button>
                 </Col>
             </Row>
     );
