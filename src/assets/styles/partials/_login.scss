@@ -14,11 +14,17 @@
   font-size: 2.0em;
 }
 
-.login-button{
+.btn-login-button{
   height: 40px;
   background-color: $common-green;
+  color: white;
   border: $common-green;
   &:hover {
+    background-color: $common-green;
+    color: white;
+    border: $common-green;
+  };
+  &:active{
     background-color: $common-green;
   }
 }

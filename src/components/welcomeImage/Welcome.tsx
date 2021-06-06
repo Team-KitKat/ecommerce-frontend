@@ -1,5 +1,5 @@
 import React from 'react';
-import {Button, Col, Container, Image, Row} from "react-bootstrap";
+import {Button, Col, Image, Row} from "react-bootstrap";
 import BannerImg from "../../assets/images/banner.jpg"
 import LeaveImg from "../../assets/images/leavesLogo.png"
 
