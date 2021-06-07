@@ -5,12 +5,13 @@
   height: fit-content;
 
   .banner-image {
+    position: absolute;
     max-width: 100%;
     height: auto;
   }
   .banner-content {
     width: 100%;
-    position: absolute;
+    position: relative;
     top: 12em;
     height: auto;
 
@@ -34,24 +35,24 @@
   }
 }
 
-@media only screen and (max-width: 320px) {
+@media only screen and (max-width: $extra_small) {
   .welcome-section {
     max-width: 100%;
     height: auto;
 
     .banner-image {
+      position: absolute;
       max-width: 100%;
       height: auto;
     }
     .banner-content {
-
+      left: -1.5em;
       width: 100%;
-      position: absolute;
-      top: 4em;
-
+      position: relative;
+      top: 1em;
       h3 {
         position: absolute;
-        top: 2.5em;
+        top: 2.2em;
         font-size: .8em;
         font-family:  'Knewave', cursive;
         color: #4A8601;
@@ -63,7 +64,7 @@
       }
       .btn-shop {
         position: absolute;
-        top: 10em;
+        top: 8em;
         font-size: .4em;
         color: black;
         background-color: white;
@@ -80,14 +81,15 @@
     height: auto;
 
     .banner-image {
+      position: absolute;
       max-width: 100%;
       height: auto;
     }
     .banner-content {
 
       width: 100%;
-      position: absolute;
-      top: 3.5em;
+      position: relative;
+      top: .5em;
 
       h3 {
         font-size: .9em;
@@ -116,14 +118,15 @@
     height: auto;
 
     .banner-image {
+      position: absolute;
       max-width: 100%;
       height: auto;
     }
     .banner-content {
 
       width: 100%;
-      position: absolute;
-      top: 6em;
+      position: relative;
+      top: 3em;
 
       h3 {
         font-size: .8em;
@@ -153,14 +156,15 @@
     height: auto;
 
     .banner-image {
+      position: absolute;
       max-width: 100%;
       height: auto;
     }
     .banner-content {
 
       width: 100%;
-      position: absolute;
-      top: 8em;
+      position: relative;
+      top: 4em;
 
       h3 {
         font-size: 2em;
@@ -188,14 +192,15 @@
     height: auto;
 
     .banner-image {
+      position: absolute;
       max-width: 100%;
       height: auto;
     }
     .banner-content {
 
       width: 100%;
-      position: absolute;
-      top: 12em;
+      position: relative;
+      top: 8em;
 
       h3 {
         font-size: 2.1em;
