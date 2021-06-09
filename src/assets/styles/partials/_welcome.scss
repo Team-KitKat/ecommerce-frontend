@@ -2,16 +2,17 @@
 
 .welcome-section {
   max-width: 100%;
-  height: fit-content;
+  height: auto;
+  position: relative;
 
   .banner-image {
-    position: absolute;
+    position: relative;
     max-width: 100%;
     height: auto;
   }
   .banner-content {
     width: 100%;
-    position: relative;
+    position: absolute;
     top: 12em;
     height: auto;
 
@@ -39,32 +40,32 @@
   .welcome-section {
     max-width: 100%;
     height: auto;
+    position: relative;
 
     .banner-image {
-      position: absolute;
+      position: relative;
       max-width: 100%;
       height: auto;
     }
     .banner-content {
       left: -1.5em;
       width: 100%;
-      position: relative;
+      position: absolute;
       top: 1em;
       h3 {
-        position: absolute;
-        top: 2.2em;
+        position: relative;
         font-size: .8em;
         font-family:  'Knewave', cursive;
         color: #4A8601;
       }
       span {
-        visibility: hidden;
+        display: none;
         font-size: .6em;
         color: black;
       }
       .btn-shop {
-        position: absolute;
-        top: 8em;
+        position: relative;
+        top: -5em;
         font-size: .4em;
         color: black;
         background-color: white;
@@ -79,16 +80,17 @@
   .welcome-section {
     max-width: 100%;
     height: auto;
+    position: relative;
 
     .banner-image {
-      position: absolute;
+      position: relative;
       max-width: 100%;
       height: auto;
     }
     .banner-content {
 
       width: 100%;
-      position: relative;
+      position: absolute;
       top: .5em;
 
       h3 {
@@ -116,17 +118,18 @@
   .welcome-section {
     max-width: 100%;
     height: auto;
+    position: relative;
 
     .banner-image {
-      position: absolute;
+      position: relative;
       max-width: 100%;
       height: auto;
     }
     .banner-content {
 
       width: 100%;
-      position: relative;
-      top: 3em;
+      position: absolute;
+      top: 2em;
 
       h3 {
         font-size: .8em;
@@ -154,17 +157,18 @@
   .welcome-section {
     max-width: 100%;
     height: auto;
+    position: relative;
 
     .banner-image {
-      position: absolute;
+      position: relative;
       max-width: 100%;
       height: auto;
     }
     .banner-content {
 
       width: 100%;
-      position: relative;
-      top: 4em;
+      position: absolute;
+      top: 5em;
 
       h3 {
         font-size: 2em;
@@ -190,17 +194,17 @@
   .welcome-section {
     max-width: 100%;
     height: auto;
+    position: relative;
 
     .banner-image {
-      position: absolute;
+      position: relative;
       max-width: 100%;
-      height: auto;
+
     }
     .banner-content {
-
       width: 100%;
-      position: relative;
-      top: 8em;
+      position: absolute;
+      top: 9em;
 
       h3 {
         font-size: 2.1em;
