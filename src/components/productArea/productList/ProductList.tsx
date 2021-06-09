@@ -1,10 +1,14 @@
 import React from 'react';
+import {Col, Container, Row} from "react-bootstrap";
+import Product from "../singleProduct/Product";
 
 const ProductList: React.FC = () => {
     return (
-        <div>
-            
-        </div>
+        <Row className='product-list mx-5'>
+            <Col>
+                <Product/>
+            </Col>
+        </Row>
     );
 };
 

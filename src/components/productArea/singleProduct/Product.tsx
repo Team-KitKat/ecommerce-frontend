@@ -1,6 +1,6 @@
 import React from 'react';
 import {Button, Card, Col, Row} from "react-bootstrap";
-import ProductImg from "../../../assets/images/products/mango.jpeg";
+import ProductImg from "../../../assets/images/leavesLogo.png";
 
 const Product: React.FC = () => {
   return (
