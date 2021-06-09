@@ -9,7 +9,7 @@ const Home: React.FC = () => {
     <div className='shopping-cart'>
       <NavigationBar/>
       <Welcome/>
-      <ProductList/>
+
     </div>
   );
 };
