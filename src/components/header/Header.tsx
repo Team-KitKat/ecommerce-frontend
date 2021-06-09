@@ -10,14 +10,14 @@ type HeaderTProps = {
 const Header: React.FC <HeaderTProps> = (props) => {
     const { itemCount, showCart } = props;
     return (
-        <Col className='header p-2 px-md-4 px-xs-2'>
-            <Col xl={{ span: 6, offset: 6 }} lg={{span: 10, offset: 2}} xs={12}>
+        <Col className='header p-2 px-xs-2'>
+            <Col xl={{ span: 7, offset: 5 }} lg={{ span: 10, offset: 2 }} sm={{ span: 12, offset: 0 }} xs={{ span: 12, offset: 0 }}>
                 <Row>
-                    <Col className='px-md-5'>
-                        <i className='feather-truck'/> Delivery Areas
+                    <Col>
+                        <i className='feather-truck'/> <span className='text'>Delivery Areas</span>
                     </Col>
                     <Col>
-                        <i className='feather-phone-call'/> +94 112 123 456
+                        <i className='feather-phone-call'/> <span className='text'>+94 112 123 456</span>
                     </Col>
                     <Col className='text-right'>
                         <Button className='register-btn' variant='outline-success'>Register</Button>
@@ -30,15 +30,15 @@ const Header: React.FC <HeaderTProps> = (props) => {
             <hr style={{color: '#EBEDEF', backgroundColor: '#EBEDEF', height: 2}} />
             <Col xs={12} className='px-md-5 px-xs-2'>
                 <Row>
-                    <Col xs={6} className='brand'>LOGO</Col>
-                    <Col md={{ span: 5, offset: 1 }} xs={6} className='text-right'>
+                    <Col xl={3} lg={6} xs={3} className='brand'>LOGO</Col>
+                    <Col xl={{ span: 4, offset: 5 }} lg={{ span: 5, offset: 1 }} sm={{ span: 5, offset: 4 }} xs={{ span: 9, offset: 0 }} className='text-right'>
                         <Row>
-                            <Col md={7} xs={4} onClick={showCart}>
+                            <Col xs={5} sm={4} lg={5} onClick={showCart}>
                                 <i className='feather-shopping-cart'>
                                    <span><Badge>{itemCount}</Badge></span>
                                 </i>
                             </Col>
-                            <Col md={5} xs={8} className='pr-md-4 px-xs-2'>
+                            <Col xs={7} sm={8} lg={7} className='pr-md-4 px-xs-2'>
                                 <Button variant="success" className='checkout-btn'>Check out</Button>
                             </Col>
                         </Row>

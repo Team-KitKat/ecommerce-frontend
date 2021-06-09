@@ -1,7 +1,7 @@
 @import "variables";
 
 .header {
-  font-size: 1em;
+  font-size: .9em;
 
   .brand {
     font-family: "Montserrat", "sans-serif";
@@ -50,9 +50,12 @@
 
 }
 
-@media only screen and (max-width: $large) {
+@media only screen and (max-width: $medium) {
   .header {
-    font-size: .8em;
+    font-size: .2em;
+    .text {
+      display: none;
+    }
 
     .checkout-btn {
       font-size: 1.2em;
@@ -60,12 +63,14 @@
   }
 }
 
-//@media only screen and (max-width: $extra-large) {
-//  .header {
-//    font-size: .8em;
-//
-//    .checkout-btn {
-//      font-size: 1.2em;
-//    }
-//  }
-//}
+@media only screen and (max-width: $large) {
+  .header {
+    font-size: .8em;
+  }
+}
+
+@media only screen and (min-width: $xxl) {
+  .header {
+    font-size: 1.2em;
+  }
+}
