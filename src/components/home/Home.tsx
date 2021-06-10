@@ -13,15 +13,8 @@ const Home: React.FC = () => {
             console.log('show cart')}}/>
         <NavigationBar/>
         <Welcome/>
-
-    return (
-        <div className='shopping-cart'>
-            <NavigationBar/>
-            <Welcome/>
-
-
-        </div>
-    );
+    </div>
+  )
 };
 
 export default Home;
