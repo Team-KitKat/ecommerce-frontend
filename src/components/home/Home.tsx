@@ -5,13 +5,13 @@ import Product from "../productArea/singleProduct/Product";
 import ProductList from "../productArea/productList/ProductList";
 
 const Home: React.FC = () => {
-  return (
-    <div className='shopping-cart'>
-      <NavigationBar/>
-      <Welcome/>
+    return (
+        <div className='shopping-cart'>
+            <NavigationBar/>
+            <Welcome/>
 
-    </div>
-  );
+        </div>
+    );
 };
 
 export default Home;
