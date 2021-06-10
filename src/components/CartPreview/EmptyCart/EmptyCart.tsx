@@ -1,6 +1,7 @@
 import React from 'react';
 import {Button, Image, Popover} from "react-bootstrap";
 import EmptyImg from "../../../assets/images/empty_cart.png";
+
 const EmptyCart: React.FC = () => {
 
     return (
