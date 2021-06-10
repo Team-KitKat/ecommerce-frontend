@@ -6,6 +6,7 @@ import Product from "../productArea/singleProduct/Product";
 import ProductList from "../productArea/productList/ProductList";
 
 const Home: React.FC = () => {
+
   return (
     <div className='shopping-cart'>
         <Header itemCount={4} showCart={() => {
@@ -13,8 +14,14 @@ const Home: React.FC = () => {
         <NavigationBar/>
         <Welcome/>
 
-    </div>
-  );
+    return (
+        <div className='shopping-cart'>
+            <NavigationBar/>
+            <Welcome/>
+
+
+        </div>
+    );
 };
 
 export default Home;
