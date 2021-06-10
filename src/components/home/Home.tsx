@@ -7,20 +7,15 @@ import ProductList from "../productArea/productList/ProductList";
 
 const Home: React.FC = () => {
 
-  return (
-    <div className='shopping-cart'>
-        <Header itemCount={4} showCart={() => {
-            console.log('show cart')}}/>
-        <NavigationBar/>
-        <Welcome/>
-
     return (
         <div className='shopping-cart'>
+            <Header itemCount={4} showCart={() => {
+                console.log('show cart')
+            }}/>
             <NavigationBar/>
             <Welcome/>
-
-
         </div>
+
     );
 };
 
