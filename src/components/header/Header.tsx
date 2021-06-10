@@ -1,6 +1,8 @@
-import React from 'react';
-import {Button, Col, Row} from "react-bootstrap";
+import React, {ChangeEvent, EventHandler, useRef, useState} from 'react';
+import {Button, Col, Overlay, Popover, Row} from "react-bootstrap";
 import Badge from 'react-bootstrap/Badge'
+import {IClickOptions, TargetElement} from "@testing-library/user-event";
+import EmptyCart from "../CartPreview/EmptyCart/EmptyCart";
 
 type HeaderTProps = {
     itemCount : number | 0
@@ -8,6 +10,7 @@ type HeaderTProps = {
 }
 
 const Header: React.FC <HeaderTProps> = (props) => {
+
     const { itemCount, showCart } = props;
     return (
         <Col className='header p-2 px-xs-2'>
@@ -33,10 +36,12 @@ const Header: React.FC <HeaderTProps> = (props) => {
                     <Col xl={3} lg={6} xs={3} className='brand'>LOGO</Col>
                     <Col xl={{ span: 4, offset: 5 }} lg={{ span: 5, offset: 1 }} sm={{ span: 5, offset: 4 }} xs={{ span: 9, offset: 0 }} className='text-right'>
                         <Row>
-                            <Col xs={5} sm={4} lg={5} onClick={showCart}>
-                                <i className='feather-shopping-cart'>
-                                   <span><Badge>{itemCount}</Badge></span>
-                                </i>
+                            <Col xs={5} sm={4} lg={5}>
+
+                                    <i className='feather-shopping-cart' >
+                                        <span><Badge>{itemCount}</Badge></span>
+                                    </i>
+
                             </Col>
                             <Col xs={7} sm={8} lg={7} className='pr-md-4 px-xs-2'>
                                 <Button variant="success" className='checkout-btn'>Check out</Button>
