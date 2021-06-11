@@ -1,37 +1,41 @@
 import React, {useRef, useState} from 'react';
-import {Button, Overlay, Popover} from "react-bootstrap";
+import {Button, Col, Container, Image, Overlay, Popover, Row} from "react-bootstrap";
+import EmptyImg from "../../assets/images/empty_cart.png";
+import ItemList from "./itemList/ItemList";
+import CartTotal from "./totalSection/CartTotal";
 
-const CartPreview: React.FC = () => {
+type CartPreviewProps = {
+    showItemCart: boolean
+    target: any
+}
 
-    const [show, setShow] = useState(false);
-    const [target, setTarget] = useState(null);
+const CartPreview: React.FC<CartPreviewProps> = (props) => {
+
+    const {showItemCart,target} = props;
     const ref = useRef(null);
 
-    const handleClick = (event: any) => {
-        setShow(!show);
-        setTarget(event.target);
-    };
-
     return (
-        <div ref={ref}>
-
-            <Button onClick={handleClick}>Holy guacamole!</Button>
-
+        <Container fluid={true} ref={ref} className='item-cart-container'>
             <Overlay
-                show={show}
+                show={showItemCart}
                 target={target}
                 placement="bottom"
                 container={ref.current}
                 containerPadding={20}
+
             >
-                <Popover id="popover-contained">
-                    <Popover.Title as="h3">Popover bottom</Popover.Title>
+                <Popover id="popover-contained" className='item-cart-pop text-center'>
+                    <Popover.Title as="h3">Items in Your Cart</Popover.Title>
                     <Popover.Content>
-                        <strong>Holy guacamole!</strong> Check this info.
+                            <Row className='cart-content'>
+                                <ItemList/>
+                                <CartTotal/>
+                            </Row>
+                        <Button className='bg-success'>Buy Now</Button>
                     </Popover.Content>
                 </Popover>
             </Overlay>
-        </div>
+        </Container>
     );
 };
 
