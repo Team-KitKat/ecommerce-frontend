@@ -1,8 +1,7 @@
 import React, {ChangeEvent, EventHandler, useRef, useState} from 'react';
 import {Button, Col, Overlay, Popover, Row} from "react-bootstrap";
 import Badge from 'react-bootstrap/Badge'
-import {IClickOptions, TargetElement} from "@testing-library/user-event";
-import EmptyCart from "../CartPreview/EmptyCart/EmptyCart";
+
 
 type HeaderTProps = {
     itemCount : number | 0
