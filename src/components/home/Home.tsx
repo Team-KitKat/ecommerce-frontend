@@ -9,7 +9,7 @@ const Home: React.FC = () => {
 
   return (
     <div className='shopping-cart'>
-        <Header itemCount={3}/>
+        <Header itemCount={1}/>
         <NavigationBar/>
         <Welcome/>
     </div>

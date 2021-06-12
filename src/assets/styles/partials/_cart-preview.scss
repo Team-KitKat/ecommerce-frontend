@@ -3,7 +3,7 @@
   height: fit-content;
 
   .empty-cart-pop {
-    min-width: 26em;
+    min-width: fit-content;
     height: auto;
     max-height: 30em;
 
@@ -16,7 +16,7 @@
 
 .item-cart-container {
   .item-cart-pop {
-    min-width: 26em;
+    min-width: fit-content;
     height: auto;
 
     .cart-content {
