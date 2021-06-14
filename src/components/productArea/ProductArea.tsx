@@ -6,7 +6,7 @@ import ProductList from "./productList/ProductList";
 
 const ProductArea: React.FC = () => {
     return (
-        <Container>
+        <Container className='product-area' fluid={true}>
             <SearchBar/>
             <ProductCategory/>
             <ProductList/>

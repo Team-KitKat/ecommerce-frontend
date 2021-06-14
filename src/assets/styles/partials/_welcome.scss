@@ -198,7 +198,7 @@
 
     .banner-image {
       position: relative;
-      max-width: 100%;
+      width: 100%;
 
     }
     .banner-content {
@@ -207,8 +207,9 @@
       top: 9em;
 
       h3 {
-        font-size: 2.1em;
-        font-family:  'Knewave', cursive;
+        font-size: 2.5em;
+        font-weight: bolder;
+        font-family: 'Knewave', cursive;
         color: #4A8601;
       }
       span {

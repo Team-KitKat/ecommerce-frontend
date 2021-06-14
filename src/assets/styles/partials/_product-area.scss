@@ -1,0 +1,86 @@
+@import "variables";
+.product-area {
+  .search-bar {
+    .search-form {
+      .search-box {
+        color: #495057;
+        border: 2px solid slategrey;
+        border-radius: 2em;
+
+        #basic-addon1 {
+          border: none;
+          background-color: transparent;
+        }
+        .form-control {
+          border: none;
+          background-color: transparent;
+
+        }
+        .form-control:focus {
+          box-shadow: none;
+        }
+      }
+      .search-box:hover {
+        color: #495057;
+        border: 2px solid darkseagreen;
+        border-radius: 2em;
+
+
+        #basic-addon1 {
+          border: none;
+          background-color: transparent;
+        }
+        .form-control {
+          border: none;
+          background-color: transparent;
+
+        }
+        .form-control:focus {
+          box-shadow: none;
+        }
+      }
+
+      .feather-search {
+      }
+    }
+  }
+  .product-list {
+    .single-product {
+      height: 19em;
+      width: auto;
+
+      .product-image {
+        width: auto;
+        height: 45%;
+      }
+
+      .add-product-form {
+        .product-qty {
+          width: 80%;
+          border: 1px solid slategrey;
+          font-size: 1em;
+          border-radius: 1em;
+        }
+
+        Button {
+          border-radius: 1em;
+        }
+      }
+    }
+  }
+}
+@media only screen and (max-width: $extra_small) {
+
+}
+@media only screen and (min-width: $extra_small) {
+
+}
+@media only screen and (min-width: $medium) {
+
+}
+@media only screen and (min-width: $large) {
+
+}
+@media only screen and (min-width: $extra_large) {
+
+}

@@ -1,14 +1,19 @@
 import React from 'react';
-import {Col, Container, Row} from "react-bootstrap";
+import {CardDeck, Col, Container, Row} from "react-bootstrap";
 import Product from "../singleProduct/Product";
 
 const ProductList: React.FC = () => {
     return (
-        <Row className='product-list mx-5'>
-            <ul>
-
-            </ul>
-        </Row>
+            <Row className='px-5 mx-5 mb-5 product-list '>
+                <Product/>
+                <Product/>
+                <Product/>
+                <Product/>
+                <Product/>
+                <Product/>
+                <Product/>
+                <Product/>
+            </Row>
     );
 };
 

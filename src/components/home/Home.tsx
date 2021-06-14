@@ -4,6 +4,7 @@ import Welcome from "../welcomeImage/Welcome";
 import Header from "../header/Header";
 import Product from "../productArea/singleProduct/Product";
 import ProductList from "../productArea/productList/ProductList";
+import ProductArea from "../productArea/ProductArea";
 
 const Home: React.FC = () => {
 
@@ -12,6 +13,7 @@ const Home: React.FC = () => {
         <Header itemCount={1}/>
         <NavigationBar/>
         <Welcome/>
+        <ProductArea/>
     </div>
   )
 };
