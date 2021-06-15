@@ -1,0 +1,40 @@
+@import "variables";
+
+.footer {
+  font-family: "Montserrat", "sans-serif";
+  background-color: $footer-background-color;
+  color: $footer-grey;
+  position: fixed;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+
+  .footer-icons {
+    width: 18%;
+  }
+
+  .footer-menu {
+    font-size: 1.1em;
+    font-weight: 300;
+
+    &:hover {
+      color: $white;
+      cursor: pointer;
+    }
+  }
+
+  .footer-icons, .footer-menu {
+    cursor: pointer;
+  }
+
+  .copyright {
+    font-size: 1.1em;
+    font-weight: 100;
+    line-height: 1.5;
+    color: $footer-grey;
+
+    span {
+      color: $white;
+    }
+  }
+}

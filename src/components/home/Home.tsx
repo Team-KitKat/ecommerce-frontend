@@ -3,6 +3,7 @@ import NavigationBar from "../navbar/NavigationBar";
 import Welcome from "../welcomeImage/Welcome";
 import Product from "../productArea/singleProduct/Product";
 import ProductList from "../productArea/productList/ProductList";
+import Footer from "../footer/Footer";
 
 const Home: React.FC = () => {
   return (
@@ -10,6 +11,7 @@ const Home: React.FC = () => {
       <NavigationBar/>
       <Welcome/>
 
+      <Footer/>
     </div>
   );
 };
