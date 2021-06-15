@@ -28,7 +28,7 @@ const Header: React.FC <HeaderTProps> = (props) => {
         }
     };
     return (
-        <Col className='header p-2 px-xs-2'>
+        <Col xs={12} className='m-0 p-0 header'>
             <Col xl={{ span: 7, offset: 5 }} lg={{ span: 10, offset: 2 }} sm={{ span: 12, offset: 0 }} xs={{ span: 12, offset: 0 }}>
                 <Row>
                     <Col>

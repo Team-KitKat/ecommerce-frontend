@@ -5,16 +5,15 @@ import Header from "../header/Header";
 import Product from "../productArea/singleProduct/Product";
 import ProductList from "../productArea/productList/ProductList";
 import ProductArea from "../productArea/ProductArea";
+import {Container, Row} from "react-bootstrap";
 
 const Home: React.FC = () => {
 
   return (
-    <div className='shopping-cart'>
-        <Header itemCount={1}/>
-        <NavigationBar/>
+    <Row className='m-0 shopping-cart'>
         <Welcome/>
         <ProductArea/>
-    </div>
+    </Row>
   )
 };
 

@@ -45,25 +45,46 @@
     }
   }
   .product-list {
-    .single-product {
-      height: 19em;
-      width: auto;
+    width: 100%;
+    margin-left: 5em;
+    margin-right: 5em;
 
-      .product-image {
-        width: auto;
-        height: 45%;
-      }
+    .product-list-container {
 
-      .add-product-form {
-        .product-qty {
-          width: 80%;
+      .single-product {
+        width: 16em;
+
+        .product-body {
           border: 1px solid slategrey;
-          font-size: 1em;
-          border-radius: 1em;
-        }
+          border-radius: .6em;
 
-        Button {
-          border-radius: 1em;
+
+          .product-image {
+            width: 100%;
+            height: 150px;
+
+          }
+
+          h5 {
+
+          }
+          .price-tag {
+
+          }
+
+          .add-product-form {
+            .product-qty {
+              width: 3.5em;
+              border: 1px solid slategrey;
+              font-size: 1em;
+              border-radius: 1em;
+            }
+
+            Button {
+              font-size: .8em;
+              border-radius: 1em;
+            }
+          }
         }
       }
     }

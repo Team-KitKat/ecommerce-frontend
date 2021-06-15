@@ -3,7 +3,7 @@ import {Col, Container, Form, FormControl, InputGroup, Row} from "react-bootstra
 
 const SearchBar: React.FC = () => {
     return (
-            <Row className='search-bar text-center my-5'>
+            <Container className='search-bar text-center my-4'>
                 <Col xs={{span: 5, offset: 4}}>
                     <Form className='search-form'>
                         <InputGroup className="mb-3 search-box">
@@ -14,7 +14,7 @@ const SearchBar: React.FC = () => {
                         </InputGroup>
                     </Form>
                 </Col>
-            </Row>
+            </Container>
     );
 };
 

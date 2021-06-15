@@ -4,7 +4,13 @@ import Product from "../singleProduct/Product";
 
 const ProductList: React.FC = () => {
     return (
-            <Row className='px-5 mx-5 mb-5 product-list '>
+            <Row className='mb-5 product-list'>
+                <Row className='list-title'>
+                    <Col xs={12} className='pl-5'>
+                        <h3>Grocery</h3>
+                    </Col>
+                </Row>
+                <Row className='product-list-container'>
                 <Product/>
                 <Product/>
                 <Product/>
@@ -13,6 +19,8 @@ const ProductList: React.FC = () => {
                 <Product/>
                 <Product/>
                 <Product/>
+                </Row>
+
             </Row>
     );
 };
