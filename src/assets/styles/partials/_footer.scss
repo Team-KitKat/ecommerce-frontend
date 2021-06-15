@@ -9,28 +9,29 @@
   left: 0;
   bottom: 0;
 
-  .footer-icons {
-    width: 18%;
+  .footer-logo {
+    width: 8%;
   }
 
   .footer-menu {
-    font-size: 1.1em;
-    font-weight: 300;
+    font-size: 1em;
+    font-weight: 100;
+    line-height: 2em;
 
-    &:hover {
-      color: $white;
-      cursor: pointer;
-    }
+    //&:hover {
+    //  color: $white;
+    //  cursor: pointer;
+    //}
   }
 
-  .footer-icons, .footer-menu {
+  .footer-logo, .footer-menu {
     cursor: pointer;
   }
 
   .copyright {
-    font-size: 1.1em;
+    font-size: 1em;
     font-weight: 100;
-    line-height: 1.5;
+    //line-height: 1.5;
     color: $footer-grey;
 
     span {
