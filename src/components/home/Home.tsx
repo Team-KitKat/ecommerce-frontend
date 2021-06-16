@@ -6,6 +6,7 @@ import Product from "../productArea/singleProduct/Product";
 import ProductList from "../productArea/productList/ProductList";
 import ProductArea from "../productArea/ProductArea";
 import {Container, Row} from "react-bootstrap";
+import Footer from "../footer/Footer";
 
 const Home: React.FC = () => {
 
