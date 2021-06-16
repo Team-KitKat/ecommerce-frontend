@@ -22,7 +22,6 @@ const CartPreview: React.FC<CartPreviewProps> = (props) => {
                 placement="bottom"
                 container={ref.current}
                 containerPadding={20}
-
             >
                 <Popover id="popover-contained" className='item-cart-pop text-center'>
                     <Popover.Title as="h3">Items in Your Cart</Popover.Title>

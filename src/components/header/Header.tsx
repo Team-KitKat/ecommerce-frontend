@@ -4,7 +4,6 @@ import Badge from 'react-bootstrap/Badge'
 import EmptyCart from "../cartPreview/emptyCart/EmptyCart";
 import CartPreview from "../cartPreview/CartPreview";
 
-
 type HeaderTProps = {
     itemCount : number | 0
 }

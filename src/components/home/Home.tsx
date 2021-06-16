@@ -13,6 +13,7 @@ const Home: React.FC = () => {
     <Row className='m-0 shopping-cart'>
         <Welcome/>
         <ProductArea/>
+      <Footer/>
     </Row>
   )
 };

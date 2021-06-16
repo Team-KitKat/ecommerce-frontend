@@ -5,11 +5,14 @@ import Item from '../../../assets/images/edcoco.jpg'
 const CartItem: React.FC = () => {
     return (
         <li>
+
             <Row className='cart-item p-1'>
+
                 <Col xs={4}>
                     <Image src={Item} alt='Item Image' className='item-image'/>
                 </Col>
                 <Col xs={8}>
+
                     <Row className='px-2'>
                         <Col xs={6}>
                             <label>Leaf</label>
@@ -24,6 +27,7 @@ const CartItem: React.FC = () => {
                         </Col>
                         <Col xs={6}>
                             <label className='text-success'>Rs: 260</label>
+
                         </Col>
                     </Row>
                 </Col>
