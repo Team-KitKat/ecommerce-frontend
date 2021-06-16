@@ -2,7 +2,11 @@
 @import "partials/login";
 @import "partials/navigationbar";
 @import "partials/header";
-@import "partials/product";
+@import "partials/product-area";
 @import "partials/cart-preview";
 @import "partials/footer";
 
+.shopping-cart {
+  width: 100%;
+  font-family: "Montserrat", "sans-serif";
+}

@@ -4,21 +4,18 @@ import Welcome from "../welcomeImage/Welcome";
 import Header from "../header/Header";
 import Product from "../productArea/singleProduct/Product";
 import ProductList from "../productArea/productList/ProductList";
-import Footer from "../footer/Footer";
+import ProductArea from "../productArea/ProductArea";
+import {Container, Row} from "react-bootstrap";
 
 const Home: React.FC = () => {
 
-    return (
-        <div className='shopping-cart'>
-            <Header itemCount={4} showCart={() => {
-                console.log('show cart')
-            }}/>
-            <NavigationBar/>
-            <Welcome/>
-            <Footer/>
-        </div>
-
-    );
+  return (
+    <Row className='m-0 shopping-cart'>
+        <Welcome/>
+        <ProductArea/>
+      <Footer/>
+    </Row>
+  )
 };
 
 export default Home;
