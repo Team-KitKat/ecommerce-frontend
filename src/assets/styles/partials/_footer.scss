@@ -1,0 +1,93 @@
+@import "variables";
+
+.footer {
+  background-color: $footer-background-color;
+  color: $footer-grey;
+  //position: fixed;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+
+  .footer-logo {
+    width: 8%;
+  }
+
+  .footer-menu {
+    font-size: 1em;
+    font-weight: 400;
+    //line-height: .8em;
+    cursor: pointer;
+  }
+
+  .footer-address {
+    font-size: 1em;
+    font-weight: 100;
+    line-height: 1.4em;
+    color: $footer-grey;
+  }
+
+  .footer-icons {
+    font-size: 1.3em;
+  }
+}
+
+@media only screen and (max-width: $extra_small) {
+  .footer {
+    font-size: .9em;
+    .footer-logo {
+      width: 45%;
+    }
+  }
+}
+
+@media only screen and (min-width: $extra_small) {
+  .footer {
+    .footer-logo {
+      width: 35%;
+    }
+  }
+}
+
+//@media only screen and (max-width: $medium) {
+//  .footer {
+//    .footer-logo {
+//      width: 35%;
+//    }
+//  }
+//}
+
+@media only screen and (min-width: $medium) {
+  .footer {
+    font-size: .9em;
+    .footer-logo {
+      width: 25%;
+    }
+  }
+}
+
+@media only screen and (min-width: $large) {
+  .footer {
+    font-size: .86em;
+    .footer-logo {
+      width: 18%;
+    }
+  }
+}
+
+@media only screen and (min-width: $extra_large) {
+  .footer {
+    font-size: .9em;
+    .footer-logo {
+      width: 15%;
+    }
+  }
+}
+
+@media only screen and (min-width: $xxl) {
+  .footer {
+    font-size: 1em;
+    .footer-logo {
+      width: 8%;
+    }
+  }
+}

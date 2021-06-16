@@ -1,35 +1,42 @@
 import React from 'react';
-import {Button, Card, Col, Row} from "react-bootstrap";
-import ProductImg from "../../../assets/images/leavesLogo.png";
+import {Button, Card, Col, Form, FormControl, FormGroup, Image, Row} from "react-bootstrap";
+import ProductImg from "../../../assets/images/avacado.jpg";
 
 const Product: React.FC = () => {
-  return (
-    <Card style={{width: '18rem', borderRadius: 10}} border={'secondary'}
-          className={'m-1 pt-5 px-4 mb-5 align-items-center single-product'}>
-      <Card.Img style={{width: '12rem'}} variant="top" src={ProductImg}/>
-      <Card.Body className={'text-right'}>
-        <Card.Title className={'text-center pb-2'}>Product Name</Card.Title>
-        <Card.Text>
-          <Row>
-            <Col xs={8} className={'text-left px-0'}>
-              RS. 65.00
-            </Col>
-            <Col xs={4} className={'text-right px-0'}>
-              RS. 65.00afa
-            </Col>
-          </Row>
-          <Row>
-            <Col xs={6} className={'text-left px-0'}>
-              RS. 65.00
-            </Col>
-            <Col xs={6} className={'text-right px-0'}>
-              <Button variant="primary">Add to Cart</Button>
-            </Col>
-          </Row>
-        </Card.Text>
-      </Card.Body>
-    </Card>
-  );
+    return (
+        <Col xs={6} sm={6} lg={3} md={4} xl={3} className='m-0  px-5 single-product'>
+            <Row className={'p-0 m-0 mb-5 text-center product-body'}>
+                <Col xs={12} className='p-0 m-0'>
+                <Image className='ml-2 px-5  product-image' src={ProductImg}/>
+                </Col>
+                    <Col xs={12} className='m-0 p-0 text-center'>
+                        <h5 className={'ml-2 pb-2'}>Product</h5>
+                    </Col>
+                <Col xs={12}>
+                    <Row className=''>
+                        <Col xs={5} className={'price-tag text-secondary'}>
+                            <label>65.00</label>
+                        </Col>
+                        <Col xs={7} className={'price-tag text-success float-right'}>
+                            <label>RS.60.00</label>
+                        </Col>
+                    </Row>
+                        <Form className='add-product-form'>
+                            <Row className='add-product'>
+                                <Col xs={4} className={'number-input'}>
+                                    <Form.Group>
+                                        <FormControl type='number' placeholder='1' className='product-qty'/>
+                                    </Form.Group>
+                                </Col>
+                                <Col xs={8} className={''}>
+                                    <Button variant="success">Add to Cart</Button>
+                                </Col>
+                            </Row>
+                        </Form>
+                    </Col>
+            </Row>
+        </Col>
+    );
 };
 
 export default Product;

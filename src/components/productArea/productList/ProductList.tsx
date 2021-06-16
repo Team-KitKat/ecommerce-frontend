@@ -1,12 +1,27 @@
 import React from 'react';
-import {Col, Container, Row} from "react-bootstrap";
+import {CardDeck, Col, Container, Row} from "react-bootstrap";
 import Product from "../singleProduct/Product";
 
 const ProductList: React.FC = () => {
     return (
-        <Row className='product-list mx-5'>
+            <Row className='mb-5 product-list'>
+                <Row className='list-title'>
+                    <Col xs={12} className='pl-5'>
+                        <h3>Grocery</h3>
+                    </Col>
+                </Row>
+                <Row className='product-list-container'>
+                <Product/>
+                <Product/>
+                <Product/>
+                <Product/>
+                <Product/>
+                <Product/>
+                <Product/>
+                <Product/>
+                </Row>
 
-        </Row>
+            </Row>
     );
 };
 
