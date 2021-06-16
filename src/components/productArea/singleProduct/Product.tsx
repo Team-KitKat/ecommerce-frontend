@@ -4,10 +4,10 @@ import ProductImg from "../../../assets/images/avacado.jpg";
 
 const Product: React.FC = () => {
     return (
-        <Col xs={6} sm={6} lg={3} md={4} xl={3} className='m-0  px-5 single-product'>
+        <Col xs={12} sm={6} lg={3} md={4} xl={3} className='m-0 px-xl-4 px-sm-4 px-lg-4 px-md-4 single-product'>
             <Row className={'p-0 m-0 mb-5 text-center product-body'}>
                 <Col xs={12} className='p-0 m-0'>
-                <Image className='ml-2 px-5  product-image' src={ProductImg}/>
+                <Image className='m-0 px-5 px-lg-4 px-xl-5 px-md-3 px-sm-2 ml-sm-1 ml-md-2 ml-lg-2 ml-xl-2  product-image' src={ProductImg}/>
                 </Col>
                     <Col xs={12} className='m-0 p-0 text-center'>
                         <h5 className={'ml-2 pb-2'}>Product</h5>
