@@ -45,10 +45,34 @@
       }
     }
   }
+  .category-container {
+    h2 {
+      color: #4caf50;
+    }
+    .category-list {
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+
+      .category-item {
+        border: 1px solid slategrey;
+        border-radius: 1em;
+
+        .category-image {
+          width: 10em;
+          height: 10em;
+        }
+
+        h6 {
+          font-weight: bold;
+        }
+      }
+    }
+  }
   .product-list {
     width: 100%;
-    margin-left: 5em;
-    margin-right: 5em;
+    //margin-left: 5em;
+    //margin-right: 5em;
 
     .product-list-container {
 
