@@ -4,7 +4,7 @@ import {Col, Container, Form, FormControl, InputGroup, Row} from "react-bootstra
 const SearchBar: React.FC = () => {
     return (
             <Container className='search-bar text-center my-4'>
-                <Col xs={{span: 5, offset: 4}}>
+                <Col xs={{span: 8, offset: 2}}>
                     <Form className='search-form'>
                         <InputGroup className="mb-3 search-box">
                         <InputGroup.Prepend >

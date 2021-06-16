@@ -1,5 +1,6 @@
 @import "variables";
 .product-area {
+  width: 100%;
   .search-bar {
     .search-form {
       .search-box {
@@ -57,7 +58,7 @@
         .product-body {
           border: 1px solid slategrey;
           border-radius: .6em;
-
+          height: 22em;
 
           .product-image {
             width: 100%;
@@ -89,19 +90,4 @@
       }
     }
   }
-}
-@media only screen and (max-width: $extra_small) {
-
-}
-@media only screen and (min-width: $extra_small) {
-
-}
-@media only screen and (min-width: $medium) {
-
-}
-@media only screen and (min-width: $large) {
-
-}
-@media only screen and (min-width: $extra_large) {
-
 }
