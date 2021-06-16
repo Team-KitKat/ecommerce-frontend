@@ -1,7 +1,7 @@
 @import "variables";
 
 .welcome-section {
-  max-width: 100%;
+  width: 100%;
   height: auto;
   position: relative;
 
@@ -38,7 +38,7 @@
 
 @media only screen and (max-width: $extra_small) {
   .welcome-section {
-    max-width: 100%;
+    width: 100%;
     height: auto;
     position: relative;
 
@@ -78,7 +78,7 @@
 /* Extra small devices (phones, 576px and down) */
 @media only screen and (min-width: $extra_small) {
   .welcome-section {
-    max-width: 100%;
+    width: 100%;
     height: auto;
     position: relative;
 
@@ -116,7 +116,7 @@
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: $medium) {
   .welcome-section {
-    max-width: 100%;
+    width: 100%;
     height: auto;
     position: relative;
 
@@ -155,7 +155,7 @@
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: $large) {
   .welcome-section {
-    max-width: 100%;
+    width: 100%;
     height: auto;
     position: relative;
 
@@ -192,7 +192,7 @@
 
 @media only screen and (min-width: $extra_large) {
   .welcome-section {
-    max-width: 100%;
+    width: 100%;
     height: auto;
     position: relative;
 
