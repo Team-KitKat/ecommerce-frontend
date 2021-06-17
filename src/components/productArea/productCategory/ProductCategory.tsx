@@ -11,26 +11,26 @@ const ProductCategory: React.FC = () => {
         <Container className='category-container text-center'>
             <h2 className='mb-4'>Our Products</h2>
             <Row className='mx-1 category-list'>
-            <Col className='m-2 p-2 category-item text-center'>
+            <Col className='m-0 m-xl-2 m-lg-2 m-md-2 m-sm-1 p-2 category-item text-center'>
               <Image className='category-image' src={AllImg}/>
-                <h6 className='py-2'>All</h6>
+                <p  className='py-2'>All</p>
             </Col>
-            <Col className='m-2 p-2 category-item text-center'>
+            <Col className='m-0 m-xl-2 m-lg-2 m-md-2 m-sm-1 p-2 category-item text-center'>
                 <Image className='category-image' src={Grocery}/>
-                <h6 className='py-2'>Grocery</h6>
+                <p className='pt-4'>Grocery</p>
             </Col>
-            <Col className='m-2 p-2 category-item text-center'>
+            <Col className='m-0 m-xl-2 m-lg-2 m-md-2 m-sm-1 p-2 category-item text-center'>
                 <Image className='category-image' src={Pharmacy}/>
-                <h6 className='py-2'>Pharmacy</h6>
+                <p className='pt-4'>Pharmacy</p>
             </Col>
 
-            <Col className='m-2 p-2 category-item text-center'>
+            <Col className='m-0 m-xl-2 m-lg-2 m-md-2 m-sm-1 p-2 category-item text-center'>
                 <Image className='category-image' src={Food}/>
-                <h6 className='py-2'>Food</h6>
+                <p className='pt-4'>Food</p>
             </Col>
-            <Col className='m-2 p-2 category-item text-center'>
+            <Col className='m-0 m-xl-2 m-lg-2 m-md-2 m-sm-1 p-2 category-item text-center'>
                 <Image className='category-image' src={Electronic}/>
-                <h6 className='py-2'>Electronic</h6>
+                <p className='pt-4'>Electronic</p>
             </Col>
             </Row>
         </Container>
