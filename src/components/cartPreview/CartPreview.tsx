@@ -15,7 +15,8 @@ const CartPreview: React.FC<CartPreviewProps> = (props) => {
     const ref = useRef(null);
 
     return (
-        <Container fluid={true} ref={ref} className='item-cart-container'>
+        <Row ref={ref} className='item-cart-container'>
+            <Col xs={12}>
             <Overlay
                 show={showItemCart}
                 target={target}
@@ -23,18 +24,19 @@ const CartPreview: React.FC<CartPreviewProps> = (props) => {
                 container={ref.current}
                 containerPadding={20}
             >
-                <Popover id="popover-contained" className='item-cart-pop text-center'>
+                <Popover id="popover-contained" className='item-cart-pop '>
                     <Popover.Title as="h3">Items in Your Cart</Popover.Title>
                     <Popover.Content>
                             <Row className='cart-content'>
                                 <ItemList/>
                                 <CartTotal/>
                             </Row>
-                        <Button className='bg-success'>Buy Now</Button>
+                        <Button className='btn-buy bg-success'> Checkout </Button>
                     </Popover.Content>
                 </Popover>
             </Overlay>
-        </Container>
+            </Col>
+        </Row>
     );
 };
 

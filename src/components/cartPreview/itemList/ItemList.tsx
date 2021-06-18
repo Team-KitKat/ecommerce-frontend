@@ -4,7 +4,7 @@ import CartItem from "./CartItem";
 
 const ItemList: React.FC = () => {
     return (
-        <Container className='cart-product-list'>
+        <Container fluid={true} className='m-0 cart-product-list'>
             <Col xs={12}>
                 <ul className='ml-0 pl-0 list-unstyled'>
                     <CartItem/>

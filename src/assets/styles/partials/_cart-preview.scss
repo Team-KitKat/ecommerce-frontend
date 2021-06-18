@@ -23,13 +23,14 @@
 
     .cart-content {
       .cart-product-list {
+        min-width: 25em;
         max-height: 32vh;
         overflow: scroll;
         overflow-y: scroll;
         overflow-x: auto;
         .cart-item {
           .item-image {
-            width: 60%;
+            width: 100%;
             height: auto;
           }
           i {
@@ -41,15 +42,38 @@
       }
 
       .cart-total {
-        min-width: 26em;
+        min-width: 25em;
         height: auto;
 
         .sub-total {
           border-bottom: 1px solid slategrey;
         }
 
-        .cart-total {
+        .cart-net-total {
           //border-bottom: 1px solid slategrey;
+        }
+      }
+
+    }
+    .btn-buy {
+      border-radius: 20px;
+      width: 10em;
+      font-size: .8em;
+    }
+  }
+}
+@media only screen and (max-width: $medium) {
+  .item-cart-container {
+    .item-cart-pop {
+      min-width: fit-content;
+
+      .cart-content {
+        .cart-product-list {
+          min-width: 18em;
+        }
+
+        .cart-total {
+          min-width: 18em;
         }
       }
     }

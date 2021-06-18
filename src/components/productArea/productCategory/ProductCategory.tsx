@@ -8,12 +8,13 @@ import Electronic from "../../../assets/images/categories/electro.png";
 
 const ProductCategory: React.FC = () => {
     return (
+        <Col xs={12}>
         <Container className='category-container text-center'>
             <h2 className='mb-4'>Our Products</h2>
             <Row className='mx-1 category-list'>
             <Col className='m-0 m-xl-2 m-lg-2 m-md-2 m-sm-1 p-2 category-item text-center'>
               <Image className='category-image' src={AllImg}/>
-                <p  className='py-2'>All</p>
+                <p  className='pt-3'>All</p>
             </Col>
             <Col className='m-0 m-xl-2 m-lg-2 m-md-2 m-sm-1 p-2 category-item text-center'>
                 <Image className='category-image' src={Grocery}/>
@@ -34,6 +35,7 @@ const ProductCategory: React.FC = () => {
             </Col>
             </Row>
         </Container>
+        </Col>
     );
 };
 
