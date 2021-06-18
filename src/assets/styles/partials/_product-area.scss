@@ -89,11 +89,11 @@
         .product-body {
           border: 1px solid slategrey;
           border-radius: .6em;
-          height: 22em;
+          //height: 19em;
 
           .product-image {
             width: 100%;
-            height: 150px;
+            height: 100%;
 
           }
 
@@ -109,7 +109,7 @@
               width: 3.5em;
               border: 1px solid slategrey;
               font-size: 1em;
-              border-radius: 1em;
+              border-radius: .3em;
             }
 
             Button {
@@ -148,6 +148,56 @@
           p {
             font-size: .5em;
             font-weight: bold;
+          }
+        }
+        .category-item:hover {
+          border: 1px solid darkseagreen;
+          color: slategrey;
+        }
+      }
+    }
+    .product-list {
+      width: 100%;
+      //margin-left: 5em;
+      //margin-right: 5em;
+
+      .product-list-container {
+
+        .single-product {
+          width: 16em;
+
+          .product-body {
+            border: 1px solid slategrey;
+            border-radius: .6em;
+            //height: 19em;
+
+            .product-image {
+              width: 100%;
+              height: 100%;
+
+            }
+
+            h5 {
+              font-size: 1em;
+            }
+            .price-tag {
+              font-size: .7em;
+            }
+
+            .add-product-form {
+              .product-qty {
+                width: 100%;
+                border: 1px solid slategrey;
+                font-size: .8em;
+                border-radius: .3em;
+              }
+
+              Button {
+                font-size: .7em;
+                border-radius: 1.5em;
+                width: 100%;
+              }
+            }
           }
         }
       }

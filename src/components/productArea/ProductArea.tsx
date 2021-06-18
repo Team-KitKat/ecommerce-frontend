@@ -6,7 +6,7 @@ import ProductList from "./productList/ProductList";
 
 const ProductArea: React.FC = () => {
     return (
-        <Row className='product-area' >
+        <Row className='product-area mx-0 mx-lg-0 mx-md-0 mx-xl-0 mx-sm-0' >
             <SearchBar/>
             <ProductCategory/>
             <ProductList/>

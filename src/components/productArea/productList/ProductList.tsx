@@ -4,6 +4,7 @@ import Product from "../singleProduct/Product";
 
 const ProductList: React.FC = () => {
     return (
+        <Col xs={12}>
             <Container className='mb-5 product-list'>
                 <Row className='list-title'>
                     <Col xs={12} className='pl-5'>
@@ -22,6 +23,7 @@ const ProductList: React.FC = () => {
                 </Row>
 
             </Container>
+        </Col>
     );
 };
 

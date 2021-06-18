@@ -4,36 +4,38 @@ import ProductImg from "../../../assets/images/avacado.jpg";
 
 const Product: React.FC = () => {
     return (
-        <Col xs={12} sm={6} lg={3} md={4} xl={3} className='m-0 px-xl-4 px-sm-4 px-lg-4 px-md-4 single-product'>
-            <Row className={'p-0 m-0 mb-5 text-center product-body'}>
+        <Col xs={6} sm={6} lg={3} md={4} xl={3} className='m-0 px-xl-3 px-sm-3 px-lg-3 px-md-3 single-product'>
+            <Row className={'p-1 m-0 mb-4 text-center product-body'}>
                 <Col xs={12} className='p-0 m-0'>
-                <Image className='m-0 px-5 px-lg-4 px-xl-5 px-md-3 px-sm-2 ml-sm-1 ml-md-2 ml-lg-2 ml-xl-2  product-image' src={ProductImg}/>
+                    <Image
+                        className='m-0 px-0 px-lg-4 px-xl-5 px-md-3 px-sm-2  product-image'
+                        src={ProductImg}/>
                 </Col>
-                    <Col xs={12} className='m-0 p-0 text-center'>
-                        <h5 className={'ml-2 pb-2'}>Product</h5>
-                    </Col>
-                <Col xs={12}>
+                <Col xs={12} className='mt-3 mb-3 mb-lg-4 mb-xl-4 mb-md-4 mb-sm-4 p-0 text-center'>
+                    <h5 className={'ml-2 pb-2'}>Product</h5>
+                </Col>
+                <Col xs={12} className='mt-5 p-0'>
                     <Row className=''>
                         <Col xs={5} className={'price-tag text-secondary'}>
-                            <label>65.00</label>
+                            <label><s>65.00</s></label>
                         </Col>
-                        <Col xs={7} className={'price-tag text-success float-right'}>
-                            <label>RS.60.00</label>
+                        <Col xs={7} className={'pl-0 pl-sm-5 pl-xl-5 pl-md-5 pl-lg-5 price-tag text-success'}>
+                            <label className=''><b>RS.60.00</b></label>
                         </Col>
                     </Row>
-                        <Form className='add-product-form'>
-                            <Row className='add-product'>
-                                <Col xs={4} className={'number-input'}>
-                                    <Form.Group>
-                                        <FormControl type='number' placeholder='1' className='product-qty'/>
-                                    </Form.Group>
-                                </Col>
-                                <Col xs={8} className={''}>
-                                    <Button variant="success">Add to Cart</Button>
-                                </Col>
-                            </Row>
-                        </Form>
-                    </Col>
+                    <Form className='add-product-form'>
+                        <Row className='add-product'>
+                            <Col xs={12} md={4} xl={4} lg={4} sm={4}  className={'number-input'}>
+                                <Form.Group>
+                                    <FormControl type='number' placeholder='1' className='product-qty'/>
+                                </Form.Group>
+                            </Col>
+                            <Col xs={12} md={8} xl={8} lg={8} sm={8} className={''}>
+                                <Button className='float-right' variant="success">Add to Cart</Button>
+                            </Col>
+                        </Row>
+                    </Form>
+                </Col>
             </Row>
         </Col>
     );
