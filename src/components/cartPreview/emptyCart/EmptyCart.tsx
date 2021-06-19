@@ -26,7 +26,7 @@ const EmptyCart: React.FC<EmptyCartProps> = (props) => {
                     <Popover.Title as="h3">Your Cart is Empty</Popover.Title>
                     <Popover.Content>
                         <Image className='empty-image' src={EmptyImg} />
-                        <Button className='bg-info'>Shop Now</Button>
+                        {/*<Button className='bg-info'>Shop Now</Button>*/}
                     </Popover.Content>
                 </Popover>
         </Overlay>
