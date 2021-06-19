@@ -3,8 +3,8 @@ import {Col, Nav, Navbar, NavDropdown} from "react-bootstrap";
 
 const NavigationBar: React.FC = () => {
     return (
-        <Col xs={12} className='p-0 m-0'>
-        <Navbar collapseOnSelect expand="xl"  variant="light" className='navigation-bar py-4 mx-0 px-xl-5 px-lg-5 px-md-4 px-sm-3'>
+        <Col xs={12} className='  nav-col'>
+        <Navbar collapseOnSelect expand="xl"  variant="light" className='navigation-bar py-2 mx-0 px-xl-5 px-lg-5 px-md-4 px-sm-3'>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="mr-auto">
