@@ -27,7 +27,7 @@ const Product: React.FC = () => {
                         <Row className='add-product mt-2'>
                             <Col xs={12} md={4} xl={4} lg={4} sm={12}  className={'number-input'}>
                                 <Form.Group>
-                                    <FormControl type='number' placeholder='1' className='product-qty'/>
+                                    <FormControl type='number' min={1} placeholder='1' className='product-qty'/>
                                 </Form.Group>
                             </Col>
                             <Col xs={12} md={8} xl={8} lg={8} sm={12} className={'px-md-3 px-lg-3 px-xl-3 pb-2 pb-xl-0 pb-lg-0 pb-md-0'}>
