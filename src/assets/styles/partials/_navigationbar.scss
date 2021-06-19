@@ -1,8 +1,7 @@
+@import "variables";
 .nav-col {
   padding-left: 8em;
   .navigation-bar {
-    padding-left: 20em;
-
     .drop-down {
       border-color: #4caf50;
       border-style: solid;
@@ -11,3 +10,21 @@
     }
   }
 }
+@media only screen and (max-width: $medium) {
+  .nav-col {
+    padding-left: 0px;
+  }
+}
+
+@media only screen and (max-width: $large) {
+  .nav-col {
+    padding-left: 0px;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .nav-col {
+    padding-left: 0em;
+  }
+}
+

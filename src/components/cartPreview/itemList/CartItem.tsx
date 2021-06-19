@@ -18,7 +18,7 @@ const CartItem: React.FC = () => {
                             <label>Leaf</label>
                         </Col>
                         <Col xs={6}>
-                            <i className='feather-trash-2 float-right text-danger'/>
+                            <i className='feather-trash float-right text-secondary'/>
                         </Col>
                     </Row>
                     <Row className=''>
