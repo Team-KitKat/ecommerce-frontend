@@ -61,7 +61,7 @@
       .category-item {
         cursor: pointer;
         width: 20%;
-        border: 2px solid slategrey;
+        border: 1px solid #acacac;
         border-radius: 1em;
 
         .category-image {
@@ -71,10 +71,11 @@
 
         p {
           font-weight: bold;
+          font-size: .8em;
         }
       }
       .category-item:hover {
-        border: 2px solid darkseagreen;
+        border: 1px solid darkseagreen;
         color: slategrey;
       }
     }
@@ -90,7 +91,7 @@
         width: 16em;
 
         .product-body {
-          border: 1px solid slategrey;
+          border: 1px solid #acacac;
           border-radius: .6em;
           //height: 19em;
 
