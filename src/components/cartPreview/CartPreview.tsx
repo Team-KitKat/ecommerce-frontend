@@ -25,7 +25,7 @@ const CartPreview: React.FC<CartPreviewProps> = (props) => {
                 containerPadding={20}
             >
                 <Popover id="popover-contained" className='item-cart-pop '>
-                    <Popover.Title as="h3">Items in Your Cart</Popover.Title>
+                    {/*<Popover.Title as="h3">Items in Your Cart</Popover.Title>*/}
                     <Popover.Content>
                             <Row className='cart-content'>
                                 <ItemList/>
