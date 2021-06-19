@@ -45,6 +45,18 @@
       }
     }
   }
+  .message-box {
+    background-color: #D1ECF1;
+    .message {
+      font-weight: bold;
+      color: #0C5460;
+      font-size: .8em;
+    }
+
+    Button:hover {
+      background-color: transparent;
+    }
+  }
   .category-container {
 
     h2 {
