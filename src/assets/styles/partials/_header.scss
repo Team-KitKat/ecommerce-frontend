@@ -9,21 +9,18 @@
     font-weight: 100;
     line-height: 1em;
   }
-  
-  .tt {
-    line-height: 1em;
-  }
 
   .login-btn {
     background-color: transparent;
     border-color: transparent;
     color: $common-green;
+    line-height: .5em;
   }
 
   .header-menu {
     font-size: .9em;
     font-weight: 100;
-    line-height: 1em;
+    line-height: .1em;
   }
 
   .feather-phone-call {
@@ -39,6 +36,16 @@
     font-size: 1.1em;
     color: $header-icons;
   }
+
+  .header-card {
+    width: 100%;
+
+  }
+
+  //.header-row {
+  //  position: fixed;
+  //  width: 100%;
+  //}
 
   .brand {
     font-family: "Montserrat", "sans-serif";
@@ -76,16 +83,17 @@
   }
 
   .checkout-btn {
-    font-size: 1.1em;
+    font-size: 1em;
     font-weight: 400;
     border-radius: .2em;
+    line-height: 1.5em;
   }
 
 }
 
-@media only screen and (max-width: $medium) {
+@media only screen and (max-width: $md-l) {
   .header {
-    .checkout-btn {
+    .checkout-btn-col {
       display: none;
     }
 

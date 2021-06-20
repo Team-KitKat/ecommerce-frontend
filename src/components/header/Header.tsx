@@ -1,5 +1,5 @@
 import React, {ChangeEvent, EventHandler, useRef, useState} from 'react';
-import {Button, Col, Container, Nav, Navbar, NavDropdown, Overlay, Popover, Row} from "react-bootstrap";
+import {Button, Card, Col, Container, Nav, Navbar, NavDropdown, Overlay, Popover, Row} from "react-bootstrap";
 import Badge from 'react-bootstrap/Badge'
 import EmptyCart from "../cartPreview/emptyCart/EmptyCart";
 import CartPreview from "../cartPreview/CartPreview";
@@ -27,66 +27,93 @@ const Header: React.FC <HeaderTProps> = (props) => {
         }
     };
     return (
-        <Col xs={12} className='m-0 p-0 header'>
-            <Col lg={{ span: 5, offset: 7 }} >
-                <Navbar expand='lg' className='p-0'>
-                    <Col lg={3} className='px-0 text-right'>
-                        <i className='feather-phone-call'/> <span className='header-menu pl-2'> +94772 123 456</span>
-                    </Col>
-                            {/*<Navbar.Brand href="#home">rReact-Bootstrap</Navbar.Brand>*/}
-                    <Col lg={9} className='p-0'>
-                        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                        <Navbar.Collapse id="basic-navbar-nav" className='p-0 m-0 align-content-end'>
-                            {/*<Nav className="mr-auto">*/}
-                            <Nav className='m-0 p-0 pl-3'>
-                                {/*<Nav.Link href="#home">Home</Nav.Link>*/}
-                                <Nav.Link className='pl-4'>
-                                    {/*<Col>*/}
-                                        <i className='feather-truck'/> <span className='header-menu pl-2'>Delivery Areas</span>
-                                    {/*</Col>*/}
+        <Col className='header'>
+            <Row className='justify-content-end pr-0 ttt'>
+                <Navbar expand='lg' className='py-0'>
+                    {/*<Row className='m-0 p-0'>*/}
+                    {/*<Row className='m-0 p-0'>*/}
+                    {/*<div className=''>*/}
+                    <i className='feather-phone-call'/>
+                    <span className='header-menu pl-3 pr-3'> +94772 123 456</span>
+                    {/*</div>*/}
+                    {/*</Row>*/}
+                    <Col  className='p-lg-0'>
+                        <Col className='px-0 py-2 py-lg-0 text-right'>
+                        <Navbar.Toggle aria-controls="basic-navbar-nav"/>
+                        </Col>
+                        <Navbar.Collapse id="basic-navbar-nav" className='p-0 m-0'>
+                            <Nav className='m-lg-0 p-lg-0 pl-lg-3'>
+                                <Nav.Link className=' text-right'>
+                                    <i className='feather-truck'/>
+                                    <span className='header-menu pl-2'>Delivery Areas</span>
                                 </Nav.Link>
-                                <Nav.Link className='pl-2'>
-                                    {/*<Col>*/}
-                                        <i className='feather-user'/> <span className='header-menu pl-1'>My Account</span>
-                                    {/*</Col>*/}
+                                <Nav.Link className='pl-lg-2 text-right'>
+                                    <i className='feather-user'/>
+                                    <span className='header-menu pl-lg-2'>My Account</span>
                                 </Nav.Link>
-                                <Nav.Link className='pt-1 p-0'>
-                                    {/*<Col className='text-right'>*/}
-                                        <Button className='register-btn pt-0 px-2 mx-3' variant='outline-success'><span className='tt'>Register</span></Button>
-                                    {/*</Col>*/}
+                                <Nav.Link className='pt-lg-1 p-lg-0 text-right'>
+                                    <Button className='register-btn pt-lg-0 px-lg-3 mx-lg-3' variant='outline-success'>
+                                        Register</Button>
                                 </Nav.Link>
-                                <Nav.Link className='pt-1 pr-0 text-right'>
-                                    {/*<Col className='text-center'>*/}
-                                        <Button className='login-btn p-0 ' variant="outline-light">Login</Button>
-                                    {/*</Col>*/}
+                                <Nav.Link className='pt-lg-1 p-lg-0 text-right'>
+                                    <Button className='login-btn p-lg-0' variant="outline-light">Login</Button>
                                 </Nav.Link>
                             </Nav>
                         </Navbar.Collapse>
                     </Col>
+                    {/*</Row>*/}
                 </Navbar>
-            </Col>
-                <hr className='m-0'/>
-            <Col xs={12} className='px-sm-5 mx-sm-5 mt-3'>
-                <Row className='pr-5 pb-3 pt-1 mr-sm-5 ml-sm-4 header-main '>
-                    <Col className='brand' sm={2} xs={2}>LOGO</Col>
-                    <Col lg={{ span: 2, offset: 7 }} md={{ span: 4, offset: 4 }} sm={{ span: 2, offset: 7 }} xs={{ span: 2, offset: 7 }}
-                         className='text-right pr-sm-5 mr-sm-2'>
-                        <Row>
-                            <Col lg={7} md={9} sm={9}  className='p-0'>
-                                <i className='feather-shopping-cart text-right' onClick={handleClick}>
-                                    <span><Badge>{itemCount}</Badge></span>
-                                </i>
-                                <CartPreview showItemCart={showItemCart} target={itemTarget}/>
-                                <EmptyCart showEmptyCart={showEmptyCart} target={emptyTarget}/>
-                            </Col>
-                            <Col lg={5} md={3} sm={3} className=''>
-                                <Button variant="success" className='checkout-btn px-2 py-0'>Checkout</Button>
-                            </Col>
-                        </Row>
-                    </Col>
-                </Row>
-                {/*<hr style={{color: '#EBEDEF', backgroundColor: '#EBEDEF', height: 2}} />*/}
-            </Col>
+            </Row>
+            <Row>
+                <Col className='p-0'>
+                    {/*<hr className='m-0'/>*/}
+                </Col>
+            </Row>
+            <Row className='sticky-top header-row'>
+                <Card className='header-card'>
+                    <Row className='m-0 py-3'>
+                        <Col className='brand ml-sm-3 ml-lg-0'
+                             lg={{span: 2, offset: 2}} md={2} sm={2} xs={{span: 3, offset: 1}}>
+                            <Row className='justify-content-end pl-md-4 ml-md-4 pl-sm-3 pt-1'>LOGO</Row>
+                        </Col>
+                        <Col className='p-0 pr-md-5 pl-sm-4 pr-lg-5'
+                             lg={{span: 6, offset: 4}} md={{span: 3, offset: 6}}
+                             sm={{span: 5, offset: 4}} xs={{span: 2, offset: 5}}>
+                            <Row className='m-lg-0 mr-md-4 pr-md-4'>
+                                <Col className='p-0' lg={{span: 2, offset: 7}} md={7} sm={3}>
+                                    <Row className='justify-content-end m-0'>
+                                    <i className='feather-shopping-cart text-right' onClick={handleClick}>
+                                        <span><Badge>{itemCount}</Badge></span>
+                                    </i>
+                                    </Row>
+                                    <CartPreview showItemCart={showItemCart} target={itemTarget}/>
+                                    <EmptyCart showEmptyCart={showEmptyCart} target={emptyTarget}/>
+                                </Col>
+                                <Col className='p-0 px-2 checkout-btn-col' lg={{span: 3, offset: 0}} md={5} sm={3}>
+                                    {/*<Row className='m-0'>*/}
+                                        <Button variant="success" className='checkout-btn py-1'>Checkout</Button>
+                                    {/*</Row>*/}
+                                </Col>
+                            </Row>
+                        </Col>
+                    </Row>
+                </Card>
+            </Row>
+            {/*<Row>*/}
+            {/*    <Col className='m-0 p-0'>*/}
+            {/*        <hr className='m-0'/>*/}
+            {/*    </Col>*/}
+            {/*</Row>*/}
+            {/*<Row>*/}
+            {/*    <Card className='header-card'>*/}
+            {/*        /!*<Card.Body>*!/*/}
+            {/*            <Col  className='brand py-4'>LOGO</Col>*/}
+            {/*            <Col>*/}
+            {/*                <Row className='justify-content-end'>checkout area</Row>*/}
+            {/*            </Col>*/}
+            {/*        /!*</Card.Body>*!/*/}
+            {/*    </Card>*/}
+            {/*</Row>*/}
         </Col>
     );
 };
