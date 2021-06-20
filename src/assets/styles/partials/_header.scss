@@ -1,43 +1,74 @@
 @import "variables";
 
+
 .header {
-  font-size: .9em;
+  font-size: 1em;
 
-  .brand {
-    font-family: "Montserrat", "sans-serif";
-    font-size: 2em;
-    color: $common-green;
-    font-weight: bold;
+  .register-btn, .login-btn {
+    font-size: 1.1em;
+    font-weight: 100;
+    line-height: 1em;
   }
-
-  .register-btn {
-    font-size: 1.2em;
-    padding: 0 0.8em;
+  
+  .tt {
+    line-height: 1em;
   }
 
   .login-btn {
     background-color: transparent;
     border-color: transparent;
     color: $common-green;
-    font-size: 1.2em;
   }
 
+  .header-menu {
+    font-size: .9em;
+    font-weight: 100;
+    line-height: 1em;
+  }
+
+  .feather-phone-call {
+    font-size: 1.1em;
+  }
+
+  .feather-truck {
+    font-size: 1.3em;
+    color: $header-icons;
+  }
+
+  .feather-user {
+    font-size: 1.1em;
+    color: $header-icons;
+  }
+
+  .brand {
+    font-family: "Montserrat", "sans-serif";
+    font-size: 1.8em;
+    color: $common-green;
+    font-weight: 700;
+    line-height: .8em;
+
+  }
+
+  .header-main {
+    //position: fixed;
+
+  }
 
   .feather-shopping-cart {
-    font-size: 2em;
-    color: $grey;
+    font-size: 1.8em;
+    color: $common-green;
     cursor: pointer;
 
     .badge {
       top: -.5em;
       left: -.5em;
       position: relative;
-      font-size: 50%;
+      font-size: 45%;
       line-height: .5em;
       vertical-align: super;
       color: white;
       border: .15em solid $grey;
-      border-radius: 2em;
+      border-radius: 1em;
       padding-bottom: .4em;
       background-color: $common-green;
     }
@@ -45,35 +76,47 @@
   }
 
   .checkout-btn {
-    font-size: 1.4em;
-    padding: 0 0.8em;
-    border-radius: .3em;
+    font-size: 1.1em;
+    font-weight: 400;
+    border-radius: .2em;
   }
 
 }
 
 @media only screen and (max-width: $medium) {
   .header {
-    font-size: .2em;
-
-    .text {
+    .checkout-btn {
       display: none;
     }
 
-    .checkout-btn {
-      font-size: 1.2em;
+    .feather-shopping-cart {
+      //align-items: baseline;
     }
   }
 }
 
-@media only screen and (max-width: $large) {
-  .header {
-    font-size: .8em;
-  }
-}
-
-@media only screen and (min-width: $xxl) {
-  .header {
-    font-size: 1.2em;
-  }
-}
+//@media only screen and (max-width: $medium) {
+//  .header {
+//    font-size: .2em;
+//
+//    .text { => header-menu
+//      display: none;
+//    }
+//
+//    .checkout-btn {
+//      font-size: 1.2em;
+//    }
+//  }
+//}
+//
+//@media only screen and (max-width: $large) {
+//  .header {
+//    font-size: .8em;
+//  }
+//}
+//
+//@media only screen and (min-width: $xxl) {
+//  .header {
+//    font-size: 1.2em;
+//  }
+//}
