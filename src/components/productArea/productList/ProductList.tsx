@@ -4,10 +4,11 @@ import Product from "../singleProduct/Product";
 
 const ProductList: React.FC = () => {
     return (
+        <Col xs={12}>
             <Container className='mb-5 product-list'>
                 <Row className='list-title'>
-                    <Col xs={12} className='pl-5'>
-                        <h3>Grocery</h3>
+                    <Col xs={12} className=''>
+                        <h5>Grocery</h5>
                     </Col>
                 </Row>
                 <Row className='product-list-container'>
@@ -22,6 +23,7 @@ const ProductList: React.FC = () => {
                 </Row>
 
             </Container>
+        </Col>
     );
 };
 

@@ -13,15 +13,15 @@ const CartItem: React.FC = () => {
                 </Col>
                 <Col xs={8}>
 
-                    <Row className='px-2'>
+                    <Row className=''>
                         <Col xs={6}>
                             <label>Leaf</label>
                         </Col>
                         <Col xs={6}>
-                            <i className='feather-trash-2 float-right text-danger'/>
+                            <i className='feather-trash float-right text-secondary'/>
                         </Col>
                     </Row>
-                    <Row className='px-2'>
+                    <Row className=''>
                         <Col xs={6}>
                             <label className='text-secondary'>Qty: 1</label>
                         </Col>

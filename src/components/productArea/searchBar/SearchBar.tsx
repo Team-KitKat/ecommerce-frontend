@@ -3,6 +3,7 @@ import {Col, Container, Form, FormControl, InputGroup, Row} from "react-bootstra
 
 const SearchBar: React.FC = () => {
     return (
+        <Col xs={12}>
             <Container className='search-bar text-center my-4'>
                 <Col xs={{span: 8, offset: 2}}>
                     <Form className='search-form'>
@@ -15,6 +16,7 @@ const SearchBar: React.FC = () => {
                     </Form>
                 </Col>
             </Container>
+        </Col>
     );
 };
 
