@@ -14,7 +14,7 @@ const Product: React.FC = () => {
                 <Col xs={12} className='mt-3 mb-3 mb-lg-4 mb-xl-4 mb-md-4 mb-sm-4 p-0 text-center'>
                     <h5 className={'ml-2 pb-2'}>Product</h5>
                 </Col>
-                <Col xs={12} className='mt-4 p-0 mb-0'>
+                <Col xs={12} className='mt-3 mt-sm-4 p-0 mb-0'>
                     <Row className=''>
                         <Col xs={5} className={'price-tag text-secondary'}>
                             <label><s>65.00</s></label>

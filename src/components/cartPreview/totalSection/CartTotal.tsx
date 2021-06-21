@@ -18,7 +18,7 @@ const CartTotal: React.FC = () => {
                         </Col>
                     </Row>
                 </Col>
-                <Col xs={6} className=''>
+                <Col xs={6} className='text-right'>
                     <Row>
                         <Col>
                         <label className='text-danger font-weight-bold'>RS. 390</label>
@@ -35,7 +35,7 @@ const CartTotal: React.FC = () => {
                 <Col xs={6}>
                     <label>Total</label>
                 </Col>
-                <Col xs={6}>
+                <Col xs={6} className='text-right'>
                     <label className='text-danger font-weight-bold'>Rs. 300</label>
                 </Col>
             </Row>

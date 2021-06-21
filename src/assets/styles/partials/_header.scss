@@ -1,79 +1,136 @@
 @import "variables";
 
 .header {
-  font-size: .9em;
+  font-size: 1em;
 
-  .brand {
-    font-family: "Montserrat", "sans-serif";
-    font-size: 2em;
-    color: $common-green;
-    font-weight: bold;
-  }
+  .top-header {
+    font-size: 1em;
 
-  .register-btn {
-    font-size: 1.2em;
-    padding: 0 0.8em;
-  }
+    .register-btn, .login-btn {
+      font-size: 1.1em;
+      font-weight: 100;
+      line-height: 1em;
+    }
 
-  .login-btn {
-    background-color: transparent;
-    border-color: transparent;
-    color: $common-green;
-    font-size: 1.2em;
-  }
-
-
-  .feather-shopping-cart {
-    font-size: 2em;
-    color: $grey;
-    cursor: pointer;
-
-    .badge {
-      top: -.5em;
-      left: -.5em;
-      position: relative;
-      font-size: 50%;
+    .login-btn {
+      background-color: transparent;
+      border-color: transparent;
+      color: $common-green;
       line-height: .5em;
-      vertical-align: super;
-      color: white;
-      border: .15em solid $grey;
-      border-radius: 2em;
-      padding-bottom: .4em;
-      background-color: $common-green;
     }
 
-  }
-
-  .checkout-btn {
-    font-size: 1.4em;
-    padding: 0 0.8em;
-    border-radius: .3em;
-  }
-
-}
-
-@media only screen and (max-width: $medium) {
-  .header {
-    font-size: .2em;
-
-    .text {
-      display: none;
+    .header-menu {
+      font-size: .9em;
+      font-weight: 100;
+      line-height: .1em;
     }
 
-    .checkout-btn {
-      font-size: 1.2em;
+    .feather-phone-call {
+      font-size: 1.1em;
+    }
+
+    .feather-truck {
+      font-size: 1.3em;
+      color: $header-icons;
+    }
+
+    .feather-user {
+      font-size: 1.1em;
+      color: $header-icons;
     }
   }
 }
+  .bottom-header {
+    font-size: 1em;
+    width: 100%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    background-color: white;
+    .header-card {
+      width: 100%;
 
-@media only screen and (max-width: $large) {
-  .header {
-    font-size: .8em;
+
+      .brand {
+        font-family: "Montserrat", "sans-serif";
+        font-size: 2em;
+        color: $common-green;
+        font-weight: 600;
+        line-height: .8em;
+
+      }
+
+      .feather-shopping-cart {
+        font-size: 1.8em;
+        color: $common-green;
+        cursor: pointer;
+
+        .badge {
+          top: -.5em;
+          left: -.5em;
+          position: relative;
+          font-size: 45%;
+          line-height: .5em;
+          vertical-align: super;
+          color: white;
+          border: .15em solid $grey;
+          border-radius: 1em;
+          padding-bottom: .4em;
+          background-color: $common-green;
+        }
+
+      }
+
+      .checkout-btn {
+        font-size: 1em;
+        font-weight: 400;
+        border-radius: .2em;
+        line-height: 1.5em;
+      }
+    }
+  }
+
+
+
+@media only screen and (max-width: $md-l) {
+  .bottom-header {
+    .header-card {
+      .brand {
+        font-size: 1.5em;
+        font-weight: 600;
+      }
+
+      .checkout-btn-col {
+        display: none;
+      }
+
+      .feather-shopping-cart {
+        //align-items: baseline;
+      }
+    }
   }
 }
 
-@media only screen and (min-width: $xxl) {
-  .header {
-    font-size: 1.2em;
-  }
-}
+//@media only screen and (max-width: $medium) {
+//  .header {
+//    font-size: .2em;
+//
+//    .text { => header-menu
+//      display: none;
+//    }
+//
+//    .checkout-btn {
+//      font-size: 1.2em;
+//    }
+//  }
+//}
+//
+//@media only screen and (max-width: $large) {
+//  .header {
+//    font-size: .8em;
+//  }
+//}
+//
+//@media only screen and (min-width: $xxl) {
+//  .header {
+//    font-size: 1.2em;
+//  }
+//}

@@ -4,7 +4,7 @@ import {Col, Nav, Navbar, NavDropdown} from "react-bootstrap";
 const NavigationBar: React.FC = () => {
     return (
         <Col xs={12} className='m-0 nav-col'>
-        <Navbar collapseOnSelect expand="xl"  variant="light" className='navigation-bar py-2 mx-0 px-xl-5 px-lg-5 px-md-4 px-sm-3'>
+        <Navbar collapseOnSelect expand="lg"  variant="light" className='navigation-bar py-2 mx-0 px-xl-5 px-lg-5 px-md-4 px-sm-3'>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="mr-auto">

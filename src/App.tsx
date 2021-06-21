@@ -8,13 +8,15 @@ import {toast} from "react-toastify";
 import Header from "./components/header/Header";
 import NavigationBar from "./components/navbar/NavigationBar";
 import {Row} from "react-bootstrap";
+import BottomHeader from "./components/header/BottomHeader";
 
 toast.configure();
 
 const App: React.FC = () => {
     return (
         <Row className='p-0 m-0'>
-            <Header itemCount={1}/>
+            <Header/>
+            <BottomHeader itemCount={1}/>
             <NavigationBar/>
       <Router>
         <Route exact path={'/'} component={Home}/>

@@ -1,71 +1,47 @@
 import React, {ChangeEvent, EventHandler, useRef, useState} from 'react';
-import {Button, Col, Container, Overlay, Popover, Row} from "react-bootstrap";
+import {Button, Card, Col, Container, Nav, Navbar, NavDropdown, Overlay, Popover, Row} from "react-bootstrap";
 import Badge from 'react-bootstrap/Badge'
 import EmptyCart from "../cartPreview/emptyCart/EmptyCart";
 import CartPreview from "../cartPreview/CartPreview";
 
-type HeaderTProps = {
-    itemCount : number | 0
-}
+const Header: React.FC  = () => {
 
-const Header: React.FC <HeaderTProps> = (props) => {
-    const {itemCount} = props;
-    const [showEmptyCart, setShowEmptyCart] = useState(false);
-    const [showItemCart, setShowItemCart] = useState(false);
-    const [itemTarget, setItemTarget] = useState(null);
-    const [emptyTarget, setEmptyTarget] = useState(null);
-
-    const handleClick = (event: any) => {
-
-        if(itemCount != 0) {
-            setShowItemCart(!showItemCart);
-            setItemTarget(event.target);
-        }
-        else {
-            setShowEmptyCart(!showEmptyCart);
-            setEmptyTarget(event.target);
-        }
-    };
     return (
-        <Col xs={12} className='m-0 p-0 header'>
-            <Col xl={{ span: 7, offset: 5 }} lg={{ span: 10, offset: 2 }} sm={{ span: 12, offset: 0 }} xs={{ span: 12, offset: 0 }}>
-                <Row>
-                    <Col>
-                        <i className='feather-truck'/> <span className='text'>Delivery Areas</span>
-                    </Col>
-                    <Col>
-                        <i className='feather-phone-call'/> <span className='text'>+94 112 123 456</span>
-                    </Col>
-                    <Col className='text-right'>
-                        <Button className='register-btn' variant='outline-success'>Register</Button>
-                    </Col>
-                    <Col className='text-center'>
-                        <Button className='login-btn p-0' variant="outline-light">Login</Button>
-                    </Col>
-                </Row>
-            </Col>
-            <hr style={{color: '#EBEDEF', backgroundColor: '#EBEDEF', height: 2}} />
-            <Col xs={12} className='px-md-5 px-xs-2'>
-                <Row>
-                    <Col xl={3} lg={6} xs={3} className='brand'>LOGO</Col>
-                    <Col xl={{ span: 4, offset: 5 }} lg={{ span: 5, offset: 1 }} sm={{ span: 5, offset: 4 }} xs={{ span: 9, offset: 0 }} className='text-right'>
-                        <Row>
-                            <Col xs={5} sm={4} lg={5}>
+        <Col className='header m-0 p-0'>
+            <Row className='justify-content-end p-0 m-0 top-header'>
+                <Navbar expand='lg' className='py-0'>
 
-                                    <i className='feather-shopping-cart' onClick={handleClick}>
-                                        <span><Badge>{itemCount}</Badge></span>
-                                    </i>
-                                <CartPreview showItemCart={showItemCart} target={itemTarget}/>
-                                <EmptyCart showEmptyCart={showEmptyCart} target={emptyTarget}/>
+                    <i className='feather-phone-call'/>
+                    <span className='header-menu pl-3 pr-3'> +94772 123 456</span>
 
-                            </Col>
-                            <Col xs={7} sm={8} lg={7} className='pr-md-4 px-xs-2'>
-                                <Button variant="success" className='checkout-btn'>Check out</Button>
-                            </Col>
-                        </Row>
-                    </Col>
-                </Row>
-            </Col>
+
+                        <Col className='px-0 py-2 py-lg-0 text-right'>
+                        <Navbar.Toggle aria-controls="basic-navbar-nav"/>
+                        </Col>
+                        <Navbar.Collapse id="basic-navbar-nav" className='p-0 m-0'>
+                            <Nav className='m-lg-0 p-lg-0 pl-lg-3'>
+                                <Nav.Link className=' text-right'>
+                                    <i className='feather-truck'/>
+                                    <span className='header-menu pl-2'>Delivery Areas</span>
+                                </Nav.Link>
+                                <Nav.Link className='pl-lg-2 text-right'>
+                                    <i className='feather-user'/>
+                                    <span className='header-menu pl-lg-2'>My Account</span>
+                                </Nav.Link>
+                                <Nav.Link className='pt-lg-1 p-lg-0 text-right'>
+                                    <Button className='register-btn pt-lg-0 px-lg-3 mx-lg-3' variant='outline-success'>
+                                        Register</Button>
+                                </Nav.Link>
+                                <Nav.Link className='pt-lg-1 p-lg-0 text-right'>
+                                    <Button className='login-btn p-lg-0' variant="outline-light">Login</Button>
+                                </Nav.Link>
+                            </Nav>
+                        </Navbar.Collapse>
+
+
+                </Navbar>
+            </Row>
+
         </Col>
     );
 };
