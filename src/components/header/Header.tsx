@@ -14,7 +14,7 @@ const Header: React.FC  = () => {
                     <i className='feather-phone-call'/>
                     <span className='header-menu pl-3 pr-3'> +94772 123 456</span>
 
-                    <Col  className='p-lg-0'>
+
                         <Col className='px-0 py-2 py-lg-0 text-right'>
                         <Navbar.Toggle aria-controls="basic-navbar-nav"/>
                         </Col>
@@ -37,7 +37,7 @@ const Header: React.FC  = () => {
                                 </Nav.Link>
                             </Nav>
                         </Navbar.Collapse>
-                    </Col>
+
 
                 </Navbar>
             </Row>
