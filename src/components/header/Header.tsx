@@ -27,8 +27,8 @@ const Header: React.FC <HeaderTProps> = (props) => {
         }
     };
     return (
-        <Col className='header'>
-            <Row className='justify-content-end pr-0 ttt'>
+        <Col className='header m-0 p-0'>
+            <Row className='justify-content-end p-0 m-0 top-header'>
                 <Navbar expand='lg' className='py-0'>
                     {/*<Row className='m-0 p-0'>*/}
                     {/*<Row className='m-0 p-0'>*/}
@@ -65,12 +65,8 @@ const Header: React.FC <HeaderTProps> = (props) => {
                 </Navbar>
             </Row>
             <Row>
-                <Col className='p-0'>
-                    {/*<hr className='m-0'/>*/}
-                </Col>
-            </Row>
-            <Row className='sticky-top header-row'>
-                <Card className='header-card'>
+            <Navbar sticky='top'  className='bottom-header navbar-expand'>
+                <Col xs={12} className='header-card'>
                     <Row className='m-0 py-3'>
                         <Col className='brand ml-sm-3 ml-lg-0'
                              lg={{span: 2, offset: 2}} md={2} sm={2} xs={{span: 3, offset: 1}}>
@@ -97,7 +93,8 @@ const Header: React.FC <HeaderTProps> = (props) => {
                             </Row>
                         </Col>
                     </Row>
-                </Card>
+                </Col>
+            </Navbar>
             </Row>
             {/*<Row>*/}
             {/*    <Col className='m-0 p-0'>*/}

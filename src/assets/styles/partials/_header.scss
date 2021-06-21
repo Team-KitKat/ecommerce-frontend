@@ -3,90 +3,87 @@
 
 .header {
   font-size: 1em;
-
-  .register-btn, .login-btn {
-    font-size: 1.1em;
-    font-weight: 100;
-    line-height: 1em;
-  }
-
-  .login-btn {
-    background-color: transparent;
-    border-color: transparent;
-    color: $common-green;
-    line-height: .5em;
-  }
-
-  .header-menu {
-    font-size: .9em;
-    font-weight: 100;
-    line-height: .1em;
-  }
-
-  .feather-phone-call {
-    font-size: 1.1em;
-  }
-
-  .feather-truck {
-    font-size: 1.3em;
-    color: $header-icons;
-  }
-
-  .feather-user {
-    font-size: 1.1em;
-    color: $header-icons;
-  }
-
-  .header-card {
-    width: 100%;
-
-  }
-
-  //.header-row {
-  //  position: fixed;
-  //  width: 100%;
-  //}
-
-  .brand {
-    font-family: "Montserrat", "sans-serif";
-    font-size: 1.8em;
-    color: $common-green;
-    font-weight: 700;
-    line-height: .8em;
-
-  }
-
-  .header-main {
-    //position: fixed;
-
-  }
-
-  .feather-shopping-cart {
-    font-size: 1.8em;
-    color: $common-green;
-    cursor: pointer;
-
-    .badge {
-      top: -.5em;
-      left: -.5em;
-      position: relative;
-      font-size: 45%;
-      line-height: .5em;
-      vertical-align: super;
-      color: white;
-      border: .15em solid $grey;
-      border-radius: 1em;
-      padding-bottom: .4em;
-      background-color: $common-green;
+  .top-header {
+    .register-btn, .login-btn {
+      font-size: 1.1em;
+      font-weight: 100;
+      line-height: 1em;
     }
 
-  }
+    .login-btn {
+      background-color: transparent;
+      border-color: transparent;
+      color: $common-green;
+      line-height: .5em;
+    }
 
-  .checkout-btn {
-    font-size: 1em;
-    font-weight: 400;
-    border-radius: .2em;
-    line-height: 1.5em;
+    .header-menu {
+      font-size: .9em;
+      font-weight: 100;
+      line-height: .1em;
+    }
+
+    .feather-phone-call {
+      font-size: 1.1em;
+    }
+
+    .feather-truck {
+      font-size: 1.3em;
+      color: $header-icons;
+    }
+
+    .feather-user {
+      font-size: 1.1em;
+      color: $header-icons;
+    }
+  }
+  .bottom-header {
+    width: 100%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.15);
+    .header-card {
+      width: 100%;
+      //.header-row {
+      //  position: fixed;
+      //  width: 100%;
+      //}
+
+      .brand {
+        font-family: "Montserrat", "sans-serif";
+        font-size: 2em;
+        color: $common-green;
+        font-weight: 510;
+        line-height: .8em;
+
+      }
+
+      .feather-shopping-cart {
+        font-size: 1.8em;
+        color: $common-green;
+        cursor: pointer;
+
+        .badge {
+          top: -.5em;
+          left: -.5em;
+          position: relative;
+          font-size: 45%;
+          line-height: .5em;
+          vertical-align: super;
+          color: white;
+          border: .15em solid $grey;
+          border-radius: 1em;
+          padding-bottom: .4em;
+          background-color: $common-green;
+        }
+
+      }
+
+      .checkout-btn {
+        font-size: 1em;
+        font-weight: 400;
+        border-radius: .2em;
+        line-height: 1.5em;
+      }
+    }
   }
 
 }
