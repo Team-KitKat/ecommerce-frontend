@@ -20,19 +20,19 @@ const Header: React.FC  = () => {
                         </Col>
                         <Navbar.Collapse id="basic-navbar-nav" className='p-0 m-0'>
                             <Nav className='m-lg-0 p-lg-0 pl-lg-3'>
-                                <Nav.Link className=' text-right'>
+                                <Nav.Link className=' '>
                                     <i className='feather-truck'/>
                                     <span className='header-menu pl-2'>Delivery Areas</span>
                                 </Nav.Link>
-                                <Nav.Link className='pl-lg-2 text-right'>
+                                <Nav.Link className='pl-lg-2 '>
                                     <i className='feather-user'/>
                                     <span className='header-menu pl-lg-2'>My Account</span>
                                 </Nav.Link>
-                                <Nav.Link className='pt-lg-1 p-lg-0 text-right'>
-                                    <Button className='register-btn pt-lg-0 px-lg-3 mx-lg-3' variant='outline-success'>
+                                <Nav.Link className='pt-lg-1 p-lg-0 '>
+                                    <Button className='register-btn mx-3 ' variant='outline-success'>
                                         Register</Button>
                                 </Nav.Link>
-                                <Nav.Link className='pt-lg-1 p-lg-0 text-right'>
+                                <Nav.Link className='pt-lg-1 p-lg-0 '>
                                     <Button className='login-btn p-lg-0' variant="outline-light">Login</Button>
                                 </Nav.Link>
                             </Nav>
