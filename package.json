@@ -7,6 +7,7 @@
     "@testing-library/jest-dom": "^5.12.0",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
+    "@types/country-flag-icons": "^1.2.0",
     "@types/jest": "^26.0.23",
     "@types/node": "^12.20.14",
     "@types/react": "^17.0.9",
@@ -17,6 +18,7 @@
     "react": "^17.0.2",
     "react-bootstrap": "^1.6.1",
     "react-dom": "^17.0.2",
+    "react-feather": "^2.0.9",
     "react-redux": "^7.2.4",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
@@ -49,6 +51,7 @@
     ]
   },
   "devDependencies": {
+    "@types/feather-icons": "^4.7.0",
     "@types/node-sass": "^4.11.1",
     "@types/react-redux": "^7.1.16",
     "@types/react-router-dom": "^5.1.7"
