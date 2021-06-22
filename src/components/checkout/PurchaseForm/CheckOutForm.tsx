@@ -8,7 +8,7 @@ const CheckOutForm: React.FC = () => {
 
     return (
         <Col md={5} xs={12}>
-            <Container>
+            <Container className="checkout-form-container">
                 <Card>
                     <Card.Body>
                         <Card.Text>
@@ -24,7 +24,7 @@ const CheckOutForm: React.FC = () => {
                         <Form.Row>
                             <Form.Group as={Col} xs="12" className="my-1" controlId="formName">
                                 <Form.Label>Full Name*</Form.Label>
-                                <Form.Control type="text" placeholder="Your Full Name"/>
+                                <Form.Control type="text" placeholder="Your Full Name" className="input-sm"/>
                             </Form.Group>
 
                             <Form.Group as={Col} xs="12" className="my-1" controlId="formAddress">
@@ -67,7 +67,7 @@ const CheckOutForm: React.FC = () => {
                                 <Form.Label>Retype Email*</Form.Label>
                                 <Form.Control type="text" placeholder="Retype Email"/>
                             </Form.Group>
-                            <Form.Group as={Col} md="12" className="mb-3" controlId="Retype Email*">
+                            <Form.Group as={Col} md="12" className="retype-email mb-3" controlId="Retype Email*">
                                 <Form.Label>Choose your password*</Form.Label>
                                 <InputGroup className="my-1">
                                     <FormControl
@@ -94,7 +94,7 @@ const CheckOutForm: React.FC = () => {
                     <Col xs={12}>
                         <Form>
                             <Form.Check name="radioBtn" label="Same as user address" type="radio" inline/>
-                            <Form.Check name="radioBtn" label="Same as user address" type="radio" inline/>
+                            <Form.Check name="radioBtn" label="Change shipping address" type="radio" inline/>
                             <Form.Row className="mt-4">
                                 <p>Add Delivery Instructions (Optional)</p>
                                 <Form.Control
@@ -102,16 +102,16 @@ const CheckOutForm: React.FC = () => {
                                     style={{ height: '100px' }}
                                 />
                             </Form.Row>
-                            <Form.Row className="mt-4">
+                            <Form.Row className="payment-methods mt-4">
                                 <Col xs={12}>
                                     <h5>Payment Methods</h5>
                                 </Col>
-                                <Col xs={5} className="mx-0 text-center">
-                                    <img alt="Sri-Lankan-Flag" src={Credit}/>
+                                <Col xs={5} className=" Credit mx-0 text-center">
+                                    <img alt="Credit" src={Credit}/>
                                 </Col>
                                 <Col xs={2}></Col>
-                                <Col xs={5} className="mx-0 text-center">
-                                    <img alt="Sri-Lankan-Flag" src={Money}/>
+                                <Col xs={5} className=" Money mx-0 text-center">
+                                    <img alt="Money" src={Money}/>
                                 </Col>
                             </Form.Row>
                             <Form.Row className="mb-4">

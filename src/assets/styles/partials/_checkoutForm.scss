@@ -1,0 +1,16 @@
+.checkout-form-container{
+  form{
+    font-size: .8rem;
+  }
+  button{
+    background-color: #4caf50;;
+  }
+  i{
+    cursor: pointer;
+  }
+  .payment-methods{
+    .Credit,.Money{
+      cursor: pointer;
+    }
+  }
+}
