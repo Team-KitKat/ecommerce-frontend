@@ -18,39 +18,41 @@ const CheckOutForm: React.FC = () => {
 
                     </Card.Body>
                 </Card>
-                <Card className="mt-2">
-                    <Card.Header as="h5">Shipping and Billing Address</Card.Header>
+                <Card className="shipping-info-card mt-2">
+                    <Card.Header className="shipping-info-card-header" style={{backgroundColor: 'white'}} as="h5">
+                        Shipping and Billing Address</Card.Header>
                     <Form className="mx-4 my-4">
                         <Form.Row>
                             <Form.Group as={Col} xs="12" className="my-1" controlId="formName">
                                 <Form.Label>Full Name*</Form.Label>
-                                <Form.Control type="text" placeholder="Your Full Name" className="input-sm"/>
+                                <Form.Control size="sm" type="text" placeholder="Your Full Name" className="input-sm"/>
                             </Form.Group>
 
                             <Form.Group as={Col} xs="12" className="my-1" controlId="formAddress">
                                 <Form.Label>Address*</Form.Label>
-                                <Form.Control type="text" placeholder="Street Address"/>
+                                <Form.Control size="sm" type="text" placeholder="Street Address"/>
                             </Form.Group>
                             <Form.Group as={Col} md="4" className="my-1" controlId="formCity/SubUrb">
                                 <Form.Label>City/SubUrb*</Form.Label>
-                                <Form.Control type="text" placeholder="City/SubUrb"/>
+                                <Form.Control size="sm" type="text" placeholder="City/SubUrb"/>
                             </Form.Group>
                             <Form.Group as={Col} md="4" className="my-1" controlId="formPostalCode">
                                 <Form.Label>Postal Code*</Form.Label>
-                                <Form.Control type="text" placeholder="Postal Code"/>
+                                <Form.Control size="sm" type="text" placeholder="Postal Code"/>
                             </Form.Group>
                             <Form.Group as={Col} md="4" className="my-1" controlId="formCountry">
                                 <Form.Label>Country*</Form.Label>
-                                <Form.Control type="text" placeholder="Country"/>
+                                <Form.Control size="sm" type="text" placeholder="Country"/>
                             </Form.Group>
                             <Form.Group as={Col} xs="12" className="my-1" controlId="formCountry">
                                 <Form.Label>Contact Number*</Form.Label>
-                                <InputGroup className="my-1">
+                                <InputGroup className=" input-group-sm my-1">
                                     <InputGroup.Prepend>
                                         <InputGroup.Text id="basic-addon1"> <img alt="Sri-Lankan-Flag" src={Flag}/>
                                             +94</InputGroup.Text>
                                     </InputGroup.Prepend>
                                     <FormControl
+                                        size="sm"
                                         placeholder=""
                                         aria-label=""
                                         aria-describedby="basic-addon1"
@@ -61,16 +63,17 @@ const CheckOutForm: React.FC = () => {
                         <Form.Row className="mb-2">
                             <Form.Group as={Col} md="6" className="mb-3" controlId="Email">
                                 <Form.Label>Email*</Form.Label>
-                                <Form.Control type="text" placeholder="Email"/>
+                                <Form.Control size="sm" type="text" placeholder="Email"/>
                             </Form.Group>
                             <Form.Group as={Col} md="6" className="mb-3" controlId="Retype Email*">
                                 <Form.Label>Retype Email*</Form.Label>
-                                <Form.Control type="text" placeholder="Retype Email"/>
+                                <Form.Control size="sm" type="text" placeholder="Retype Email"/>
                             </Form.Group>
                             <Form.Group as={Col} md="12" className="retype-email mb-3" controlId="Retype Email*">
                                 <Form.Label>Choose your password*</Form.Label>
                                 <InputGroup className="my-1">
                                     <FormControl
+                                        size="sm"
                                         placeholder=""
                                         type= {visibility ? 'text' : 'password'}
                                         aria-label=""
