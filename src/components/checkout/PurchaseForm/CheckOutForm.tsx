@@ -1,6 +1,8 @@
 import React, {useState} from 'react';
 import {Button, Card, Col, Container, Form, FormControl, InputGroup, Row} from "react-bootstrap";
 import Flag from "../../../assets/images/FlagIcon/sri-lanka-flag.png";
+import Credit from "../../../assets/images/PaymentMethods/icons8-credit-card-50.png";
+import Money from "../../../assets/images/PaymentMethods/icons8-money-48.png";
 const CheckOutForm: React.FC = () => {
     const [visibility, setVisibility] = useState(false);
 
@@ -101,12 +103,25 @@ const CheckOutForm: React.FC = () => {
                                 />
                             </Form.Row>
                             <Form.Row className="mt-4">
-                                <h5>Payment Methods</h5>
-                                <Form.Control
-                                    as="textarea"
-                                    style={{ height: '100px' }}
-                                />
+                                <Col xs={12}>
+                                    <h5>Payment Methods</h5>
+                                </Col>
+                                <Col xs={5} className="mx-0 text-center">
+                                    <img alt="Sri-Lankan-Flag" src={Credit}/>
+                                </Col>
+                                <Col xs={2}></Col>
+                                <Col xs={5} className="mx-0 text-center">
+                                    <img alt="Sri-Lankan-Flag" src={Money}/>
+                                </Col>
                             </Form.Row>
+                            <Form.Row className="mb-4">
+                                <Col xs={12} className="mx-0 text-center">
+                                    <Button variant="primary" className="mt-3 pt-0 pb-0
+                                            pl-lg-5 pr-lg-5">
+                                        <h5>Order</h5></Button>
+                                </Col>
+                            </Form.Row>
+
                         </Form>
                     </Col>
                 </Row>
