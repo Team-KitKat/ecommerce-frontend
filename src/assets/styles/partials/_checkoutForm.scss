@@ -1,19 +1,31 @@
-.checkout-form-container{
-  form{
+.checkout-form-container {
+  form {
     font-size: .8rem;
   }
-  button{
+
+  button {
     background-color: #4caf50;;
   }
-  i{
+
+  i {
     cursor: pointer;
   }
-  .payment-methods{
-    .Credit,.Money{
+
+  .payment-methods {
+    .Credit, .Money {
       cursor: pointer;
     }
   }
-  .shipping-info-card{
 
+  .strength-lines {
+    .strength-bar {
+      margin-left: 2px;
+      margin-right: 2px;
+      border-radius: 25px;
+      border: 2px solid #9E9E9E;
+      background-color:  #9E9E9E;
+      width: 3.1rem;
+      height: .3rem;
+    }
   }
 }
