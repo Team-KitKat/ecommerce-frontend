@@ -5,8 +5,9 @@
 @import "partials/product-area";
 @import "partials/cart-preview";
 @import "partials/footer";
+@import "partials/checkoutForm";
 
-.shopping-cart {
+body {
   width: 100%;
   font-family: "Montserrat", "sans-serif";
 }
