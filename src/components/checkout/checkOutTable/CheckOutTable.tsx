@@ -1,6 +1,7 @@
 import React from 'react';
 import {Button, Card, Col, Row, Table} from "react-bootstrap";
 import CheckOutItem from "./CheckOutItem";
+import EmptyCheckout from "./EmptyCheckout";
 
 const CheckOutTable: React.FC = () => {
     return (
@@ -22,8 +23,9 @@ const CheckOutTable: React.FC = () => {
                         </tr>
                         </thead>
                         <tbody>
-                        <CheckOutItem/>
-                        <CheckOutItem/>
+                        {/*<CheckOutItem/>*/}
+                        {/*<CheckOutItem/>*/}
+                        <EmptyCheckout/>
                         </tbody>
                     </Table>
                 </Card.Body>

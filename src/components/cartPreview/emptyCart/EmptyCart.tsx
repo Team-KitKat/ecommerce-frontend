@@ -1,7 +1,7 @@
-
 import React, {useRef, useState} from 'react';
 import {Button, Container, Image, Overlay, Popover} from "react-bootstrap";
 import EmptyImg from "../../../assets/images/empty_cart.png";
+
 type EmptyCartProps = {
     showEmptyCart: boolean
     target: any

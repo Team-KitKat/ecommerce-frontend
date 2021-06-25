@@ -1,11 +1,14 @@
 import React from 'react';
-import {Row} from "react-bootstrap";
+import {Image, Row} from "react-bootstrap";
+import EmptyImg from "../../../assets/images/empty_cart.png";
 
 const EmptyCheckout: React.FC = () => {
     return (
-        <Row>
-
-        </Row>
+        <tr>
+            <td colSpan={7} className='text-center'>
+                <Image src={EmptyImg} className='empty-image'/>
+            </td>
+        </tr>
     );
 };
 
