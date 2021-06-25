@@ -7,9 +7,9 @@ const CheckoutPanel: React.FC = () => {
     return (
 
             <Container className='checkout-info py-5 px-0'>
-                <Row className='m-0 p-0 checkout-title'>
+                <Row className='mx-0 my-3 p-0 checkout-title'>
                 <Col xs={6} className='p-0 m-0'>
-                    <h3>Checkout Page</h3>
+                    <h5>Checkout Page</h5>
                 </Col>
                 <Col xs={6} className='p-0 m-0'>
                     <Button type='button' variant='light' className='btn-shopping float-right'>Continue Shopping</Button>

@@ -8,10 +8,10 @@ const CheckOutTable: React.FC = () => {
         <Row className='checkout-table m-0 p-0'>
                 <Col xs={12} className='m-0 p-0'>
             <Card className='cart-table'>
-                <h6>Shopping Cart</h6>
+                <h6 className='p-2'>Shopping Cart</h6>
                 <Card.Body className='card-body p-0 m-0 '>
                     <Table responsive>
-                        <thead>
+                        <thead className='text-center'>
                         <tr>
                             <th>#</th>
                             <th>Item</th>
@@ -23,9 +23,9 @@ const CheckOutTable: React.FC = () => {
                         </tr>
                         </thead>
                         <tbody>
-                        {/*<CheckOutItem/>*/}
-                        {/*<CheckOutItem/>*/}
-                        <EmptyCheckout/>
+                        <CheckOutItem/>
+                        <CheckOutItem/>
+                        {/*<EmptyCheckout/>*/}
                         </tbody>
                     </Table>
                 </Card.Body>
