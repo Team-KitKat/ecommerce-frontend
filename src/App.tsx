@@ -19,11 +19,11 @@ const App: React.FC = () => {
             <Header/>
             <BottomHeader itemCount={12}/>
             <NavigationBar/>
-      <Router>
-          <Route exact path={'/'} component={Home}/>
-          <Route exact path={'/checkout'} component={CheckoutPanel}/>
-        {/*<Route exact path={'/checkout'} component={Home}/>*/}
-      </Router>
+            <Router>
+              <Route exact path={'/'} component={Home}/>
+              <Route exact path={'/checkout'} component={CheckoutPanel}/>
+              <Route exact path={'/login'} component={Login}/>
+            </Router>
         </Row>
     );
 };

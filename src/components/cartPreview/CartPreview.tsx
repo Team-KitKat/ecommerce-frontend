@@ -31,7 +31,7 @@ const CartPreview: React.FC<CartPreviewProps> = (props) => {
                                 <ItemList/>
                                 <CartTotal/>
                             </Row>
-                        <Button className='btn-buy bg-success'> Checkout </Button>
+                        <Button className='btn-buy bg-success' href='/checkout'> Checkout </Button>
                     </Popover.Content>
                 </Popover>
             </Overlay>

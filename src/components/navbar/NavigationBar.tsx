@@ -15,7 +15,7 @@ const NavigationBar: React.FC = () => {
                         <NavDropdown.Item href="#action/3.3">Electronic</NavDropdown.Item>
                         <NavDropdown.Divider />
                     </NavDropdown>
-                    <Nav.Link href="#features">Home</Nav.Link>
+                    <Nav.Link href="/">Home</Nav.Link>
                     <Nav.Link href="#pricing">FAQ</Nav.Link>
                     <Nav.Link href="#features">About Us</Nav.Link>
                     <Nav.Link href="#pricing">Contact Us</Nav.Link>
