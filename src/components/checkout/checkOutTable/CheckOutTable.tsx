@@ -1,15 +1,34 @@
 import React from 'react';
-import {Button, Col, Row} from "react-bootstrap";
+import {Button, Card, Col, Row, Table} from "react-bootstrap";
+import CheckOutItem from "./CheckOutItem";
 
 const CheckOutTable: React.FC = () => {
     return (
-        <Row className='checkout-table-title m-0 p-0'>
-            <Col xs={6}>
-                <h3>Checkout Page</h3>
-            </Col>
-            <Col xs={6}>
-                <Button type='button' variant='light' className='btn-shopping'>Continue Shopping</Button>
-            </Col>
+        <Row className='checkout-table m-0 p-0'>
+                <Col xs={12} className='m-0 p-0'>
+            <Card className='cart-table'>
+                <h6>Shopping Cart</h6>
+                <Card.Body className='card-body p-0 m-0 '>
+                    <Table responsive>
+                        <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Item</th>
+                            <th>Name</th>
+                            <th>Qty</th>
+                            <th>Unit Price</th>
+                            <th>Amount</th>
+                            <th> </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <CheckOutItem/>
+                        <CheckOutItem/>
+                        </tbody>
+                    </Table>
+                </Card.Body>
+            </Card>
+                </Col>
         </Row>
     );
 };

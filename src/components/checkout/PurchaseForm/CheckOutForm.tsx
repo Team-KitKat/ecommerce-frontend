@@ -68,8 +68,8 @@ const CheckOutForm: React.FC = () => {
     }, [password])
 
     return (
-        <Col md={7} xs={12}>
-            <Container className="checkout-form-container">
+        <Col md={7} xs={12} className='p-0 m-0'>
+            <Container className="checkout-form-container p-0 m-0">
                 <Card>
                     <Card.Body>
                         <Card.Text>
