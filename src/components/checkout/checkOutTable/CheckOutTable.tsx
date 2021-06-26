@@ -1,7 +1,6 @@
 import React from 'react';
 import {Button, Card, Col, Row, Table} from "react-bootstrap";
 import CheckOutItem from "./CheckOutItem";
-import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
 import paginationFactory from 'react-bootstrap-table2-paginator';
 import BootstrapTable from 'react-bootstrap-table-next';
 import EmptyCheckout from "./EmptyCheckout";
@@ -60,6 +59,8 @@ const CheckOutTable: React.FC<CheckoutTableProps> = (props) => {
         order: 'asc'
     }];
 
+    // @ts-ignore
+    // @ts-ignore
     return (
         <Row className='checkout-table m-0 p-0'>
                 <Col xs={12} className='m-0 p-0'>
