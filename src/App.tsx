@@ -11,6 +11,7 @@ import {Row} from "react-bootstrap";
 import BottomHeader from "./components/header/BottomHeader";
 import CheckoutPanel from "./components/checkout/checkoutPanel/CheckoutPanel";
 
+
 toast.configure();
 
 const App: React.FC = () => {
