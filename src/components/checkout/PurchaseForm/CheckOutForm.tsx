@@ -1,10 +1,10 @@
 import React, {ChangeEvent, useState, useRef, useEffect} from 'react';
 import {Button, Card, Col, Container, Form, FormControl, InputGroup, Row} from "react-bootstrap";
 import Flag from "../../../assets/images/FlagIcon/sri-lanka-flag.png";
-import Credit from "../../../assets/images/PaymentMethods/icons8-credit-card-50.png";
-import Money from "../../../assets/images/PaymentMethods/icons8-money-48.png";
-import passwordStrengthChecker from "./PasswordStrengthChecker";
+import Credit from "../../../assets/images/PaymentMethods/icons8-credit-card-100.png";
+import Money from "../../../assets/images/PaymentMethods/icons8-money-96.png";
 import NewAddressForm from "./NewAddressForm";
+import passwordStrengthChecker from "./PasswordStrengthChecker";
 
 const CheckOutForm: React.FC = () => {
     const [visibility, setVisibility] = useState(false);
@@ -141,7 +141,7 @@ const CheckOutForm: React.FC = () => {
                                         aria-label=""
                                         aria-describedby="basic-addon1"
                                     />
-                                    <InputGroup.Prepend style={{backgroundColor: 'white', border: '0px'}}>
+                                    <InputGroup.Prepend style={{backgroundColor: 'white', border: '0px'}} >
                                         <InputGroup.Text id="basic-addon1" style={{backgroundColor: 'white'}}> <i
                                             className={visibility ? 'feather-eye' : 'feather-eye-off'}
                                             onClick={() => setVisibility(visibility => !visibility)}/></InputGroup.Text>
@@ -160,42 +160,46 @@ const CheckOutForm: React.FC = () => {
                         <i data-feather="eye"/>
                     </Form>
                 </Card>
-                <Row className="mt-4">
+                <Row className="mt-4 mx-0">
                     <Col xs={12}>
                         <p>Change Shipping Address</p>
                     </Col>
-                    <Col xs={12}>
+                    <Col xs={12} className="px-0">
                         <Form>
                             <Form.Check name="radioBtn" value="same" label="Same as user address" onChange={radioHandler} type="radio" inline/>
                             <Form.Check name="radioBtn" value="new" label="Change shipping address"  onChange={radioHandler} type="radio" inline/>
                             {newFormVisisbilty?<NewAddressForm/>:<div/>}
-                            <Form.Row className="mt-4">
+                            <Form.Row className="mt-4 mx-0">
                                 <p>Add Delivery Instructions (Optional)</p>
                                 <Form.Control
                                     as="textarea"
                                     style={{height: '100px'}}
                                 />
                             </Form.Row>
-                            <Form.Row className="payment-methods mt-4">
+                            <Row className="payment-methods mt-4 mx-0">
                                 <Col xs={12}>
                                     <h5>Payment Methods</h5>
                                 </Col>
-                                <Col xs={5} className=" Credit mx-0 text-center">
-                                    <img alt="Credit" src={Credit}/>
-                                </Col>
-                                <Col xs={2}/>
-                                <Col xs={5} className=" Money mx-0 text-center">
-                                    <img alt="Money" src={Money}/>
-                                </Col>
-                            </Form.Row>
-                            <Form.Row className="mb-4">
-                                <Col xs={12} className="mx-0 text-center">
-                                    <Button variant="primary" className="mt-3 pt-0 pb-0
-                                            pl-lg-5 pr-lg-5">
-                                        <h5>Order</h5></Button>
-                                </Col>
-                            </Form.Row>
+                                <Row className="mx-0 px-3"style={{width:'100%'}} >
+                                    <Col md={5} xs={12} className=" Credit px-0 text-center">
+                                        <img alt="Credit" src={Credit}/>
+                                        <p>Credit/Debit Card</p>
+                                    </Col>
+                                    <Col md={{ span: 1, offset: 1}}/>
+                                    <Col md={5} xs={12} className=" Money px-0 text-center">
+                                        <img alt="Money" src={Money}/>
+                                        <p>Cash On Delivery</p>
+                                    </Col>
+                                </Row>
 
+                            </Row>
+                            <Form.Row className="order-btn mb-4 mx-0">
+                                <Col xs={12} className="mx-0 text-center">
+                                    <Button variant="primary" className=" mt-3 pt-2 pb-2
+                                            pl-lg-5 pr-lg-5">
+                                        <p style={{marginTop:'0',marginBottom:'0'}}>Order</p></Button>
+                                </Col>
+                            </Form.Row>
                         </Form>
                     </Col>
                 </Row>

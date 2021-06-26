@@ -1,10 +1,15 @@
+@import './BreakPoints';
+
 .checkout-form-container {
   form {
     font-size: .8rem;
   }
 
   button {
-    background-color: #4caf50;;
+    background-color: #4caf50;
+    &:hover{
+      background-color: #4caf50;
+    }
   }
 
   i {
@@ -28,4 +33,44 @@
       height: .3rem;
     }
   }
+  .payment-methods{
+    p{
+      margin-bottom: 0;
+    }
+    .Credit{
+      border: 1px solid #9babe9;
+      border-radius: 4px;
+    }
+    .Money{
+      border: 1px solid #9babe9;
+      border-radius: 4px;
+    }
+  }
+}
+
+//Media Queries
+
+@media screen and (max-width:$small) {
+  .payment-methods{
+    p{
+      margin-bottom: 0;
+    }
+    .Credit{
+      margin-bottom: .5em;
+    }
+  }
+  .checkout-form-container {
+    .strength-lines {
+      .strength-bar {
+        margin-left: 2px;
+        margin-right: 2px;
+        border-radius: 25px;
+        border: 2px solid #9E9E9E;
+        background-color:  #9E9E9E;
+        width: 2rem;
+        height: .1rem;
+      }
+    }
+  }
+
 }

@@ -1,8 +1,8 @@
 import zxcvbn from "zxcvbn";
 
-const passwordStrengthChecker=(password,passwordBar1,passwordBar2,passwordBar3,passwordBar4,passwordBar5,passwordBar6)=> {
+// @ts-ignore
+const passwordStrengthChecker=(password:string,passwordBar1,passwordBar2,passwordBar3,passwordBar4,passwordBar5,passwordBar6)=> {
     const strength = zxcvbn(password);
-    console.log(strength.score);
     if (password !== "") {
         switch (strength.score) {
             case 0:
