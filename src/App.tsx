@@ -1,6 +1,5 @@
 import React from 'react';
 import './App.scss';
-import Login from "./components/login/Login";
 import {BrowserRouter as Router, Route} from "react-router-dom";
 import Home from "./components/home/Home";
 import 'react-toastify/dist/ReactToastify.css';
@@ -10,7 +9,6 @@ import NavigationBar from "./components/navbar/NavigationBar";
 import {Row} from "react-bootstrap";
 import BottomHeader from "./components/header/BottomHeader";
 import CheckoutPanel from "./components/checkout/checkoutPanel/CheckoutPanel";
-
 toast.configure();
 
 const App: React.FC = () => {

@@ -11,6 +11,7 @@
     "@types/jest": "^26.0.23",
     "@types/node": "^12.20.14",
     "@types/react": "^17.0.9",
+    "@types/react-bootstrap": "^0.32.25",
     "@types/react-dom": "^17.0.6",
     "@types/zxcvbn": "^4.4.1",
     "bootstrap": "^4.6.0",
