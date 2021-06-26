@@ -1,9 +1,135 @@
 import React from 'react';
-import {Button, Col, Container, Row} from "react-bootstrap";
+import {Button, Col, Container, Image, Row} from "react-bootstrap";
 import CheckOutForm from "../PurchaseForm/CheckOutForm";
 import CheckOutTable from "../checkOutTable/CheckOutTable";
+import {IProduct} from "../../../types/MainTypes";
 
 const CheckoutPanel: React.FC = () => {
+
+    const generatedProductList: any[] = [
+        {
+            id: "1",
+            image: '../../../assets/images/onions.jpg',
+            name: "Onions",
+            qty: 2,
+            unitPrice: 120,
+            amount: 240,
+        },
+        {
+            id: "1",
+            image: '../../../assets/images/onions.jpg',
+            name: "Onions",
+            qty: 2,
+            unitPrice: 120,
+            amount: 240,
+        },
+        {
+            id: "1",
+            image: '../../../assets/images/onions.jpg',
+            name: "Onions",
+            qty: 2,
+            unitPrice: 120,
+            amount: 240,
+        },
+        {
+            id: "1",
+            image: '../../../assets/images/onions.jpg',
+            name: "Onions",
+            qty: 2,
+            unitPrice: 120,
+            amount: 240,
+        },
+        {
+            id: "1",
+            image: '../../../assets/images/onions.jpg',
+            name: "Onions",
+            qty: 2,
+            unitPrice: 120,
+            amount: 240,
+        },
+        {
+            id: "1",
+            image: '../../../assets/images/onions.jpg',
+            name: "Onions",
+            qty: 2,
+            unitPrice: 120,
+            amount: 240,
+        },
+        {
+            id: "1",
+            image: '../../../assets/images/onions.jpg',
+            name: "Onions",
+            qty: 2,
+            unitPrice: 120,
+            amount: 240,
+        },
+        {
+            id: "1",
+            image: '../../../assets/images/onions.jpg',
+            name: "Onions",
+            qty: 2,
+            unitPrice: 120,
+            amount: 240,
+        },
+        {
+            id: "1",
+            image: '../../../assets/images/onions.jpg',
+            name: "Onions",
+            qty: 2,
+            unitPrice: 120,
+            amount: 240,
+        },
+        {
+            id: "1",
+            image: '../../../assets/images/onions.jpg',
+            name: "Onions",
+            qty: 2,
+            unitPrice: 120,
+            amount: 240,
+        },
+        {
+            id: "1",
+            image: '../../../assets/images/onions.jpg',
+            name: "Onions",
+            qty: 2,
+            unitPrice: 120,
+            amount: 240,
+        },
+        {
+            id: "1",
+            image: '../../../assets/images/onions.jpg',
+            name: "Onions",
+            qty: 2,
+            unitPrice: 120,
+            amount: 240,
+        },
+        {
+            id: "1",
+            image: '../../../assets/images/onions.jpg',
+            name: "Onions",
+            qty: 2,
+            unitPrice: 120,
+            amount: 240,
+        },
+        {
+            id: "1",
+            image: '../../../assets/images/onions.jpg',
+            name: "Onions",
+            qty: 2,
+            unitPrice: 120,
+            amount: 240,
+        },
+        {
+            id: "1",
+            image: '../../../assets/images/onions.jpg',
+            name: "Onions",
+            qty: 2,
+            unitPrice: 120,
+            amount: 240,
+        }
+    ];
+
+
     return (
 
             <Container className='checkout-info py-5 px-0'>
@@ -17,7 +143,7 @@ const CheckoutPanel: React.FC = () => {
                 </Row>
                 <Row className='p-0 m-0'>
                 <Col xs={12} className="p-0 px-0 m-0 ">
-                    <CheckOutTable/>
+                    <CheckOutTable products={generatedProductList}/>
                 </Col>
                 </Row>
                 <Row className='p-0 m-0'>

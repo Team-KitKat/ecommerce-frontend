@@ -1,64 +1,113 @@
 import React from 'react';
-import {Button, Card, Col, Row, Table} from "react-bootstrap";
+import {Button, Card, Col, Image, Row, Table} from "react-bootstrap";
 import CheckOutItem from "./CheckOutItem";
 import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
 import paginationFactory from 'react-bootstrap-table2-paginator';
 import BootstrapTable from 'react-bootstrap-table-next';
 import EmptyCheckout from "./EmptyCheckout";
 import {IProduct} from "../../../types/MainTypes";
+import Item from "../../../assets/images/onions.jpg";
 
 type CheckoutTableProps = {
-    products: IProduct[] | null;
+    products: IProduct[] ;
 }
 
 const CheckOutTable: React.FC<CheckoutTableProps> = (props) => {
 
     const {products} = props;
 
-    const productsGenerator = () => {
+    const productsGenerator = (products: IProduct[]) => {
+        const generatedProductList: any[] = [];
 
         if(!products || products.length === 0) {
-            return <EmptyCheckout/>;
+            return  generatedProductList;
         }
         return products.map((product: IProduct, index: number) =>
-            <CheckOutItem key={index} num={index+1} product={product}/>
+            // <CheckOutItem key={index} num={index+1} product={product}/>
+            generatedProductList.push({
+                id: index+1,
+                image:<React.Fragment>
+                    <Image src={product.image}/>
+                </React.Fragment>,
+                name: product.name,
+                qty: product.qty,
+                unitPrice: <React.Fragment>{"Rs."+product.price}</React.Fragment>,
+                amount: <React.Fragment>{"Rs."+product.total}</React.Fragment>,
+                del: <React.Fragment><i className='feather-trash text-secondary'/></React.Fragment>
+
+            })
         );
+        return generatedProductList;
     };
 
+    const customTotal = (from: number, to: number, size: number) => (
+        <span className="react-bootstrap-table-pagination-total">
+    Showing { from } to { to } of { size } Results
+  </span>
+    );
+
+    const options = {
+        paginationSize: 4,
+        pageStartIndex: 0,
+        // alwaysShowAllBtns: true, // Always show next and previous button
+        // withFirstAndLast: false, // Hide the going to First and Last page button
+        // hideSizePerPage: true, // Hide the sizePerPage dropdown always
+        // hidePageListOnlyOnePage: true, // Hide the pagination list when only one page
+        firstPageText: 'First',
+        prePageText: 'Back',
+        nextPageText: 'Next',
+        lastPageText: 'Last',
+        nextPageTitle: 'First page',
+        prePageTitle: 'Pre page',
+        firstPageTitle: 'Next page',
+        lastPageTitle: 'Last page',
+        showTotal: true,
+        paginationTotalRenderer: customTotal,
+        disablePageTitle: true,
+        sizePerPageList: [{
+            text: '5', value: 5
+        }, {
+            text: '10', value: 10
+        }, {
+            text: 'All', value: products.length
+        }] // A numeric array is also available. the purpose of above example is custom the text
+    };
 
     const columns = [{
         dataField: 'id',
         text: '#',
-        sort: true
+
     }, {
         dataField: 'image',
         text: 'Item',
-        sort: true
+
+
     }, {
         dataField: 'name',
         text: 'Name',
-        sort: true
+
     }, {
         dataField: 'qty',
         text: 'Qty',
-        sort: true
+
     }, {
         dataField: 'unitPrice',
         text: 'Unit Price',
-        sort: true
+
     }, {
         dataField: 'amount',
         text: 'amount',
-        sort: true
+
     }, {
         dataField: 'del',
         text: ' ',
+
     }];
 
-    const defaultSorted = [{
-        dataField: 'id',
-        order: 'asc'
-    }];
+    // const defaultSorted = [{
+    //     dataField: 'id',
+    //     order: 'asc'
+    // }];
 
     return (
         <Row className='checkout-table m-0 p-0'>
@@ -85,14 +134,13 @@ const CheckOutTable: React.FC<CheckoutTableProps> = (props) => {
                     {/*    </tbody>*/}
                     {/*</Table>*/}
                     <BootstrapTable
-                        bootstrap4
                         keyField="id"
-                        data={productsGenerator()}
+                        data={productsGenerator(products)}
                         columns={ columns }
-                        pagination={paginationFactory({ sizePerPage: 5 })}
-                     >
-                        {productsGenerator()}
-                    </BootstrapTable>
+                        pagination={paginationFactory(options)}
+                        wrapperClasses='table-responsive'
+                     />
+
                 </Card.Body>
             </Card>
                 </Col>
