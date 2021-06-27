@@ -61,6 +61,7 @@ const CheckOutTable: React.FC<CheckoutTableProps> = (props) => {
 
     // @ts-ignore
     // @ts-ignore
+    // @ts-ignore
     return (
         <Row className='checkout-table m-0 p-0'>
                 <Col xs={12} className='m-0 p-0'>
