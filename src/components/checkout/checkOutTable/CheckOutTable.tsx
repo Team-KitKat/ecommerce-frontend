@@ -7,6 +7,7 @@ import BootstrapTable from 'react-bootstrap-table-next';
 import EmptyCheckout from "./EmptyCheckout";
 import {IProduct} from "../../../types/MainTypes";
 import Item from "../../../assets/images/onions.jpg";
+import DiscountTab from "./DiscountTab";
 
 type CheckoutTableProps = {
     products: IProduct[] ;
@@ -143,6 +144,7 @@ const CheckOutTable: React.FC<CheckoutTableProps> = (props) => {
 
                 </Card.Body>
             </Card>
+                    <DiscountTab/>
                 </Col>
         </Row>
     );
