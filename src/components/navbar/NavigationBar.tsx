@@ -15,10 +15,10 @@ const NavigationBar: React.FC = () => {
                         <NavDropdown.Item href="#action/3.3">Electronic</NavDropdown.Item>
                         <NavDropdown.Divider />
                     </NavDropdown>
-                    <Nav.Link href="#features">Home</Nav.Link>
-                    <Nav.Link href="#pricing">FAQ</Nav.Link>
-                    <Nav.Link href="#features">About Us</Nav.Link>
-                    <Nav.Link href="#pricing">Contact Us</Nav.Link>
+                    <Nav.Link href="/">Home</Nav.Link>
+                    <Nav.Link href="/faq">FAQ</Nav.Link>
+                    <Nav.Link href="http://localhost:3000/aboutUs" target='_blank'>About Us</Nav.Link>
+                    <Nav.Link href="http://localhost:3000/contactUs" target='_blank'>Contact Us</Nav.Link>
                 </Nav>
             </Navbar.Collapse>
         </Navbar>

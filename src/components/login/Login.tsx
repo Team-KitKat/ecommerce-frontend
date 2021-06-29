@@ -22,7 +22,7 @@ const Login: React.FC = () => {
 
     if (username && password) {
       if (username === 'admin' && password === 'admin') {
-        history.push('/home');
+        history.push('/');
       } else {
         toast.warn('Username or Password is not valid',
           {position: toast.POSITION.TOP_CENTER, autoClose: 3000}

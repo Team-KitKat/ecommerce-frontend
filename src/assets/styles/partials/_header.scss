@@ -49,17 +49,19 @@
     .header-card {
       width: 100%;
 
-
       .brand {
         font-family: "Montserrat", "sans-serif";
         font-size: 2em;
         color: $common-green;
         font-weight: 600;
         line-height: .8em;
-
       }
 
-      .feather-shopping-cart {
+      a {
+        text-decoration: none;
+      }
+
+        .feather-shopping-cart {
         font-size: 1.8em;
         color: $common-green;
         cursor: pointer;
