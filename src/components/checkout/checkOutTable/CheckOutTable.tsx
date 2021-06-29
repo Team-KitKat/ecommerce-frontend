@@ -7,6 +7,7 @@ import BootstrapTable from 'react-bootstrap-table-next';
 import EmptyCheckout from "./EmptyCheckout";
 import {IProduct} from "../../../types/MainTypes";
 import Item from "../../../assets/images/onions.jpg";
+import CheckoutPanel from "../checkoutPanel/CheckoutPanel";
 
 type CheckoutTableProps = {
     products: IProduct[] ;
@@ -16,24 +17,59 @@ const CheckOutTable: React.FC<CheckoutTableProps> = (props) => {
 
     const {products} = props;
 
-    const productsGenerator = (products: IProduct[]) => {
+    const columns = [{
+        dataField: 'id',
+        text: '#',
+        sort: true,
+
+    }, {
+        dataField: 'image',
+        text: 'Item',
+
+    }, {
+        dataField: 'name',
+        text: 'Name',
+        sort: true,
+    }, {
+        dataField: 'qty',
+        text: 'Qty',
+        sort: true,
+    }, {
+        dataField: 'unitPrice',
+        text: 'Unit Price',
+        sort: true,
+
+    }, {
+        dataField: 'amount',
+        text: 'amount',
+        sort: true,
+
+    }, {
+        dataField: 'del',
+        text: ' ',
+
+    }];
+
+    const defaultSorted = [{
+        dataField: 'id',
+        order: 'asc'
+    }];
+
+
+
+    const productsGenerator = (products: IProduct[]): any[] => {
         const generatedProductList: any[] = [];
 
-        if(!products || products.length === 0) {
-            return  generatedProductList;
-        }
-        return products.map((product: IProduct, index: number) =>
+        products.forEach((product: IProduct, index: number) =>
             // <CheckOutItem key={index} num={index+1} product={product}/>
             generatedProductList.push({
-                id: index+1,
-                image:<React.Fragment>
-                    <Image src={product.image}/>
-                </React.Fragment>,
-                name: product.name,
-                qty: product.qty,
-                unitPrice: <React.Fragment>{"Rs."+product.price}</React.Fragment>,
-                amount: <React.Fragment>{"Rs."+product.total}</React.Fragment>,
-                del: <React.Fragment><i className='feather-trash text-secondary'/></React.Fragment>
+                id: <p className='text-center' key={index}>{index+1}</p>,
+                image:<Row key={index}><Col className='px-0 text-center'> <Image src={Item} alt='product image' className='item-image'/></Col></Row>,
+                name: <p key={index} className='text-center'>{product.name}</p>,
+                qty: <p key={index} className='text-center'><i className='feather-minus-circle text-secondary'/> {product.qty} <i className='feather-plus-circle text-secondary'/></p>,
+                unitPrice: <p key={index} className='text-center'>{"Rs."+product.price}</p>,
+                amount: <p key={index} className='text-center'>{"Rs."+product.total}</p>,
+                del: <p key={index} className='text-center'><i className='feather-trash text-secondary'/></p>
 
             })
         );
@@ -48,7 +84,7 @@ const CheckOutTable: React.FC<CheckoutTableProps> = (props) => {
 
     const options = {
         paginationSize: 4,
-        pageStartIndex: 0,
+        pageStartIndex: 1,
         // alwaysShowAllBtns: true, // Always show next and previous button
         // withFirstAndLast: false, // Hide the going to First and Last page button
         // hideSizePerPage: true, // Hide the sizePerPage dropdown always
@@ -73,36 +109,7 @@ const CheckOutTable: React.FC<CheckoutTableProps> = (props) => {
         }] // A numeric array is also available. the purpose of above example is custom the text
     };
 
-    const columns = [{
-        dataField: 'id',
-        text: '#',
 
-    }, {
-        dataField: 'image',
-        text: 'Item',
-
-
-    }, {
-        dataField: 'name',
-        text: 'Name',
-
-    }, {
-        dataField: 'qty',
-        text: 'Qty',
-
-    }, {
-        dataField: 'unitPrice',
-        text: 'Unit Price',
-
-    }, {
-        dataField: 'amount',
-        text: 'amount',
-
-    }, {
-        dataField: 'del',
-        text: ' ',
-
-    }];
 
     // const defaultSorted = [{
     //     dataField: 'id',
@@ -139,7 +146,10 @@ const CheckOutTable: React.FC<CheckoutTableProps> = (props) => {
                         columns={ columns }
                         pagination={paginationFactory(options)}
                         wrapperClasses='table-responsive'
-                     />
+                        defaultSortDirection="asc"
+                        rowClasses='text-wrap'
+                        headerClasses='header-className'
+                    />
 
                 </Card.Body>
             </Card>

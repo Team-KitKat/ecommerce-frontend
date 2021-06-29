@@ -11,24 +11,19 @@
 
   .cart-table {
     width: 100%;
+
     .card-body {
       width: 100%;
-      Table {
-        width: 100%;
-        th {
-          font-size: .8em;
-        }
-        .image-con {
-          width: 20%;
-          .item-image {
-            width: 50%;
-            height: auto;
-          }
-        }
-        .empty-image {
 
-        }
+      .item-image {
+        width: 50%;
+        height: auto;
       }
+
+      .empty-image {
+
+      }
+
     }
   }
 }
