@@ -8,6 +8,8 @@ import EmptyCheckout from "./EmptyCheckout";
 import {IProduct} from "../../../types/MainTypes";
 import Item from "../../../assets/images/onions.jpg";
 import CheckoutPanel from "../checkoutPanel/CheckoutPanel";
+import {inspect} from "util";
+
 
 type CheckoutTableProps = {
     products: IProduct[] ;
@@ -188,7 +190,37 @@ const CheckOutTable: React.FC<CheckoutTableProps> = (props) => {
   </span>
     );
 
+    // const pageButtonRenderer = ({
+    //                                 page,
+    //                                 active,
+    //                                 disable,
+    //                                 title,
+    //                                 onPageChange
+    //                             }) => {
+    //     const handleClick = (e: any) => {
+    //         e.preventDefault();
+    //         onPageChange(page);
+    //     };
+    //     const activeStyle = {};
+    //     if (active) {
+    //         activeStyle.backgroundColor = 'black';
+    //         activeStyle.color = 'white';
+    //     } else {
+    //         activeStyle.backgroundColor = 'gray';
+    //         activeStyle.color = 'black';
+    //     }
+    //     if (typeof page === 'string') {
+    //         activeStyle.backgroundColor = 'white';
+    //         activeStyle.color = 'black';
+    //     }
+    //     return (
+    //         <li className="page-item">
+    //             <a href="#" onClick={ handleClick } style={ activeStyle }>{ page }</a>
+    //         </li>
+    //     );
+    // };
     const options = {
+        align: 'right',
         paginationSize: 4,
         pageStartIndex: 1,
         // alwaysShowAllBtns: true, // Always show next and previous button
