@@ -21,38 +21,144 @@ const CheckOutTable: React.FC<CheckoutTableProps> = (props) => {
         dataField: 'id',
         text: '#',
         sort: true,
+        headerStyle: {
+            borderLeft: 'none',
+            borderRight: 'none',
+            borderBottom: '1px',
+            borderTop: 'none',
+
+        },
+        style: () => {
+            return {
+                borderLeft: 'none',
+                borderRight: 'none',
+                borderBottom: '1px',
+
+            }
+        }
 
     }, {
         dataField: 'image',
         text: 'Item',
+        headerStyle: {
+            borderLeft: 'none',
+            borderRight: 'none',
+            borderBottom: '1px',
+            borderTop: 'none',
+        },
+        style: () => {
+            return {
+                borderLeft: 'none',
+                borderRight: 'none',
+                borderBottom: '1px',
+            }
+        }
 
     }, {
         dataField: 'name',
         text: 'Name',
         sort: true,
+        headerStyle: {
+            borderLeft: 'none',
+            borderRight: 'none',
+            borderBottom: '1px',
+            borderTop: 'none',
+        },
+        style: () => {
+            return {
+                borderLeft: 'none',
+                borderRight: 'none',
+                borderBottom: '1px',
+            }
+        }
     }, {
         dataField: 'qty',
         text: 'Qty',
         sort: true,
+        headerStyle: {
+            borderLeft: 'none',
+            borderRight: 'none',
+            borderBottom: '1px',
+            borderTop: 'none',
+        },
+        style: () => {
+            return {
+                borderLeft: 'none',
+                borderRight: 'none',
+                borderBottom: '1px',
+            }
+        }
     }, {
         dataField: 'unitPrice',
         text: 'Unit Price',
         sort: true,
+        headerStyle: {
+            borderLeft: 'none',
+            borderRight: 'none',
+            borderBottom: '1px',
+            borderTop: 'none',
+        },
+        style: () => {
+            return {
+                borderLeft: 'none',
+                borderRight: 'none',
+                borderBottom: '1px',
+            }
+        }
 
     }, {
         dataField: 'amount',
         text: 'amount',
         sort: true,
+        headerStyle: {
+            borderLeft: 'none',
+            borderRight: 'none',
+            borderBottom: '1px',
+            borderTop: 'none',
+        },
+        style: () => {
+            return {
+                borderLeft: 'none',
+                borderRight: 'none',
+                borderBottom: '1px',
+            }
+        }
 
     }, {
         dataField: 'del',
         text: ' ',
+        headerStyle: {
+            borderLeft: 'none',
+            borderRight: 'none',
+            borderBottom: '1px',
+            borderTop: 'none',
+        },
+        style: () => {
+            return {
+                borderLeft: 'none',
+                borderRight: 'none',
+                borderBottom: '1px',
+            }
+        }
 
     }];
 
     const defaultSorted = [{
         dataField: 'id',
-        order: 'asc'
+        order: 'asc',
+        headerStyle: {
+            borderLeft: 'none',
+            borderRight: 'none',
+            borderBottom: '1px',
+            borderTop: 'none',
+        },
+        style: () => {
+            return {
+                borderLeft: 'none',
+                borderRight: 'none',
+                borderBottom: '1px',
+            }
+        }
     }];
 
 
@@ -121,7 +227,7 @@ const CheckOutTable: React.FC<CheckoutTableProps> = (props) => {
                 <Col xs={12} className='m-0 p-0'>
             <Card className='cart-table'>
                 <h6 className='p-2'>Shopping Cart</h6>
-                <Card.Body className='card-body p-0 m-0 '>
+                <Card.Body className='card-body p-3 m-0 '>
                     {/*<Table responsive>*/}
                     {/*    <thead className='text-center'>*/}
                     {/*    <tr>*/}
@@ -141,17 +247,21 @@ const CheckOutTable: React.FC<CheckoutTableProps> = (props) => {
                     {/*    </tbody>*/}
                     {/*</Table>*/}
                     <BootstrapTable
+                        classes='table'
+                        bootstrap4
                         keyField="id"
                         data={productsGenerator(products)}
                         columns={ columns }
                         pagination={paginationFactory(options)}
-                        wrapperClasses='table-responsive'
+                        wrapperClasses='table-responsive overflow-x'
                         defaultSortDirection="asc"
                         rowClasses='text-wrap'
                         headerClasses='header-className'
+
                     />
 
                 </Card.Body>
+
             </Card>
                 </Col>
         </Row>
