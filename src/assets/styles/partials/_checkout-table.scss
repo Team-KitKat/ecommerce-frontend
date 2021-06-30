@@ -1,0 +1,29 @@
+
+.checkout-title {
+  .btn-shopping {
+    border-radius: 4em;
+    font-size: .8em;
+    border-color: slategrey;
+  }
+}
+
+.checkout-table {
+
+  .cart-table {
+    width: 100%;
+
+    .card-body {
+      width: 100%;
+
+      .item-image {
+        width: 50%;
+        height: auto;
+      }
+
+      .empty-image {
+
+      }
+
+    }
+  }
+}
