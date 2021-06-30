@@ -1,3 +1,4 @@
+@import "variables";
 
 .checkout-title {
   .btn-shopping {
@@ -12,18 +13,34 @@
   .cart-table {
     width: 100%;
 
+
     .card-body {
-      width: 100%;
 
-      .item-image {
-        width: 50%;
-        height: auto;
+      .table {
+
+        border: none;
+        .item-image {
+          width: 50%;
+          height: auto;
+        }
+
+        .empty-image {
+
+        }
       }
+    }
+  }
+}
 
-      .empty-image {
+@media only screen and (max-width: $extra_large) {
+
+  .cart-table {
+    .card-body {
+
+      .table {
+        width: 50em;
 
       }
-
     }
   }
 }
