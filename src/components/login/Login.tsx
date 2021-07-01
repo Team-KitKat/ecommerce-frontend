@@ -2,7 +2,8 @@ import React, {useState} from 'react';
 import {Button, Col, Container, Form, Row} from "react-bootstrap";
 import {useHistory, useLocation} from 'react-router-dom';
 import {toast} from "react-toastify";
-import Select from 'react-select';
+import Select from "react-select/base";
+
 
 const Login: React.FC = () => {
 
@@ -55,7 +56,7 @@ const Login: React.FC = () => {
   const renderLoginForm = () => {
     return (
       <Form noValidate validated={validated} onSubmit={handleOnSubmit}>
-        {location.pathname == '/register' &&
+        {location.pathname === '/register' &&
         <Form.Group controlId='formUserType' className='pb-2'>
           <Form.Label>User Type</Form.Label>
           <Select required placeholder='select user type' isClearable={true}
@@ -81,7 +82,7 @@ const Login: React.FC = () => {
           <Form.Control.Feedback type="invalid">Password cannot be empty!</Form.Control.Feedback>
         </Form.Group>
         <Button variant={'login-button'} type={'submit'} className={'mt-3 float-right'}>
-          {location.pathname == '/register' ? 'Register ' : 'Login '}
+          {location.pathname === '/register' ? 'Register ' : 'Login '}
         </Button>
       </Form>
     );
