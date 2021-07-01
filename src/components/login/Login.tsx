@@ -1,11 +1,13 @@
 import React, {useState} from 'react';
 import {Button, Col, Container, Form, Row} from "react-bootstrap";
-import {useHistory} from 'react-router-dom';
+import {useHistory, useLocation} from 'react-router-dom';
 import {toast} from "react-toastify";
+import Select from 'react-select';
 
 const Login: React.FC = () => {
 
   const history = useHistory();
+  const location = useLocation();
 
   const [username, setUsername] = useState<string | null>(null);
   const [password, setPassword] = useState<string | null>(null);
@@ -53,6 +55,15 @@ const Login: React.FC = () => {
   const renderLoginForm = () => {
     return (
       <Form noValidate validated={validated} onSubmit={handleOnSubmit}>
+        {location.pathname == '/register' &&
+        <Form.Group controlId='formUserType' className='pb-2'>
+          <Form.Label>User Type</Form.Label>
+          <Select required placeholder='select user type' isClearable={true}
+                  options={userTypeOptions}/>
+          <small className='validation'>
+            {validated ? 'Select user type.' : ''}
+          </small>
+        </Form.Group>}
         <Form.Group controlId="formUserName" className={'mb-4'}>
           <Form.Label>Username</Form.Label>
           <Form.Control required type="text" placeholder="" value={username ? username : ''}
@@ -69,7 +80,9 @@ const Login: React.FC = () => {
           <Form.Control.Feedback>Valid password</Form.Control.Feedback>
           <Form.Control.Feedback type="invalid">Password cannot be empty!</Form.Control.Feedback>
         </Form.Group>
-        <Button variant={'login-button'} type={'submit'} className={'mt-3 float-right'}>Login</Button>
+        <Button variant={'login-button'} type={'submit'} className={'mt-3 float-right'}>
+          {location.pathname == '/register' ? 'Register ' : 'Login '}
+        </Button>
       </Form>
     );
   }
@@ -90,5 +103,10 @@ const Login: React.FC = () => {
     </Container>
   );
 };
+
+const userTypeOptions = [
+  { value: 0, label: 'Admin' },
+  { value: 1, label: 'Customer' }
+  ];
 
 export default Login;

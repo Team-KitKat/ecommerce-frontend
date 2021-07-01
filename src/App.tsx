@@ -27,6 +27,7 @@ const App: React.FC = () => {
               <Route exact path={'/'} component={Home}/>
               <Route exact path={'/checkout'} component={CheckoutPanel}/>
               <Route exact path={'/login'} component={Login}/>
+              <Route exact path={'/register'} component={Login}/>
               <Route exact path={'/faq'} component={Faq}/>
               <Route exact path={'/contactUs'} component={ContactUs}/>
               <Route exact path={'/aboutUs'} component={AboutUs}/>
