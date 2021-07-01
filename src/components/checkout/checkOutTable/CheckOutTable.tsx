@@ -22,7 +22,8 @@ const CheckOutTable: React.FC<CheckoutTableProps> = (props) => {
     const columns = [{
         dataField: 'id',
         text: '#',
-        sort: true,
+        headerAlign: 'center',
+        align: 'center',
         headerStyle: {
             borderLeft: 'none',
             borderRight: 'none',
@@ -42,6 +43,8 @@ const CheckOutTable: React.FC<CheckoutTableProps> = (props) => {
     }, {
         dataField: 'image',
         text: 'Item',
+        headerAlign: 'center',
+        align: 'center',
         headerStyle: {
             borderLeft: 'none',
             borderRight: 'none',
@@ -60,6 +63,8 @@ const CheckOutTable: React.FC<CheckoutTableProps> = (props) => {
         dataField: 'name',
         text: 'Name',
         sort: true,
+        headerAlign: 'center',
+        align: 'center',
         headerStyle: {
             borderLeft: 'none',
             borderRight: 'none',
@@ -77,6 +82,8 @@ const CheckOutTable: React.FC<CheckoutTableProps> = (props) => {
         dataField: 'qty',
         text: 'Qty',
         sort: true,
+        headerAlign: 'center',
+        align: 'center',
         headerStyle: {
             borderLeft: 'none',
             borderRight: 'none',
@@ -94,6 +101,8 @@ const CheckOutTable: React.FC<CheckoutTableProps> = (props) => {
         dataField: 'unitPrice',
         text: 'Unit Price',
         sort: true,
+        headerAlign: 'center',
+        align: 'center',
         headerStyle: {
             borderLeft: 'none',
             borderRight: 'none',
@@ -112,6 +121,8 @@ const CheckOutTable: React.FC<CheckoutTableProps> = (props) => {
         dataField: 'amount',
         text: 'amount',
         sort: true,
+        headerAlign: 'center',
+        align: 'center',
         headerStyle: {
             borderLeft: 'none',
             borderRight: 'none',
@@ -129,6 +140,8 @@ const CheckOutTable: React.FC<CheckoutTableProps> = (props) => {
     }, {
         dataField: 'del',
         text: ' ',
+        headerAlign: 'center',
+        align: 'center',
         headerStyle: {
             borderLeft: 'none',
             borderRight: 'none',
@@ -148,19 +161,6 @@ const CheckOutTable: React.FC<CheckoutTableProps> = (props) => {
     const defaultSorted = [{
         dataField: 'id',
         order: 'asc',
-        headerStyle: {
-            borderLeft: 'none',
-            borderRight: 'none',
-            borderBottom: '1px',
-            borderTop: 'none',
-        },
-        style: () => {
-            return {
-                borderLeft: 'none',
-                borderRight: 'none',
-                borderBottom: '1px',
-            }
-        }
     }];
 
 
@@ -185,7 +185,7 @@ const CheckOutTable: React.FC<CheckoutTableProps> = (props) => {
     };
 
     const customTotal = (from: number, to: number, size: number) => (
-        <span className="react-bootstrap-table-pagination-total">
+        <span className="react-bootstrap-table-pagination-total text-secondary">
     Showing { from } to { to } of { size } Results
   </span>
     );
@@ -220,9 +220,10 @@ const CheckOutTable: React.FC<CheckoutTableProps> = (props) => {
     //     );
     // };
     const options = {
-        align: 'right',
+        classes: 'pagination',
         paginationSize: 4,
         pageStartIndex: 1,
+        color: '#4caf50',
         // alwaysShowAllBtns: true, // Always show next and previous button
         // withFirstAndLast: false, // Hide the going to First and Last page button
         // hideSizePerPage: true, // Hide the sizePerPage dropdown always
@@ -288,7 +289,7 @@ const CheckOutTable: React.FC<CheckoutTableProps> = (props) => {
                         wrapperClasses='table-responsive overflow-x'
                         defaultSortDirection="asc"
                         rowClasses='text-wrap'
-                        headerClasses='header-className'
+                        headerClasses='header-class'
 
                     />
 
