@@ -11,6 +11,7 @@
     "@types/jest": "^26.0.23",
     "@types/node": "^12.20.14",
     "@types/react": "^17.0.9",
+    "@types/react-bootstrap": "^0.32.25",
     "@types/react-dom": "^17.0.6",
     "@types/react-select": "^4.0.16",
     "@types/zxcvbn": "^4.4.1",
@@ -19,12 +20,16 @@
     "node-sass": "^5.0.0",
     "react": "^17.0.2",
     "react-bootstrap": "^1.6.1",
+    "react-bootstrap-table-next": "^4.0.3",
+    "react-bootstrap-table2-editor": "^1.4.0",
+    "react-bootstrap-table2-paginator": "^2.1.2",
     "react-dom": "^17.0.2",
     "react-feather": "^2.0.9",
     "react-redux": "^7.2.4",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
     "react-select": "^4.3.1",
+    "react-table": "^7.7.0",
     "react-toastify": "^7.0.4",
     "typescript": "^4.3.2",
     "web-vitals": "^1.1.2",
@@ -57,7 +62,10 @@
   "devDependencies": {
     "@types/feather-icons": "^4.7.0",
     "@types/node-sass": "^4.11.1",
+    "@types/react-bootstrap-table-next": "^4.0.14",
+    "@types/react-bootstrap-table2-paginator": "^2.1.1",
     "@types/react-redux": "^7.1.16",
-    "@types/react-router-dom": "^5.1.7"
+    "@types/react-router-dom": "^5.1.7",
+    "@types/react-table": "^7.7.1"
   }
 }

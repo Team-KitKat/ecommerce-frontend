@@ -1,6 +1,5 @@
 import React from 'react';
 import './App.scss';
-import Login from "./components/login/Login";
 import {BrowserRouter as Router, Route} from "react-router-dom";
 import Home from "./components/home/Home";
 import 'react-toastify/dist/ReactToastify.css';
@@ -13,16 +12,18 @@ import CheckoutPanel from "./components/checkout/checkoutPanel/CheckoutPanel";
 import Faq from "./pages/faq/Faq";
 import ContactUs from "./pages/contactUs/ContactUs";
 import AboutUs from "./pages/aboutUs/AboutUs";
+import Login from "./components/login/Login";
 
 toast.configure();
 
 const App: React.FC = () => {
     return (
         <Row className='p-0 m-0'>
-            <Header/>
-            <BottomHeader itemCount={12}/>
-            <NavigationBar/>
+
             <Router>
+                <Header/>
+                <BottomHeader itemCount={12}/>
+                <NavigationBar/>
               <Route exact path={'/'} component={Home}/>
               <Route exact path={'/checkout'} component={CheckoutPanel}/>
               <Route exact path={'/login'} component={Login}/>

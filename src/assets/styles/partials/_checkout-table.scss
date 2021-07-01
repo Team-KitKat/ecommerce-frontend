@@ -1,0 +1,46 @@
+@import "variables";
+
+.checkout-title {
+  .btn-shopping {
+    border-radius: 4em;
+    font-size: .8em;
+    border-color: slategrey;
+  }
+}
+
+.checkout-table {
+
+  .cart-table {
+    width: 100%;
+
+
+    .card-body {
+
+      .table {
+
+        border: none;
+        .item-image {
+          width: 50%;
+          height: auto;
+        }
+
+        .empty-image {
+
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: $extra_large) {
+
+  .cart-table {
+    .card-body {
+
+      .table {
+        width: 50em;
+
+      }
+    }
+  }
+}
