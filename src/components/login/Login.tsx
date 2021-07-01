@@ -80,7 +80,9 @@ const Login: React.FC = () => {
           <Form.Control.Feedback>Valid password</Form.Control.Feedback>
           <Form.Control.Feedback type="invalid">Password cannot be empty!</Form.Control.Feedback>
         </Form.Group>
-        <Button variant={'login-button'} type={'submit'} className={'mt-3 float-right'}>Login</Button>
+        <Button variant={'login-button'} type={'submit'} className={'mt-3 float-right'}>
+          {location.pathname == '/register' ? 'Register ' : 'Login '}
+        </Button>
       </Form>
     );
   }
