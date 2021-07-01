@@ -8,6 +8,8 @@ import EmptyCheckout from "./EmptyCheckout";
 import {IProduct} from "../../../types/MainTypes";
 import Item from "../../../assets/images/onions.jpg";
 import CheckoutPanel from "../checkoutPanel/CheckoutPanel";
+import {inspect} from "util";
+
 
 type CheckoutTableProps = {
     products: IProduct[] ;
@@ -20,7 +22,8 @@ const CheckOutTable: React.FC<CheckoutTableProps> = (props) => {
     const columns = [{
         dataField: 'id',
         text: '#',
-        sort: true,
+        headerAlign: 'center',
+        align: 'center',
         headerStyle: {
             borderLeft: 'none',
             borderRight: 'none',
@@ -40,6 +43,8 @@ const CheckOutTable: React.FC<CheckoutTableProps> = (props) => {
     }, {
         dataField: 'image',
         text: 'Item',
+        headerAlign: 'center',
+        align: 'center',
         headerStyle: {
             borderLeft: 'none',
             borderRight: 'none',
@@ -58,6 +63,8 @@ const CheckOutTable: React.FC<CheckoutTableProps> = (props) => {
         dataField: 'name',
         text: 'Name',
         sort: true,
+        headerAlign: 'center',
+        align: 'center',
         headerStyle: {
             borderLeft: 'none',
             borderRight: 'none',
@@ -75,6 +82,8 @@ const CheckOutTable: React.FC<CheckoutTableProps> = (props) => {
         dataField: 'qty',
         text: 'Qty',
         sort: true,
+        headerAlign: 'center',
+        align: 'center',
         headerStyle: {
             borderLeft: 'none',
             borderRight: 'none',
@@ -92,6 +101,8 @@ const CheckOutTable: React.FC<CheckoutTableProps> = (props) => {
         dataField: 'unitPrice',
         text: 'Unit Price',
         sort: true,
+        headerAlign: 'center',
+        align: 'center',
         headerStyle: {
             borderLeft: 'none',
             borderRight: 'none',
@@ -110,6 +121,8 @@ const CheckOutTable: React.FC<CheckoutTableProps> = (props) => {
         dataField: 'amount',
         text: 'amount',
         sort: true,
+        headerAlign: 'center',
+        align: 'center',
         headerStyle: {
             borderLeft: 'none',
             borderRight: 'none',
@@ -127,6 +140,8 @@ const CheckOutTable: React.FC<CheckoutTableProps> = (props) => {
     }, {
         dataField: 'del',
         text: ' ',
+        headerAlign: 'center',
+        align: 'center',
         headerStyle: {
             borderLeft: 'none',
             borderRight: 'none',
@@ -146,19 +161,6 @@ const CheckOutTable: React.FC<CheckoutTableProps> = (props) => {
     const defaultSorted = [{
         dataField: 'id',
         order: 'asc',
-        headerStyle: {
-            borderLeft: 'none',
-            borderRight: 'none',
-            borderBottom: '1px',
-            borderTop: 'none',
-        },
-        style: () => {
-            return {
-                borderLeft: 'none',
-                borderRight: 'none',
-                borderBottom: '1px',
-            }
-        }
     }];
 
 
@@ -183,14 +185,45 @@ const CheckOutTable: React.FC<CheckoutTableProps> = (props) => {
     };
 
     const customTotal = (from: number, to: number, size: number) => (
-        <span className="react-bootstrap-table-pagination-total">
+        <span className="react-bootstrap-table-pagination-total text-secondary">
     Showing { from } to { to } of { size } Results
   </span>
     );
 
+    // const pageButtonRenderer = ({
+    //                                 page,
+    //                                 active,
+    //                                 disable,
+    //                                 title,
+    //                                 onPageChange
+    //                             }) => {
+    //     const handleClick = (e: any) => {
+    //         e.preventDefault();
+    //         onPageChange(page);
+    //     };
+    //     const activeStyle = {};
+    //     if (active) {
+    //         activeStyle.backgroundColor = 'black';
+    //         activeStyle.color = 'white';
+    //     } else {
+    //         activeStyle.backgroundColor = 'gray';
+    //         activeStyle.color = 'black';
+    //     }
+    //     if (typeof page === 'string') {
+    //         activeStyle.backgroundColor = 'white';
+    //         activeStyle.color = 'black';
+    //     }
+    //     return (
+    //         <li className="page-item">
+    //             <a href="#" onClick={ handleClick } style={ activeStyle }>{ page }</a>
+    //         </li>
+    //     );
+    // };
     const options = {
+        classes: 'pagination',
         paginationSize: 4,
         pageStartIndex: 1,
+        color: '#4caf50',
         // alwaysShowAllBtns: true, // Always show next and previous button
         // withFirstAndLast: false, // Hide the going to First and Last page button
         // hideSizePerPage: true, // Hide the sizePerPage dropdown always
@@ -256,7 +289,7 @@ const CheckOutTable: React.FC<CheckoutTableProps> = (props) => {
                         wrapperClasses='table-responsive overflow-x'
                         defaultSortDirection="asc"
                         rowClasses='text-wrap'
-                        headerClasses='header-className'
+                        headerClasses='header-class'
 
                     />
 
