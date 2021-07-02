@@ -12,16 +12,11 @@ const ItemList: React.FC = () => {
         <Container fluid={true} className='m-0 cart-product-list'>
             <Col xs={12}>
                 <ul className='ml-0 pl-0 list-unstyled'>
-
-                    ))
-                    <CartItem/>
-                    <CartItem/>
-                    <CartItem/>
-                    <CartItem/>
-                    <CartItem/>
-                    <CartItem/>
-                    <CartItem/>
-
+                    {
+                        checkoutProducts.map((product:IProduct) => (
+                            <CartItem checkedProducts={product}/>
+                        ))
+                    }
                 </ul>
             </Col>
         </Container>
