@@ -1,6 +1,8 @@
 import React from 'react';
 import {Col, Image, Row} from "react-bootstrap";
 import Item from '../../../assets/images/edcoco.jpg'
+import{RootState} from "../../../redux/store";
+import {useSelector} from "react-redux";
 
 const CartItem: React.FC = () => {
     return (

@@ -18,23 +18,10 @@ const ProductList: React.FC = () => {
                 </Row>
                 <Row className='product-list-container'>
                     {
-                        /*
-                         <Product/>
-                        <Product/>
-                        <Product/>
-                        <Product/>
-                        <Product/>
-                        <Product/>
-                        <Product/>
-                        <Product/>
-                         */
-                    }
-                    {
                         products.map((product:IProduct) => (
                                 <Product productInfo={product}/>
-                            ))}
-
-
+                            ))
+                    }
                 </Row>
 
             </Container>
