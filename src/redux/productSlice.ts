@@ -1,7 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import type { RootState } from './store'
 import {IProduct} from "../types/MainTypes";
-import ProductImg from "../assets/images/avacado.jpg";
 
 // Define a type for the slice state
 interface ProductState {
@@ -12,7 +11,7 @@ interface ProductState {
 const initialState: ProductState = {
     value:[{
         id: "1",
-        image: {ProductImg},
+        image: "avacado.jpg",
         name: "Avacado",
         qty: 1,
         price: 300,
@@ -21,11 +20,11 @@ const initialState: ProductState = {
     },
         {
         id: "1",
-        image: {ProductImg},
+        image: "avacado.jpg",
         name: "Avacado Large",
         qty: 1,
         price: 350,
-        discount: 20,
+        discount: 25,
         total: 350
     }]
 
