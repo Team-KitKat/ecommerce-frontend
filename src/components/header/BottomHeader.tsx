@@ -29,7 +29,7 @@ const BottomHeader: React.FC<BottomHeaderProps> = (props) => {
     };
 
     return (
-        <Navbar sticky='top' id='bottom_header' className='mb-2  bottom-header navbar-expand'>
+        <Navbar sticky='top' id='bottom_header' className='mb-2 px-0 bottom-header navbar-expand'>
             <Col xs={12} className='header-card'>
                 <Row className='m-0 py-2 '>
                     <Col className='ml-sm-3 ml-lg-0'
