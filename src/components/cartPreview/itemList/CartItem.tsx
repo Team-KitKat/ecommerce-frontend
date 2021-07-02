@@ -2,13 +2,16 @@ import React from 'react';
 import {Col, Image, Row} from "react-bootstrap";
 import Item from '../../../assets/images/edcoco.jpg'
 import {IProduct} from "../../../types/MainTypes";
+import {useDispatch} from "react-redux";
+import {add, deleteProduct} from "../../../redux/checkoutProductSlice";
 
 type cartProps={
     checkedProducts:IProduct;
 }
 const CartItem: React.FC <cartProps>= (props) => {
     const {checkedProducts}=props;
-    const imgUrl=require('../../../assets/images/'+ checkedProducts.image)
+    const imgUrl=require('../../../assets/images/'+ checkedProducts.image);
+    const dispatch = useDispatch();
     return (
         <li>
 
@@ -24,7 +27,8 @@ const CartItem: React.FC <cartProps>= (props) => {
                             <label>{checkedProducts.name}</label>
                         </Col>
                         <Col xs={6}>
-                            <i className='feather-trash float-right text-secondary'/>
+                            <i className='feather-trash float-right text-secondary'
+                               onClick={() => dispatch(deleteProduct(checkedProducts))}/>
                         </Col>
                     </Row>
                     <Row className=''>

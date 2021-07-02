@@ -13,16 +13,19 @@ import Faq from "./pages/faq/Faq";
 import ContactUs from "./pages/contactUs/ContactUs";
 import AboutUs from "./pages/aboutUs/AboutUs";
 import Login from "./components/login/Login";
+import {useSelector} from "react-redux";
+import {RootState} from "./redux/store";
 
 toast.configure();
 
 const App: React.FC = () => {
+    const checkoutProducts=useSelector((state:RootState)=>state.checkoutProducts.value);
     return (
         <Row className='p-0 m-0'>
 
             <Router>
                 <Header/>
-                <BottomHeader itemCount={12}/>
+                <BottomHeader itemCount={checkoutProducts.length}/>
                 <NavigationBar/>
               <Route exact path={'/'} component={Home}/>
               <Route exact path={'/checkout'} component={CheckoutPanel}/>
