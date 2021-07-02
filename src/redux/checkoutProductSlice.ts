@@ -19,41 +19,41 @@ const initialState: ProductState = {
         total: 300
     },
         {
-        id: "1",
-        image: "avacado.jpg",
-        name: "Avacado Large",
-        qty: 1,
-        price: 350,
-        discount: 25,
-        total: 350
-    }]
+            id: "1",
+            image: "avacado.jpg",
+            name: "Avacado Large",
+            qty: 1,
+            price: 350,
+            discount: 25,
+            total: 350
+        }]
 
 }
 
-export const productSlice = createSlice({
+export const checkoutProductSlice = createSlice({
     name: 'product',
     // `createSlice` will infer the state type from the `initialState` argument
     initialState,
     reducers: {
         add: (state,action: PayloadAction<IProduct>) => {
-                const newProduct={
-                    id: action.payload.id,
-                    image: action.payload.image,
-                    name: action.payload.name,
-                    qty:action.payload.qty,
-                    price: action.payload.price,
-                    discount: action.payload.discount,
-                    total: action.payload.total
-                }
+            const newProduct={
+                id: action.payload.id,
+                image: action.payload.image,
+                name: action.payload.name,
+                qty:action.payload.qty,
+                price: action.payload.price,
+                discount: action.payload.discount,
+                total: action.payload.total
+            }
             //state.push(newProduct);
         },
 
     },
 })
 
-export const { add } = productSlice.actions
+export const { add } = checkoutProductSlice.actions
 
 // Other code such as selectors can use the imported `RootState` type
 export const productState = (state: RootState) => state.products
 
-export default productSlice.reducer
+export default checkoutProductSlice.reducer

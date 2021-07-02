@@ -1,10 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit'
 import {productSlice} from "./productSlice";
+import {checkoutProductSlice} from "./checkoutProductSlice";
 
 
 export const store = configureStore({
     reducer: {
         products:productSlice.reducer,
+        checkoutProducts:checkoutProductSlice.reducer,
     },
 })
 
