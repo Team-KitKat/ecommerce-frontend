@@ -19,7 +19,7 @@ const initialState: ProductState = {
         total: 300
     },
         {
-        id: "1",
+        id: "2",
         image: "avacado.jpg",
         name: "Avacado Large",
         qty: 1,
