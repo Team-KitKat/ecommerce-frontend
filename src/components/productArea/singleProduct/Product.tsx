@@ -2,6 +2,8 @@ import React from 'react';
 import {Button, Card, Col, Form, FormControl, FormGroup, Image, Row} from "react-bootstrap";
 import ProductImg from "../../../assets/images/avacado.jpg";
 import {IProduct} from "../../../types/MainTypes";
+import {useDispatch} from "react-redux";
+import {add} from "../../../redux/checkoutProductSlice";
 
 type productProps={
     productInfo:IProduct;
@@ -10,6 +12,7 @@ const Product: React.FC<productProps> = (props) => {
     const {productInfo}=props;
     const imgUrl=require('../../../assets/images/'+productInfo.image)
     console.log(productInfo.image);
+    const dispatch = useDispatch();
     return (
         <Col xs={6} sm={6} lg={3} md={4} xl={3} className='m-0 px-xl-3 px-sm-3 px-lg-3 px-md-3 single-product'>
             <Row className={'px-1 py-0  m-0 mb-3 text-center product-body'}>
@@ -38,7 +41,7 @@ const Product: React.FC<productProps> = (props) => {
                                 </Form.Group>
                             </Col>
                             <Col xs={12} md={8} xl={8} lg={8} sm={12} className={'px-md-3 px-lg-3 px-xl-3 pb-2 pb-xl-0 pb-lg-0 pb-md-0'}>
-                                <Button className='' variant="success">Add to Cart</Button>
+                                <Button className='' variant="success"  onClick={() => dispatch(add(productInfo))}>Add to Cart</Button>
                             </Col>
                         </Row>
                     </Form>
