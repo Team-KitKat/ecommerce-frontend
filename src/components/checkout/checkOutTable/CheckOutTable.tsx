@@ -9,15 +9,11 @@ import {IProduct} from "../../../types/MainTypes";
 import Item from "../../../assets/images/onions.jpg";
 import CheckoutPanel from "../checkoutPanel/CheckoutPanel";
 import {inspect} from "util";
+import {useSelector} from "react-redux";
+import {RootState} from "../../../redux/store";
 
 
-type CheckoutTableProps = {
-    products: IProduct[] ;
-}
-
-const CheckOutTable: React.FC<CheckoutTableProps> = (props) => {
-
-    const {products} = props;
+const CheckOutTable: React.FC = () => {
 
 
     return (
@@ -26,21 +22,7 @@ const CheckOutTable: React.FC<CheckoutTableProps> = (props) => {
             <Card className='cart-table'>
                 <h6 className='p-2'>Shopping Cart</h6>
                 <Card.Body className='card-body p-3 m-0 '>
-
-                    {/*<BootstrapTable*/}
-                    {/*    classes='table'*/}
-                    {/*    bootstrap4*/}
-                    {/*    keyField="id"*/}
-                    {/*    data={productsGenerator(products)}*/}
-                    {/*    columns={ columns }*/}
-                    {/*    pagination={paginationFactory(options)}*/}
-                    {/*    wrapperClasses='table-responsive overflow-x'*/}
-                    {/*    defaultSortDirection="asc"*/}
-                    {/*    rowClasses='text-wrap'*/}
-                    {/*    headerClasses='header-class'*/}
-
-                    {/*/>*/}
-                    <CheckOutItem products={products}/>
+                    <CheckOutItem/>
                 </Card.Body>
 
             </Card>

@@ -4,14 +4,14 @@ import {Col, Image, Row} from "react-bootstrap";
 import {IProduct} from "../../../types/MainTypes";
 import paginationFactory from "react-bootstrap-table2-paginator";
 import BootstrapTable from "react-bootstrap-table-next";
+import {useSelector} from "react-redux";
+import {RootState} from "../../../redux/store";
 
-type CheckoutItemProps = {
-    products: IProduct[];
-}
 
-const CheckOutItem: React.FC<CheckoutItemProps> = (props) => {
 
-    const {products} = props;
+const CheckOutItem: React.FC = () => {
+
+    const checkoutProducts=useSelector((state:RootState)=>state.checkoutProducts.value);
 
     const columns = [{
         dataField: 'id',
@@ -161,7 +161,6 @@ const CheckOutItem: React.FC<CheckoutItemProps> = (props) => {
 
     const productsGenerator = (products: IProduct[]): any[] => {
         const generatedProductList: any[] = [];
-        console.log(products[0].image);
         products.forEach((product: IProduct, index: number) => {
             // <CheckOutItem key={index} num={index+1} product={product}/>
             generatedProductList.push({
@@ -214,7 +213,7 @@ const CheckOutItem: React.FC<CheckoutItemProps> = (props) => {
         }, {
             text: '10', value: 10
         }, {
-            text: 'All', value: products.length
+            text: 'All', value: checkoutProducts.length
         }] // A numeric array is also available. the purpose of above example is custom the text
     };
 
@@ -224,7 +223,7 @@ const CheckOutItem: React.FC<CheckoutItemProps> = (props) => {
             classes='table'
             bootstrap4
             keyField="id"
-            data={productsGenerator(products)}
+            data={productsGenerator(checkoutProducts)}
             columns={ columns }
             pagination={paginationFactory(options)}
             wrapperClasses='table-responsive overflow-x'
