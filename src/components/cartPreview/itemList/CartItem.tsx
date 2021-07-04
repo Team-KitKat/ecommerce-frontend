@@ -10,7 +10,7 @@ type cartProps={
 }
 const CartItem: React.FC <cartProps>= (props) => {
     const {checkedProducts}=props;
-    const imgUrl=require('../../../assets/images/'+ checkedProducts.image);
+    // const imgUrl=require('../../../assets/images/'+ checkedProducts.image);
     const dispatch = useDispatch();
     return (
         <li>
@@ -18,7 +18,7 @@ const CartItem: React.FC <cartProps>= (props) => {
             <Row className='cart-item p-1'>
 
                 <Col xs={4}>
-                    <Image src={imgUrl.default} alt='Item Image' className='item-image'/>
+                    <Image src={checkedProducts.image} alt='Item Image' className='item-image'/>
                 </Col>
                 <Col xs={8}>
 

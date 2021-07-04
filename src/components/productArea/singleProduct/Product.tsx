@@ -10,8 +10,8 @@ type productProps={
 }
 const Product: React.FC<productProps> = (props) => {
     const {productInfo}=props;
-    const imgUrl=require('../../../assets/images/'+productInfo.image)
-    console.log(productInfo.image);
+    // const imgUrl=require('../../../assets/images/'+productInfo.image)
+
     const dispatch = useDispatch();
     return (
         <Col xs={6} sm={6} lg={3} md={4} xl={3} className='m-0 px-xl-3 px-sm-3 px-lg-3 px-md-3 single-product'>
@@ -19,7 +19,7 @@ const Product: React.FC<productProps> = (props) => {
                 <Col xs={12} className='p-0 m-0'>
                     <Image
                         className='m-0 px-0 px-lg-4 px-xl-5 px-md-3 px-sm-2  product-image'
-                        src= {imgUrl.default} alt="product"/>
+                        src= {productInfo.image} alt="product"/>
                 </Col>
                 <Col xs={12} className='mt-3 mb-3 mb-lg-4 mb-xl-4 mb-md-4 mb-sm-4 p-0 text-center'>
                     <h5 className={'ml-2 pb-2'}>{productInfo.name}</h5>

@@ -1,7 +1,20 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {Col, Container, Row} from "react-bootstrap";
+import {useSelector} from "react-redux";
+import {RootState} from "../../../redux/store";
+import {IProduct} from "../../../types/MainTypes";
+import Product from "../../productArea/singleProduct/Product";
 
 const CartTotal: React.FC = () => {
+    const [total,setTotal] = useState<number>(0);
+    const [discount,setdiscount] = useState<number>(0);
+    const products=useSelector((state:RootState)=>state.checkoutProducts.value);
+    useEffect(() => {
+        let tot=total;
+        let dist=discount;
+        products.map((product:IProduct) => (setTotal(tot+product.price)))
+        products.map((product:IProduct) => (setdiscount(dist+product.discount)))
+    }, [products]);
     return (
         <Container fluid={true} className='cart-total mb-2'>
             <Col xs={12}>
@@ -21,12 +34,12 @@ const CartTotal: React.FC = () => {
                 <Col xs={6} className='text-right'>
                     <Row>
                         <Col>
-                        <label className='text-danger font-weight-bold'>RS. 390</label>
+                        <label className='text-danger font-weight-bold'>{total}</label>
                         </Col>
                     </Row>
                     <Row>
                         <Col>
-                        <label className='font-weight-bold'>Rs. 90</label>
+                        <label className='font-weight-bold'>{discount}</label>
                         </Col>
                     </Row>
                 </Col>
@@ -36,7 +49,7 @@ const CartTotal: React.FC = () => {
                     <label>Total</label>
                 </Col>
                 <Col xs={6} className='text-right'>
-                    <label className='text-danger font-weight-bold'>Rs. 300</label>
+                    <label className='text-danger font-weight-bold'>{total-discount}</label>
                 </Col>
             </Row>
             </Col>
