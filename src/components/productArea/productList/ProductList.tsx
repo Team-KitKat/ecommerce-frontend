@@ -1,13 +1,22 @@
-import React from 'react';
+import React, {ChangeEvent} from 'react';
 import {CardDeck, Col, Container, Row} from "react-bootstrap";
 import Product from "../singleProduct/Product";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import{RootState} from "../../../redux/store";
-import {productState} from "../../../redux/productSlice";
 import {IProduct} from "../../../types/MainTypes";
+import {updateProducts} from "../../../redux/productSlice";
 const ProductList: React.FC = () => {
-
     const products=useSelector((state:RootState)=>state.products.value);
+    const dispatch = useDispatch();
+    const UpdateProductCount=(count:number,product:IProduct,index:number)=>{
+        console.log(count,index);
+       const newProduct={
+           ...product , qty:count,
+       }
+       const newProducts=products.slice();
+       newProducts.splice(index,1,newProduct);
+       dispatch(updateProducts(newProducts))
+    }
     return (
         <Col xs={12}>
             <Container className='mb-5 product-list'>
@@ -18,8 +27,8 @@ const ProductList: React.FC = () => {
                 </Row>
                 <Row className='product-list-container'>
                     {
-                        products.map((product:IProduct) => (
-                                <Product productInfo={product}/>
+                        products.map((product:IProduct,index:number) => (
+                                <Product productInfo={product} index={index} UpdateProductCount={UpdateProductCount}/>
                             ))
                     }
                 </Row>

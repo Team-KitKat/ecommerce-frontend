@@ -12,8 +12,8 @@ const CartTotal: React.FC = () => {
     useEffect(() => {
         let tot=total;
         let dist=discount;
-        products.map((product:IProduct) => (setTotal(tot+product.price)))
-        products.map((product:IProduct) => (setdiscount(dist+product.discount)))
+        products.map((product:IProduct) => (setTotal(tot+(product.price*product.qty))))
+        products.map((product:IProduct) => (setdiscount(dist+(product.discount*product.qty))))
     }, [products]);
     return (
         <Container fluid={true} className='cart-total mb-2'>
