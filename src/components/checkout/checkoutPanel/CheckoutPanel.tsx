@@ -7,11 +7,17 @@ import Item from '../../../assets/images/onions.png';
 import {useSelector} from "react-redux";
 import {RootState} from "../../../redux/store";
 import EmptyCheckout from "../checkOutTable/EmptyCheckout";
+import {useHistory} from "react-router-dom";
 const CheckoutPanel: React.FC = () => {
 
     const [showEmptyCart, setShowEmptyCart] = useState(false);
     const [showItemCart, setShowItemCart] = useState(false);
     const checkoutProducts=useSelector((state:RootState)=>state.checkoutProducts.value);
+
+    const history = useHistory();
+    function handleLinClick(path:string) {
+        history.push(path);
+    }
 
     useEffect( () => {
         if(checkoutProducts.length != 0) {
@@ -49,7 +55,7 @@ const CheckoutPanel: React.FC = () => {
                     <h5>Checkout Page</h5>
                 </Col>
                 <Col xs={6} className='p-0 m-0'>
-                    <Button type='button' variant='light' className='btn-shopping float-right'>Continue Shopping</Button>
+                    <Button type='button' variant='light' className='btn-shopping float-right' onClick={() => handleLinClick('/')}>Continue Shopping</Button>
                 </Col>
                 </Row>
                 <Row className='p-0 m-0'>

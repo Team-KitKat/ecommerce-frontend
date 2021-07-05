@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Button, Col, Navbar, Row} from "react-bootstrap";
 import Badge from "react-bootstrap/Badge";
 import CartPreview from "../cartPreview/CartPreview";
@@ -17,16 +17,29 @@ const BottomHeader: React.FC<BottomHeaderProps> = (props) => {
     const [itemTarget, setItemTarget] = useState(null);
     const [emptyTarget, setEmptyTarget] = useState(null);
 
+    // useEffect(() => {
+    //     if(itemCount !== 0) {
+    //         setShowItemCart(!showItemCart);
+    //         // setItemTarget(event.target);
+    //     }
+    //     else {
+    //         setShowEmptyCart(!showEmptyCart);
+    //         // setEmptyTarget(event.target);
+    //     }
+    // },[itemCount]);
+
     const handleClick = (event: any) => {
 
-        if(itemCount !== 0) {
-            setShowItemCart(!showItemCart);
-            setItemTarget(event.target);
-        }
-        else {
-            setShowEmptyCart(!showEmptyCart);
-            setEmptyTarget(event.target);
-        }
+        setShowItemCart(!showItemCart);
+        setItemTarget(event.target);
+        // if(itemCount !== 0) {
+        //     setShowItemCart(!showItemCart);
+        //     setItemTarget(event.target);
+        // }
+        // else {
+        //     setShowEmptyCart(!showEmptyCart);
+        //     setEmptyTarget(event.target);
+        // }
     };
 
     const history = useHistory();
@@ -53,8 +66,9 @@ const BottomHeader: React.FC<BottomHeaderProps> = (props) => {
                                         <span><Badge>{itemCount}</Badge></span>
                                     </i>
                                 </Row>
+                                {/*{showItemCart ? <CartPreview showItemCart={showItemCart} target={itemTarget}/> : <EmptyCart showEmptyCart={showEmptyCart} target={emptyTarget}/>}*/}
                                 <CartPreview showItemCart={showItemCart} target={itemTarget}/>
-                                <EmptyCart showEmptyCart={showEmptyCart} target={emptyTarget}/>
+                                {/*<EmptyCart showEmptyCart={showEmptyCart} target={emptyTarget}/>*/}
                             </Col>
                             <Col className='p-0 px-2 checkout-btn-col' lg={{span: 3, offset: 0}} md={5} sm={3}>
                                 <Button  className='checkout-btn py-1' variant="success"

@@ -9,7 +9,8 @@ interface ProductState {
 
 // Define the initial state using that type
 const initialState: ProductState = {
-    value: [{
+    value: [
+        {
         id: "1",
         image: "https://store-images-soft.s3.us-east-2.amazonaws.com/avacado.jpg",
         name: "Avacado",
@@ -28,7 +29,28 @@ const initialState: ProductState = {
             price: 350,
             discount: 25,
             total: 350
-        }]
+        },
+        {
+            id: "3",
+            image: "https://store-images-soft.s3.us-east-2.amazonaws.com/avacado.jpg",
+            name: "Avacado",
+            category: "grocery",
+            qty: 1,
+            price: 300,
+            discount: 20,
+            total: 300
+        },
+        {
+            id: "4",
+            image: "https://store-images-soft.s3.us-east-2.amazonaws.com/avacado.jpg",
+            name: "Avacado Large",
+            category: "grocery",
+            qty: 1,
+            price: 350,
+            discount: 25,
+            total: 350
+        }
+        ]
 
 }
 
