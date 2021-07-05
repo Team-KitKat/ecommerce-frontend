@@ -20,7 +20,12 @@
     min-width: fit-content;
     height: auto;
 
+    .empty-image {
+      width: 250px;
+      height: auto;
+    }
     .cart-content {
+
       .cart-product-list {
         min-width: 25em;
         max-height: 32vh;
@@ -32,6 +37,7 @@
             width: 100%;
             height: auto;
           }
+
           i {
             cursor: pointer;
           }

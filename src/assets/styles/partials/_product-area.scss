@@ -181,9 +181,11 @@
               height: 100%;
 
             }
-
-            h5 {
-              font-size: 1em;
+            .title {
+              height: 30px;
+              h5 {
+                font-size: 1em;
+              }
             }
             .price-tag {
               font-size: .75em;
