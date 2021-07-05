@@ -20,12 +20,12 @@ const CheckoutPanel: React.FC = () => {
     }
 
     useEffect( () => {
-        if(checkoutProducts.length != 0) {
-            setShowItemCart(!showItemCart);
+        if(checkoutProducts.length == 0) {
+            setShowEmptyCart(true);
 
         }
         else {
-            setShowEmptyCart(!showEmptyCart);
+            setShowEmptyCart(false);
 
         }
     },[checkoutProducts]);
