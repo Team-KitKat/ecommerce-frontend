@@ -28,7 +28,22 @@ const initialState: ProductState = {
             price: 350,
             discount: 25,
             total: 350
-        }]
+        },
+
+        {
+            id: "3",
+            image: "https://store-images-soft.s3.us-east-2.amazonaws.com/avacado.jpg",
+            name: "Avacado Large",
+            category: "grocery",
+            qty: 1,
+            price: 350,
+            discount: 25,
+            total: 350
+        }
+
+
+        ]
+
 
 }
 
@@ -50,11 +65,16 @@ export const productSlice = createSlice({
             }
             //state.push(newProduct);
         },
+        updateProducts:(state, action: PayloadAction<IProduct[]>)=>{
+            /*const newProducts: IProduct[] = state.value.slice();
+            newAuthorList.splice(index - 1, 1, updatedAuthor);*/
+            state.value=action.payload;
+        }
 
     },
 })
 
-export const {add} = productSlice.actions
+export const {add,updateProducts} = productSlice.actions
 
 // Other code such as selectors can use the imported `RootState` type
 export const productState = (state: RootState) => state.products

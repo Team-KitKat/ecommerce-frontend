@@ -14,7 +14,7 @@ const CheckoutPanel: React.FC = () => {
     const checkoutProducts=useSelector((state:RootState)=>state.checkoutProducts.value);
 
     useEffect( () => {
-        if(checkoutProducts.length != 0) {
+        if(checkoutProducts.length !== 0) {
             setShowItemCart(!showItemCart);
 
         }
