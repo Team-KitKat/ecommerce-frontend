@@ -23,6 +23,23 @@ const CheckOutTable: React.FC = () => {
                 <h6 className='p-2'>Shopping Cart</h6>
                 <Card.Body className='card-body p-3 m-0 '>
                     <CheckOutItem/>
+                    <Row>
+                        <Col xs={6} className='text-left price-tag'>
+                            <label>Delivery Charge</label>
+                        </Col>
+                        <Col xs={6} className='text-right text-secondary'>
+                            <label>Rs.0.00</label>
+                        </Col>
+                    </Row>
+                    <hr/>
+                    <Row>
+                        <Col xs={6} className='text-left price-tag'>
+                            <label>Est.Total</label>
+                        </Col>
+                        <Col xs={6} className='text-right text-danger net-total'>
+                            <label>Rs.0.00</label>
+                        </Col>
+                    </Row>
                 </Card.Body>
 
             </Card>

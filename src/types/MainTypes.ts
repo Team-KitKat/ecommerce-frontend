@@ -12,6 +12,7 @@ export interface IProduct {
 export interface IOrder {
     id: string
     productList: IProduct[] | null
+    totalPrice: number
     discount: number
     netTotal: number
     deliveryCharge: number
