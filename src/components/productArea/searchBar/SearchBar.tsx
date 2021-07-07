@@ -1,5 +1,5 @@
 import React from 'react';
-import {Col, Container, Form, FormControl, InputGroup, Row} from "react-bootstrap";
+import {Col, Container, Form, FormControl, InputGroup} from "react-bootstrap";
 
 const SearchBar: React.FC = () => {
     return (

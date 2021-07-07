@@ -29,8 +29,9 @@ const ProductList: React.FC = () => {
                 <Row className='product-list-container'>
                     {
                         products.map((product:IProduct,index:number) => (
-                            // <Product productInfo={product} index={index}/>
-                                <Product productInfo={product} index={index} UpdateProductCount={UpdateProductCount}/>
+
+                                <Product productInfo={product} index={index} key={index} UpdateProductCount={UpdateProductCount}/>
+
                             ))
                     }
                 </Row>

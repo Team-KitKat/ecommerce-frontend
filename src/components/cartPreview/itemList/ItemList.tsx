@@ -13,8 +13,8 @@ const ItemList: React.FC = () => {
             <Col xs={12}>
                 <ul className='ml-0 pl-0 list-unstyled'>
                     {
-                        checkoutProducts.map((product:IProduct) => (
-                            <CartItem checkedProducts={product}/>
+                        checkoutProducts.map((product:IProduct,index:number) => (
+                            <CartItem checkedProducts={product} key={index}/>
                         ))
                     }
                 </ul>
