@@ -5,7 +5,6 @@ import {useDispatch, useSelector} from "react-redux";
 import{RootState} from "../../../redux/store";
 import {IProduct} from "../../../types/MainTypes";
 import {updateProducts} from "../../../redux/productSlice";
-import {updateCheckoutProducts} from "../../../redux/checkoutProductSlice";
 const ProductList: React.FC = () => {
     const products=useSelector((state:RootState)=>state.products.value);
     const dispatch = useDispatch();
@@ -16,7 +15,7 @@ const ProductList: React.FC = () => {
        }
        const newProducts=products.slice();
        newProducts.splice(index,1,newProduct);
-       dispatch(updateCheckoutProducts(newProducts))
+       dispatch(updateProducts(newProducts))
     }
     return (
         <Col xs={12}>
