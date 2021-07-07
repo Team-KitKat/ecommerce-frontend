@@ -5,6 +5,7 @@ import {useDispatch, useSelector} from "react-redux";
 import{RootState} from "../../../redux/store";
 import {IProduct} from "../../../types/MainTypes";
 import {updateProducts} from "../../../redux/productSlice";
+import {updateCheckoutProducts} from "../../../redux/checkoutProductSlice";
 const ProductList: React.FC = () => {
     const products=useSelector((state:RootState)=>state.products.value);
     const dispatch = useDispatch();
@@ -15,7 +16,7 @@ const ProductList: React.FC = () => {
        }
        const newProducts=products.slice();
        newProducts.splice(index,1,newProduct);
-       dispatch(updateProducts(newProducts))
+       dispatch(updateCheckoutProducts(newProducts))
     }
     return (
         <Col xs={12}>
@@ -28,7 +29,9 @@ const ProductList: React.FC = () => {
                 <Row className='product-list-container'>
                     {
                         products.map((product:IProduct,index:number) => (
+
                                 <Product productInfo={product} index={index} key={index} UpdateProductCount={UpdateProductCount}/>
+
                             ))
                     }
                 </Row>
