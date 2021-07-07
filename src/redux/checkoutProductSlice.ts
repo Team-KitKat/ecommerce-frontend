@@ -55,6 +55,7 @@ export const checkoutProductSlice = createSlice({
         deleteProduct: (state, action: PayloadAction<IProduct>) => {
             state.value = (state.value.filter(product => product.id !== action.payload.id))
         },
+
     },
 })
 

@@ -40,16 +40,6 @@ const initialState: ProductState = {
             discount: 20,
             total: 300
         },
-        {
-            id: "4",
-            image: "https://store-images-soft.s3.us-east-2.amazonaws.com/avacado.jpg",
-            name: "Avacado Large",
-            category: "grocery",
-            qty: 1,
-            price: 350,
-            discount: 25,
-            total: 350
-        }
 
         ]
 

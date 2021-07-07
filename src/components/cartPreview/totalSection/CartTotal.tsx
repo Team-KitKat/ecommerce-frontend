@@ -1,20 +1,17 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import {Col, Container, Row} from "react-bootstrap";
 import {useSelector} from "react-redux";
 import {RootState} from "../../../redux/store";
-import {IProduct} from "../../../types/MainTypes";
-import Product from "../../productArea/singleProduct/Product";
-
 const CartTotal: React.FC = () => {
-    const [total,setTotal] = useState<number>(0);
-    const [discount,setdiscount] = useState<number>(0);
     const products=useSelector((state:RootState)=>state.checkoutProducts.value);
-    useEffect(() => {
-        let tot=total;
-        let dist=discount;
-        products.map((product:IProduct) => (setTotal(tot+(product.price*product.qty))))
-        products.map((product:IProduct) => (setdiscount(dist+(product.discount*product.qty))))
-    }, [products]);
+
+    let totalPrice=0;
+    let discount=0;
+    products.forEach((item)=>{
+        totalPrice+=item.qty* item.price
+        discount+=item.discount*item.qty
+    })
+
     return (
         <Container fluid={true} className='cart-total mb-2'>
             <Col xs={12}>
@@ -34,7 +31,7 @@ const CartTotal: React.FC = () => {
                 <Col xs={6} className='text-right'>
                     <Row>
                         <Col>
-                        <label className='text-danger font-weight-bold'>{total}</label>
+                        <label className='text-danger font-weight-bold'>{totalPrice}</label>
                         </Col>
                     </Row>
                     <Row>
@@ -49,7 +46,7 @@ const CartTotal: React.FC = () => {
                     <label>Total</label>
                 </Col>
                 <Col xs={6} className='text-right'>
-                    <label className='text-danger font-weight-bold'>{total-discount}</label>
+                    <label className='text-danger font-weight-bold'>{totalPrice-discount}</label>
                 </Col>
             </Row>
             </Col>

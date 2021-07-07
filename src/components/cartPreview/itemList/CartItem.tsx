@@ -1,16 +1,14 @@
 import React from 'react';
 import {Col, Image, Row} from "react-bootstrap";
-import Item from '../../../assets/images/edcoco.jpg'
 import {IProduct} from "../../../types/MainTypes";
 import {useDispatch} from "react-redux";
-import {add, deleteProduct} from "../../../redux/checkoutProductSlice";
+import {deleteProduct} from "../../../redux/checkoutProductSlice";
 
 type cartProps={
     checkedProducts:IProduct;
 }
 const CartItem: React.FC <cartProps>= (props) => {
     const {checkedProducts}=props;
-    // const imgUrl=require('../../../assets/images/'+ checkedProducts.image);
     const dispatch = useDispatch();
     return (
         <li>
