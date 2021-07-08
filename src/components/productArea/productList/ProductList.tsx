@@ -6,6 +6,7 @@ import{RootState} from "../../../redux/store";
 import {IProduct} from "../../../types/MainTypes";
 import {updateProducts} from "../../../redux/productSlice";
 const ProductList: React.FC = () => {
+    const checkedProducts=useSelector((state:RootState)=>state.checkoutProducts.value);
     const products=useSelector((state:RootState)=>state.products.value);
     const dispatch = useDispatch();
     const UpdateProductCount=(count:number,product:IProduct,index:number)=>{

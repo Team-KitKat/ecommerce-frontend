@@ -32,19 +32,19 @@ const CheckoutPanel: React.FC = () => {
     },[checkoutProducts]);
 
 
-    const generatedProductList: IProduct[] = [
-        {
-            id: "1",
-            image: "https://store-images-soft.s3.us-east-2.amazonaws.com/onions.jpg",
-            name: "Onions",
-            category: "grocery",
-            qty: 2,
-            price: 120,
-            discount: 20,
-            total: 240,
-        },
-
-    ];
+    // const generatedProductList: IProduct[] = [
+    //     {
+    //         id: "1",
+    //         image: "https://store-images-soft.s3.us-east-2.amazonaws.com/onions.jpg",
+    //         name: "Onions",
+    //         category: "grocery",
+    //         qty: 2,
+    //         price: 120,
+    //         discount: 20,
+    //         total: 240,
+    //     },
+    //
+    // ];
 
 
 

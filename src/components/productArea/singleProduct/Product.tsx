@@ -10,15 +10,25 @@ type productProps={
     UpdateProductCount:(count:number,product:IProduct,index:number)=>void;
 }
 const Product: React.FC<productProps> = (props) => {
+    const [showUpdate, setShowUpdate] = useState(false);
     const {productInfo,index}=props;
     const dispatch = useDispatch();
     const [productCount,setProductCount]=useState<number>(1);
+
+    const handleAddtoCart = (addedProduct: IProduct, index: number) => {
+        dispatch(add(addedProduct));
+        if((index+1) == addedProduct.id) {
+            setShowUpdate(true);
+        }
+
+    }
 
     const handleCounter=(e: ChangeEvent<HTMLInputElement>)=>{
         setProductCount(parseInt(e.target.value));
     }
     useEffect(() => {
         props.UpdateProductCount(productCount,productInfo,index)
+
     }, [productCount])
 
     return (
@@ -49,7 +59,12 @@ const Product: React.FC<productProps> = (props) => {
                                 </Form.Group>
                             </Col>
                             <Col xs={12} md={8} xl={8} lg={8} sm={12} className={'px-md-3 px-lg-3 px-xl-3 pb-2 pb-xl-0 pb-lg-0 pb-md-0'}>
-                                <Button className='' variant="success"  onClick={() => dispatch(add(productInfo))}>Add to Cart</Button>
+                                {showUpdate ?
+                                    <Button className='border-primary text-primary' variant="light"
+                                            >Update</Button> :
+                                    <Button className='' variant="success" onClick={() => handleAddtoCart(productInfo,index)}>Add
+                                        to Cart</Button>
+                                }
                             </Col>
                         </Row>
                     </Form>

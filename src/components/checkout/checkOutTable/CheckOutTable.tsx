@@ -15,6 +15,16 @@ import {RootState} from "../../../redux/store";
 
 const CheckOutTable: React.FC = () => {
 
+    const products=useSelector((state:RootState)=>state.checkoutProducts.value);
+
+    let totalPrice=0;
+    let discount=0;
+    products.forEach((item)=>{
+        totalPrice+=item.qty* item.price
+        discount+=item.discount*item.qty
+    })
+
+    let netTotal= totalPrice-discount;
 
     return (
         <Row className='checkout-table m-0 p-0'>
@@ -28,7 +38,16 @@ const CheckOutTable: React.FC = () => {
                             <label>Delivery Charge</label>
                         </Col>
                         <Col xs={6} className='text-right text-secondary'>
-                            <label>Rs.0.00</label>
+                            <label>Rs.250.00</label>
+                        </Col>
+                    </Row>
+                    <hr/>
+                    <Row>
+                        <Col xs={6} className='text-left price-tag'>
+                            <label>Discount</label>
+                        </Col>
+                        <Col xs={6} className='text-right text-secondary'>
+                            <label>Rs.{discount}.00</label>
                         </Col>
                     </Row>
                     <hr/>
@@ -37,7 +56,7 @@ const CheckOutTable: React.FC = () => {
                             <label>Est.Total</label>
                         </Col>
                         <Col xs={6} className='text-right text-danger net-total'>
-                            <label>Rs.0.00</label>
+                            <label>Rs.{netTotal}.00</label>
                         </Col>
                     </Row>
                 </Card.Body>

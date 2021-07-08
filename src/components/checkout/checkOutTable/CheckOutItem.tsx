@@ -4,14 +4,16 @@ import {Col, Image, Row} from "react-bootstrap";
 import {IProduct} from "../../../types/MainTypes";
 import paginationFactory from "react-bootstrap-table2-paginator";
 import BootstrapTable from "react-bootstrap-table-next";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {RootState} from "../../../redux/store";
+import {deleteProduct} from "../../../redux/checkoutProductSlice";
 
 
 
 const CheckOutItem: React.FC = () => {
 
     const checkoutProducts=useSelector((state:RootState)=>state.checkoutProducts.value);
+    const dispatch = useDispatch();
 
     const columns = [{
         dataField: 'id',
@@ -174,7 +176,7 @@ const CheckOutItem: React.FC = () => {
                     className='feather-plus-circle text-secondary'/></p>,
                 unitPrice: <p key={index} className='text-center'>{"Rs." + product.price}</p>,
                 amount: <p key={index} className='text-center'>{"Rs." + product.total}</p>,
-                del: <p key={index} className='text-center'><i className='feather-trash text-secondary'/></p>
+                del: <p key={index} className='text-center'><i className='feather-trash text-secondary' onClick={() => dispatch(deleteProduct(product))}/></p>
 
             })
         }  );
