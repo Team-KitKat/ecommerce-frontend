@@ -1,13 +1,12 @@
 @import "variables";
 
 .empty-cart-container {
-  width: fit-content;
-  height: fit-content;
+  width: 250px;
+  height: auto;
 
   .empty-cart-pop {
-    min-width: fit-content;
+    width: 250px;
     height: auto;
-    max-height: 30em;
 
     .empty-image {
       width: 100%;
@@ -21,7 +20,12 @@
     min-width: fit-content;
     height: auto;
 
+    .empty-image {
+      width: 250px;
+      height: auto;
+    }
     .cart-content {
+
       .cart-product-list {
         min-width: 25em;
         max-height: 32vh;
@@ -33,6 +37,7 @@
             width: 100%;
             height: auto;
           }
+
           i {
             cursor: pointer;
           }

@@ -1,229 +1,51 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {Button, Col, Container, Image, Row} from "react-bootstrap";
 import CheckOutForm from "../PurchaseForm/CheckOutForm";
 import CheckOutTable from "../checkOutTable/CheckOutTable";
 import {IProduct} from "../../../types/MainTypes";
-import Item from '../../../assets/images/onions.jpg';
+import Item from '../../../assets/images/onions.png';
+import {useSelector} from "react-redux";
+import {RootState} from "../../../redux/store";
+import EmptyCheckout from "../checkOutTable/EmptyCheckout";
+import {useHistory} from "react-router-dom";
 const CheckoutPanel: React.FC = () => {
 
-    const generatedProductList: IProduct[] = [
-        {
-            id: "1",
-            image: "../../../assets/images/onions.jpg",
-            name: "Onions",
-            qty: 2,
-            price: 120,
-            discount: 20,
-            total: 240,
-        },
-        {
-            id: "1",
-            image: "../../../assets/images/onions.jpg",
-            name: "Onions",
-            qty: 2,
-            price: 120,
-            discount: 20,
-            total: 240,
-        },
-        {
-            id: "1",
-            image: "../../../assets/images/onions.jpg",
-            name: "Onions",
-            qty: 2,
-            price: 120,
-            discount: 20,
-            total: 240,
-        },
-        {
-            id: "1",
-            image: "../../../assets/images/onions.jpg",
-            name: "Onions",
-            qty: 2,
-            price: 120,
-            discount: 20,
-            total: 240,
-        },
-        { id: "1",
-            image: "../../../assets/images/onions.jpg",
-            name: "Onions",
-            qty: 2,
-            price: 120,
-            discount: 20,
-            total: 240,
-        },
-        {
-            id: "1",
-            image: "../../../assets/images/onions.jpg",
-            name: "Onions",
-            qty: 2,
-            price: 120,
-            discount: 20,
-            total: 240,
-        },
-        { id: "1",
-            image: "../../../assets/images/onions.jpg",
-            name: "Onions",
-            qty: 2,
-            price: 120,
-            discount: 20,
-            total: 240,
-        },
-        {
-            id: "1",
-            image: "../../../assets/images/onions.jpg",
-            name: "Onions",
-            qty: 2,
-            price: 120,
-            discount: 20,
-            total: 240,
-        },
-        {
-            id: "1",
-            image: "../../../assets/images/onions.jpg",
-            name: "Onions",
-            qty: 2,
-            price: 120,
-            discount: 20,
-            total: 240,
-        },
-        {
-            id: "1",
-            image: "../../../assets/images/onions.jpg",
-            name: "Onions",
-            qty: 2,
-            price: 120,
-            discount: 20,
-            total: 240,
-        },
-        {
-            id: "1",
-            image: "../../../assets/images/onions.jpg",
-            name: "Onions",
-            qty: 2,
-            price: 120,
-            discount: 20,
-            total: 240,
-        },
-        {
-            id: "1",
-            image: "../../../assets/images/onions.jpg",
-            name: "Onions",
-            qty: 2,
-            price: 120,
-            discount: 20,
-            total: 240,
-        },
-        {
-            id: "1",
-            image: "../../../assets/images/onions.jpg",
-            name: "Onions",
-            qty: 2,
-            price: 120,
-            discount: 20,
-            total: 240,
-        },
-        {
-            id: "1",
-            image: "../../../assets/images/onions.jpg",
-            name: "Onions",
-            qty: 2,
-            price: 120,
-            discount: 20,
-            total: 240,
-        },
-        {
-            id: "1",
-            image: "../../../assets/images/onions.jpg",
-            name: "Onions",
-            qty: 2,
-            price: 120,
-            discount: 20,
-            total: 240,
-        },
-        {
-            id: "1",
-            image: "../../../assets/images/onions.jpg",
-            name: "Onions",
-            qty: 2,
-            price: 120,
-            discount: 20,
-            total: 240,
-        },
-        {
-            id: "1",
-            image: "../../../assets/images/onions.jpg",
-            name: "Onions",
-            qty: 2,
-            price: 120,
-            discount: 20,
-            total: 240,
-        },
-        {
-            id: "1",
-            image: "../../../assets/images/onions.jpg",
-            name: "Onions",
-            qty: 2,
-            price: 120,
-            discount: 20,
-            total: 240,
-        },
-        {
-            id: "1",
-            image: "../../../assets/images/onions.jpg",
-            name: "Onions",
-            qty: 2,
-            price: 120,
-            discount: 20,
-            total: 240,
-        },
-        {
-            id: "1",
-            image: "../../../assets/images/onions.jpg",
-            name: "Onions",
-            qty: 2,
-            price: 120,
-            discount: 20,
-            total: 240,
-        },
-        {
-            id: "1",
-            image: "../../../assets/images/onions.jpg",
-            name: "Onions",
-            qty: 2,
-            price: 120,
-            discount: 20,
-            total: 240,
-        },
-        {
-            id: "1",
-            image: "../../../assets/images/onions.jpg",
-            name: "Onions",
-            qty: 2,
-            price: 120,
-            discount: 20,
-            total: 240,
-        },
-        {
-            id: "1",
-            image: "../../../assets/images/onions.jpg",
-            name: "Onions",
-            qty: 2,
-            price: 120,
-            discount: 20,
-            total: 240,
-        },
-        {
-            id: "1",
-            image: "../../../assets/images/onions.jpg",
-            name: "Onions",
-            qty: 2,
-            price: 120,
-            discount: 20,
-            total: 240,
-        },
+    const [showEmptyCart, setShowEmptyCart] = useState(false);
+    const [showItemCart, setShowItemCart] = useState(false);
+    const checkoutProducts=useSelector((state:RootState)=>state.checkoutProducts.value);
+
+    const history = useHistory();
+    function handleLinClick(path:string) {
+        history.push(path);
+    }
+
+    useEffect( () => {
+
+        if(checkoutProducts.length == 0) {
+            setShowEmptyCart(true);
+
+        }
+        else {
+            setShowEmptyCart(false);
+
+        }
+    },[checkoutProducts]);
 
 
-    ];
+    // const generatedProductList: IProduct[] = [
+    //     {
+    //         id: "1",
+    //         image: "https://store-images-soft.s3.us-east-2.amazonaws.com/onions.jpg",
+    //         name: "Onions",
+    //         category: "grocery",
+    //         qty: 2,
+    //         price: 120,
+    //         discount: 20,
+    //         total: 240,
+    //     },
+    //
+    // ];
+
 
 
     return (
@@ -234,12 +56,13 @@ const CheckoutPanel: React.FC = () => {
                     <h5>Checkout Page</h5>
                 </Col>
                 <Col xs={6} className='p-0 m-0'>
-                    <Button type='button' variant='light' className='btn-shopping float-right'>Continue Shopping</Button>
+                    <Button type='button' variant='light' className='btn-shopping float-right' onClick={() => handleLinClick('/')}>Continue Shopping</Button>
                 </Col>
                 </Row>
                 <Row className='p-0 m-0'>
                 <Col xs={12} className="p-0 px-0 m-0 ">
-                    <CheckOutTable products={generatedProductList}/>
+                    {showEmptyCart ? <EmptyCheckout/> : <CheckOutTable/>}
+                    {/*{showItemCart && <CheckOutTable/>}*/}
                 </Col>
                 </Row>
                 <Row className='p-0 m-0'>

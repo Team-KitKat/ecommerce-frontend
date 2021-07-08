@@ -1,32 +1,40 @@
 import React from 'react';
 import {Col, Image, Row} from "react-bootstrap";
-import Item from '../../../assets/images/edcoco.jpg'
+import {IProduct} from "../../../types/MainTypes";
+import {useDispatch} from "react-redux";
+import {deleteProduct} from "../../../redux/checkoutProductSlice";
 
-const CartItem: React.FC = () => {
+type cartProps={
+    checkedProducts:IProduct;
+}
+const CartItem: React.FC <cartProps>= (props) => {
+    const {checkedProducts}=props;
+    const dispatch = useDispatch();
     return (
         <li>
 
             <Row className='cart-item p-1'>
 
                 <Col xs={4}>
-                    <Image src={Item} alt='Item Image' className='item-image'/>
+                    <Image src={checkedProducts.image} alt='Item Image' className='item-image'/>
                 </Col>
                 <Col xs={8}>
 
                     <Row className=''>
                         <Col xs={6}>
-                            <label>Leaf</label>
+                            <label>{checkedProducts.name}</label>
                         </Col>
                         <Col xs={6}>
-                            <i className='feather-trash float-right text-secondary'/>
+                            <i className='feather-trash float-right text-secondary'
+                               onClick={() => dispatch(deleteProduct(checkedProducts))}/>
                         </Col>
                     </Row>
                     <Row className=''>
                         <Col xs={6}>
-                            <label className='text-secondary'>Qty: 1</label>
+                            <label className='text-secondary'>{checkedProducts.qty}</label>
                         </Col>
                         <Col xs={6}>
-                            <label className='text-success'>Rs: 260</label>
+                            <label className='text-success'>{checkedProducts.price}</label>
 
                         </Col>
                     </Row>

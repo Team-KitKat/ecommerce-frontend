@@ -6,7 +6,7 @@ const Header: React.FC  = () => {
     return (
         <Col className='header m-0 p-0'>
             <Row className='justify-content-end p-0 m-0 top-header'>
-                <Navbar expand='lg' className='py-0'>
+                <Navbar expand='lg' className='px-0 px-sm-3 py-0'>
                     <i className='feather-phone-call'/>
                     <span className='header-menu pl-3 pr-3'> +94772 123 456</span>
                     <Col className='px-0 py-2 py-lg-0 text-right'>

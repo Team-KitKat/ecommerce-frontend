@@ -9,251 +9,22 @@ import {IProduct} from "../../../types/MainTypes";
 import Item from "../../../assets/images/onions.jpg";
 import CheckoutPanel from "../checkoutPanel/CheckoutPanel";
 import {inspect} from "util";
+import {useSelector} from "react-redux";
+import {RootState} from "../../../redux/store";
 
 
-type CheckoutTableProps = {
-    products: IProduct[] ;
-}
+const CheckOutTable: React.FC = () => {
 
-const CheckOutTable: React.FC<CheckoutTableProps> = (props) => {
+    const products=useSelector((state:RootState)=>state.checkoutProducts.value);
 
-    const {products} = props;
+    let totalPrice=0;
+    let discount=0;
+    products.forEach((item)=>{
+        totalPrice+=item.qty* item.price
+        discount+=item.discount*item.qty
+    })
 
-    const columns = [{
-        dataField: 'id',
-        text: '#',
-        headerAlign: 'center',
-        align: 'center',
-        headerStyle: {
-            borderLeft: 'none',
-            borderRight: 'none',
-            borderBottom: '1px',
-            borderTop: 'none',
-
-        },
-        style: () => {
-            return {
-                borderLeft: 'none',
-                borderRight: 'none',
-                borderBottom: '1px',
-
-            }
-        }
-
-    }, {
-        dataField: 'image',
-        text: 'Item',
-        headerAlign: 'center',
-        align: 'center',
-        headerStyle: {
-            borderLeft: 'none',
-            borderRight: 'none',
-            borderBottom: '1px',
-            borderTop: 'none',
-        },
-        style: () => {
-            return {
-                borderLeft: 'none',
-                borderRight: 'none',
-                borderBottom: '1px',
-            }
-        }
-
-    }, {
-        dataField: 'name',
-        text: 'Name',
-        sort: true,
-        headerAlign: 'center',
-        align: 'center',
-        headerStyle: {
-            borderLeft: 'none',
-            borderRight: 'none',
-            borderBottom: '1px',
-            borderTop: 'none',
-        },
-        style: () => {
-            return {
-                borderLeft: 'none',
-                borderRight: 'none',
-                borderBottom: '1px',
-            }
-        }
-    }, {
-        dataField: 'qty',
-        text: 'Qty',
-        sort: true,
-        headerAlign: 'center',
-        align: 'center',
-        headerStyle: {
-            borderLeft: 'none',
-            borderRight: 'none',
-            borderBottom: '1px',
-            borderTop: 'none',
-        },
-        style: () => {
-            return {
-                borderLeft: 'none',
-                borderRight: 'none',
-                borderBottom: '1px',
-            }
-        }
-    }, {
-        dataField: 'unitPrice',
-        text: 'Unit Price',
-        sort: true,
-        headerAlign: 'center',
-        align: 'center',
-        headerStyle: {
-            borderLeft: 'none',
-            borderRight: 'none',
-            borderBottom: '1px',
-            borderTop: 'none',
-        },
-        style: () => {
-            return {
-                borderLeft: 'none',
-                borderRight: 'none',
-                borderBottom: '1px',
-            }
-        }
-
-    }, {
-        dataField: 'amount',
-        text: 'amount',
-        sort: true,
-        headerAlign: 'center',
-        align: 'center',
-        headerStyle: {
-            borderLeft: 'none',
-            borderRight: 'none',
-            borderBottom: '1px',
-            borderTop: 'none',
-        },
-        style: () => {
-            return {
-                borderLeft: 'none',
-                borderRight: 'none',
-                borderBottom: '1px',
-            }
-        }
-
-    }, {
-        dataField: 'del',
-        text: ' ',
-        headerAlign: 'center',
-        align: 'center',
-        headerStyle: {
-            borderLeft: 'none',
-            borderRight: 'none',
-            borderBottom: '1px',
-            borderTop: 'none',
-        },
-        style: () => {
-            return {
-                borderLeft: 'none',
-                borderRight: 'none',
-                borderBottom: '1px',
-            }
-        }
-
-    }];
-
-    const defaultSorted = [{
-        dataField: 'id',
-        order: 'asc',
-    }];
-
-
-
-    const productsGenerator = (products: IProduct[]): any[] => {
-        const generatedProductList: any[] = [];
-
-        products.forEach((product: IProduct, index: number) =>
-            // <CheckOutItem key={index} num={index+1} product={product}/>
-            generatedProductList.push({
-                id: <p className='text-center' key={index}>{index+1}</p>,
-                image:<Row key={index}><Col className='px-0 text-center'> <Image src={Item} alt='product image' className='item-image'/></Col></Row>,
-                name: <p key={index} className='text-center'>{product.name}</p>,
-                qty: <p key={index} className='text-center'><i className='feather-minus-circle text-secondary'/> {product.qty} <i className='feather-plus-circle text-secondary'/></p>,
-                unitPrice: <p key={index} className='text-center'>{"Rs."+product.price}</p>,
-                amount: <p key={index} className='text-center'>{"Rs."+product.total}</p>,
-                del: <p key={index} className='text-center'><i className='feather-trash text-secondary'/></p>
-
-            })
-        );
-        return generatedProductList;
-    };
-
-    const customTotal = (from: number, to: number, size: number) => (
-        <span className="react-bootstrap-table-pagination-total text-secondary">
-    Showing { from } to { to } of { size } Results
-  </span>
-    );
-
-    // const pageButtonRenderer = ({
-    //                                 page,
-    //                                 active,
-    //                                 disable,
-    //                                 title,
-    //                                 onPageChange
-    //                             }) => {
-    //     const handleClick = (e: any) => {
-    //         e.preventDefault();
-    //         onPageChange(page);
-    //     };
-    //     const activeStyle = {};
-    //     if (active) {
-    //         activeStyle.backgroundColor = 'black';
-    //         activeStyle.color = 'white';
-    //     } else {
-    //         activeStyle.backgroundColor = 'gray';
-    //         activeStyle.color = 'black';
-    //     }
-    //     if (typeof page === 'string') {
-    //         activeStyle.backgroundColor = 'white';
-    //         activeStyle.color = 'black';
-    //     }
-    //     return (
-    //         <li className="page-item">
-    //             <a href="#" onClick={ handleClick } style={ activeStyle }>{ page }</a>
-    //         </li>
-    //     );
-    // };
-    const options = {
-        classes: 'pagination',
-        paginationSize: 4,
-        pageStartIndex: 1,
-        color: '#4caf50',
-        // alwaysShowAllBtns: true, // Always show next and previous button
-        // withFirstAndLast: false, // Hide the going to First and Last page button
-        // hideSizePerPage: true, // Hide the sizePerPage dropdown always
-        // hidePageListOnlyOnePage: true, // Hide the pagination list when only one page
-        firstPageText: 'First',
-        prePageText: 'Back',
-        nextPageText: 'Next',
-        lastPageText: 'Last',
-        nextPageTitle: 'First page',
-        prePageTitle: 'Pre page',
-        firstPageTitle: 'Next page',
-        lastPageTitle: 'Last page',
-        showTotal: true,
-        paginationTotalRenderer: customTotal,
-        disablePageTitle: true,
-        sizePerPageList: [{
-            text: '5', value: 5
-        }, {
-            text: '10', value: 10
-        }, {
-            text: 'All', value: products.length
-        }] // A numeric array is also available. the purpose of above example is custom the text
-    };
-
-
-
-    // const defaultSorted = [{
-    //     dataField: 'id',
-    //     order: 'asc'
-    // }];
+    let netTotal= totalPrice-discount;
 
     return (
         <Row className='checkout-table m-0 p-0'>
@@ -261,38 +32,33 @@ const CheckOutTable: React.FC<CheckoutTableProps> = (props) => {
             <Card className='cart-table'>
                 <h6 className='p-2'>Shopping Cart</h6>
                 <Card.Body className='card-body p-3 m-0 '>
-                    {/*<Table responsive>*/}
-                    {/*    <thead className='text-center'>*/}
-                    {/*    <tr>*/}
-                    {/*        <th>#</th>*/}
-                    {/*        <th>Item</th>*/}
-                    {/*        <th>Name</th>*/}
-                    {/*        <th>Qty</th>*/}
-                    {/*        <th>Unit Price</th>*/}
-                    {/*        <th>Amount</th>*/}
-                    {/*        <th> </th>*/}
-                    {/*    </tr>*/}
-                    {/*    </thead>*/}
-                    {/*    <tbody>*/}
-                    {/*    <CheckOutItem/>*/}
-                    {/*    <CheckOutItem/>*/}
-                    {/*    /!*<EmptyCheckout/>*!/*/}
-                    {/*    </tbody>*/}
-                    {/*</Table>*/}
-                    <BootstrapTable
-                        classes='table'
-                        bootstrap4
-                        keyField="id"
-                        data={productsGenerator(products)}
-                        columns={ columns }
-                        pagination={paginationFactory(options)}
-                        wrapperClasses='table-responsive overflow-x'
-                        defaultSortDirection="asc"
-                        rowClasses='text-wrap'
-                        headerClasses='header-class'
-
-                    />
-
+                    <CheckOutItem/>
+                    <Row>
+                        <Col xs={6} className='text-left price-tag'>
+                            <label>Delivery Charge</label>
+                        </Col>
+                        <Col xs={6} className='text-right text-secondary'>
+                            <label>Rs.250.00</label>
+                        </Col>
+                    </Row>
+                    <hr/>
+                    <Row>
+                        <Col xs={6} className='text-left price-tag'>
+                            <label>Discount</label>
+                        </Col>
+                        <Col xs={6} className='text-right text-secondary'>
+                            <label>Rs.{discount}.00</label>
+                        </Col>
+                    </Row>
+                    <hr/>
+                    <Row>
+                        <Col xs={6} className='text-left price-tag'>
+                            <label>Est.Total</label>
+                        </Col>
+                        <Col xs={6} className='text-right text-danger net-total'>
+                            <label>Rs.{netTotal}.00</label>
+                        </Col>
+                    </Row>
                 </Card.Body>
 
             </Card>

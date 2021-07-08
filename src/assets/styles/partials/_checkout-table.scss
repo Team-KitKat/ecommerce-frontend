@@ -24,6 +24,9 @@
           height: auto;
         }
 
+        .feather-trash {
+          cursor: pointer;
+        }
         .empty-image {
 
         }
@@ -32,9 +35,13 @@
 
       .pagination {
         float: right;
-
       }
-
+      .price-tag {
+        font-weight: bold;
+      }
+      .net-total {
+        font-weight: bold;
+      }
     }
   }
 }

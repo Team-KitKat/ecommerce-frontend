@@ -1,7 +1,8 @@
 export interface IProduct {
-    id: string
-    image: any
+    id: number
+    image: string
     name: string
+    category: string
     qty: number | 1
     price: number
     discount: number
@@ -9,9 +10,11 @@ export interface IProduct {
 }
 
 export interface IOrder {
+    id: string
     productList: IProduct[] | null
+    totalPrice: number
     discount: number
     netTotal: number
     deliveryCharge: number
-    id: string
+
 }

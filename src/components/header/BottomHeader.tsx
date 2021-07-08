@@ -1,8 +1,9 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Button, Col, Navbar, Row} from "react-bootstrap";
 import Badge from "react-bootstrap/Badge";
 import CartPreview from "../cartPreview/CartPreview";
 import EmptyCart from "../cartPreview/emptyCart/EmptyCart";
+import {useHistory} from "react-router-dom";
 
 type BottomHeaderProps = {
     itemCount : number | 0
@@ -16,20 +17,37 @@ const BottomHeader: React.FC<BottomHeaderProps> = (props) => {
     const [itemTarget, setItemTarget] = useState(null);
     const [emptyTarget, setEmptyTarget] = useState(null);
 
+    // useEffect(() => {
+    //     if(itemCount !== 0) {
+    //         setShowItemCart(!showItemCart);
+    //         // setItemTarget(event.target);
+    //     }
+    //     else {
+    //         setShowEmptyCart(!showEmptyCart);
+    //         // setEmptyTarget(event.target);
+    //     }
+    // },[itemCount]);
+
     const handleClick = (event: any) => {
 
-        if(itemCount != 0) {
-            setShowItemCart(!showItemCart);
-            setItemTarget(event.target);
-        }
-        else {
-            setShowEmptyCart(!showEmptyCart);
-            setEmptyTarget(event.target);
-        }
+        setShowItemCart(!showItemCart);
+        setItemTarget(event.target);
+        // if(itemCount !== 0) {
+        //     setShowItemCart(!showItemCart);
+        //     setItemTarget(event.target);
+        // }
+        // else {
+        //     setShowEmptyCart(!showEmptyCart);
+        //     setEmptyTarget(event.target);
+        // }
     };
 
+    const history = useHistory();
+    function handleLinClick(path:string) {
+        history.push(path);
+    }
     return (
-        <Navbar sticky='top' id='bottom_header' className='mb-2  bottom-header navbar-expand'>
+        <Navbar sticky='top' id='bottom_header' className='mb-2 px-0 bottom-header navbar-expand'>
             <Col xs={12} className='header-card'>
                 <Row className='m-0 py-2 '>
                     <Col className='ml-sm-3 ml-lg-0'
@@ -48,11 +66,13 @@ const BottomHeader: React.FC<BottomHeaderProps> = (props) => {
                                         <span><Badge>{itemCount}</Badge></span>
                                     </i>
                                 </Row>
+                                {/*{showItemCart ? <CartPreview showItemCart={showItemCart} target={itemTarget}/> : <EmptyCart showEmptyCart={showEmptyCart} target={emptyTarget}/>}*/}
                                 <CartPreview showItemCart={showItemCart} target={itemTarget}/>
-                                <EmptyCart showEmptyCart={showEmptyCart} target={emptyTarget}/>
+                                {/*<EmptyCart showEmptyCart={showEmptyCart} target={emptyTarget}/>*/}
                             </Col>
                             <Col className='p-0 px-2 checkout-btn-col' lg={{span: 3, offset: 0}} md={5} sm={3}>
-                                <Button variant="success" className='checkout-btn py-1' href='/checkout'>Checkout</Button>
+                                <Button  className='checkout-btn py-1' variant="success"
+                                         onClick={() => handleLinClick('/checkout')}>Checkout</Button>
                             </Col>
                         </Row>
                     </Col>
