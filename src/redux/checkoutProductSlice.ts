@@ -55,12 +55,16 @@ export const checkoutProductSlice = createSlice({
         deleteProduct: (state, action: PayloadAction<IProduct>) => {
             state.value = (state.value.filter(product => product.id !== action.payload.id))
         },
+        updateCheckedProducts:(state, action: PayloadAction<IProduct>)=>{
+            state.value=state.value.map(product => product.id === action.payload.id ? {...product, qty: action.payload.qty} : product)
+            // state.value=action.payload;
+        }
 
 
     },
 })
 
-export const {add, deleteProduct} = checkoutProductSlice.actions
+export const {add, deleteProduct, updateCheckedProducts} = checkoutProductSlice.actions
 // Other code such as selectors can use the imported `RootState` type
 export const productState = (state: RootState) => state.products
 
