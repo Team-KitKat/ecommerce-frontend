@@ -14,7 +14,7 @@ const Product: React.FC<productProps> = (props) => {
     const checkedProducts = useSelector((state: RootState) => state.checkoutProducts.value);
     const {productInfo, index} = props;
     const [showUpdate, setShowUpdate] = useState(false);
-    const [updated, setUpdated] = useState<IProduct>(() => productInfo);
+    const [product, setProduct] = useState<IProduct>(() => productInfo);
     const dispatch = useDispatch();
     const [productCount, setProductCount] = useState<number>(1);
     const handleAddtoCart = (addedProduct: IProduct, index: number) => {
@@ -36,7 +36,7 @@ const Product: React.FC<productProps> = (props) => {
 
     const handleCounter = (e: ChangeEvent<HTMLInputElement>) => {
         setProductCount(parseInt(e.target.value));
-        setUpdated({
+        setProduct({
             id: productInfo.id,
             image: productInfo.image,
             name: productInfo.name,
@@ -89,9 +89,9 @@ const Product: React.FC<productProps> = (props) => {
                                  className={'px-md-3 px-lg-3 px-xl-3 pb-2 pb-xl-0 pb-lg-0 pb-md-0'}>
                                 {showUpdate ?
                                     <Button className='border-primary text-primary' variant="light"
-                                            onClick={() => handleCountUpdate(updated)}>Update</Button> :
+                                            onClick={() => handleCountUpdate(product)}>Update</Button> :
                                     <Button className='' variant="success"
-                                            onClick={() => handleAddtoCart(productInfo, index)}>Add
+                                            onClick={() => handleAddtoCart(product, index)}>Add
                                         to Cart</Button>
                                 }
                             </Col>
