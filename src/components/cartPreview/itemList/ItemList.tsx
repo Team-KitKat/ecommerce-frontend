@@ -1,10 +1,9 @@
 import React from 'react';
-import {Col, Container, Row} from "react-bootstrap";
+import {Col, Container} from "react-bootstrap";
 import CartItem from "./CartItem";
-import {useDispatch, useSelector} from "react-redux";
+import {useSelector} from "react-redux";
 import {RootState} from "../../../redux/store";
 import {IProduct} from "../../../types/MainTypes";
-import Product from "../../productArea/singleProduct/Product";
 
 const ItemList: React.FC = () => {
     const checkoutProducts=useSelector((state:RootState)=>state.checkoutProducts.value);

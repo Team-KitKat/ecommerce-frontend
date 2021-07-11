@@ -46,7 +46,7 @@ const initialState: ProductState = {
 }
 
 export const productSlice = createSlice({
-    name: 'product',
+    name: 'products',
     // `createSlice` will infer the state type from the `initialState` argument
     initialState,
     reducers: {
@@ -61,7 +61,7 @@ export const productSlice = createSlice({
                 discount: action.payload.discount,
                 total: action.payload.total
             }
-            //state.push(newProduct);
+            state.value.push(newProduct);
         },
         updateProducts:(state, action: PayloadAction<IProduct[]>)=>{
             /*const newProducts: IProduct[] = state.value.slice();

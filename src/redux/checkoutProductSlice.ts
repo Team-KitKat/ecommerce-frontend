@@ -35,7 +35,7 @@ const initialState: ProductState = {
 }
 
 export const checkoutProductSlice = createSlice({
-    name: 'product',
+    name: 'checkoutProducts',
     // `createSlice` will infer the state type from the `initialState` argument
     initialState,
     reducers: {
