@@ -2,13 +2,6 @@ import React from 'react';
 import {Button, Card, Col, Image, Row, Table} from "react-bootstrap";
 import CheckOutItem from "./CheckOutItem";
 import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
-import paginationFactory from 'react-bootstrap-table2-paginator';
-import BootstrapTable from 'react-bootstrap-table-next';
-import EmptyCheckout from "./EmptyCheckout";
-import {IProduct} from "../../../types/MainTypes";
-import Item from "../../../assets/images/onions.jpg";
-import CheckoutPanel from "../checkoutPanel/CheckoutPanel";
-import {inspect} from "util";
 import {useSelector} from "react-redux";
 import {RootState} from "../../../redux/store";
 

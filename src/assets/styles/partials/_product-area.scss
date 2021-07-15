@@ -3,6 +3,9 @@
   width: 100%;
   .search-bar {
     .search-form {
+      .AutoComplete{
+        position: absolute;
+      }
       .search-box {
         color: #495057;
         border: 2px solid slategrey;
@@ -14,7 +17,7 @@
         }
         .form-control {
           border: none;
-          background-color: transparent;
+          //background-color: transparent;
 
         }
         .form-control:focus {

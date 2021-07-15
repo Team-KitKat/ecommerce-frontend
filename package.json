@@ -18,6 +18,7 @@
     "feather-icons": "^4.28.0",
     "node-sass": "^5.0.0",
     "react": "^17.0.2",
+    "react-autocomplete": "^1.8.1",
     "react-bootstrap": "^1.6.1",
     "react-bootstrap-table-next": "^4.0.3",
     "react-bootstrap-table2-editor": "^1.4.0",
@@ -27,6 +28,7 @@
     "react-redux": "^7.2.4",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
+    "react-search-autocomplete": "^5.4.2",
     "react-select": "^4.3.1",
     "react-table": "^7.7.0",
     "react-toastify": "^7.0.4",
@@ -61,6 +63,7 @@
   "devDependencies": {
     "@types/feather-icons": "^4.7.0",
     "@types/node-sass": "^4.11.1",
+    "@types/react-autocomplete": "^1.8.6",
     "@types/react-bootstrap-table-next": "^4.0.14",
     "@types/react-bootstrap-table2-paginator": "^2.1.1",
     "@types/react-redux": "^7.1.16",
