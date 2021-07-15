@@ -2,10 +2,12 @@
 .product-area {
   width: 100%;
   .search-bar {
+    .AutoComplete{
+      width: 100%;
+      position: absolute;
+      z-index: 2 ;
+    }
     .search-form {
-      .AutoComplete{
-        position: absolute;
-      }
       .search-box {
         color: #495057;
         border: 2px solid slategrey;
