@@ -18,3 +18,24 @@ export interface IOrder {
     deliveryCharge: number
 
 }
+
+export interface IFormGroup {
+    name: string
+    label: string
+    type: string
+    error: string | null
+    value: string
+}
+
+export interface INavItem {
+    title : string,
+    route : string,
+    icon: string,
+    subNav: INavItem [] | null
+}
+
+export  interface  IOption {
+    label: string
+    value: string
+}
+

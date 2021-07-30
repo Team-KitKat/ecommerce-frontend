@@ -1,0 +1,148 @@
+$border-radius-value: 20px;
+.admin-layout {
+  background-color: white;
+  min-height: 100vh;
+  padding: 20px 40px 20px 40px;
+  box-sizing: border-box;
+  padding: 30px;
+
+  .admin-container {
+    min-height: 100vh;
+    box-shadow: 1px 1px 5px #999999;
+    border-radius: $border-radius-value;
+
+    .side-navbar {
+      background-color: white;
+      //min-height: 100vh;
+      border-radius: $border-radius-value 0 0 $border-radius-value;
+
+      a {
+        text-decoration: none;
+      }
+
+      .nav {
+        background-color: #ffffff;
+
+        .nav-link {
+          margin: auto;
+          background-color: #ffffff;
+          border-radius: 1px;
+          color: #666666;
+          margin-top: 5px;
+          font-size: 0.98em;
+          transition: .3s;
+        }
+
+        .nav-link.nav-link:hover {
+          background-color: #ffffff;
+          color: green;
+          padding: 20px;
+          transition: .3s;
+
+        }
+
+      }
+
+      .profile-image {
+        width: 100px;
+        padding-top: 30px;
+        padding-bottom: 20px;
+      }
+
+      .profile-title-container {
+        font-size: 1em;
+      }
+
+      .profile-role-container {
+        font-size: 0.85em;
+        padding-bottom: 20px;
+      }
+    }
+
+    .content-container {
+      padding: 2rem 2rem 5rem 2rem;
+      background-color: azure;
+      border-radius: 0 $border-radius-value $border-radius-value 0;
+
+      .product-form {
+        font-size: 0.9em;
+
+        .css-g1d714-ValueContainer {
+          //padding: 0px 0 0 0px;
+          height: 35px;
+
+          .css-1uccc91-singleValue {
+            line-height: 50px;
+            height: 40px;
+
+          }
+        }
+
+        input {
+          height: 35px;
+        }
+
+        .input-group-text {
+          height: 35px;
+        }
+
+        .image-upload-container {
+          background-color: rgba(217, 217, 217, 0.62);
+          display: flex;
+          justify-content: center;
+          align-content: center;
+          height: 300px;
+          border-radius: 10px;
+          margin: auto;
+          margin-top: 10px;
+          margin-bottom: 20px;
+          cursor: pointer;
+
+          .image-upload-btn {
+
+            svg {
+              color: #2570cd;
+            }
+          }
+        }
+      }
+      .page-title {
+        padding: 20px;
+      }
+
+    }
+
+  }
+
+}
+
+@include media-breakpoint-down(md) {
+  .col-12 {
+    background-color: transparent!important;
+  }
+  .admin-layout {
+    padding: 30px;
+  }
+  .admin-container {
+    min-height: 0 !important;
+    background-color: transparent;
+    border-radius: 20px;
+  }
+  .side-navbar {
+    min-height: 200px;
+    border-radius: 20px;
+  }
+  .product-form {
+    flex-direction: column-reverse;
+
+  }
+  .content-container {
+    padding: 2px !important;
+    border-radius: 20px;
+  }
+  .page-title {
+    padding: 0;
+    text-align: center;
+  }
+
+}
