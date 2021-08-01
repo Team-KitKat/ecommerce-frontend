@@ -2,6 +2,11 @@
 .product-area {
   width: 100%;
   .search-bar {
+    .AutoComplete{
+      width: 100%;
+      position: absolute;
+      z-index: 2 ;
+    }
     .search-form {
       .search-box {
         color: #495057;
@@ -14,7 +19,7 @@
         }
         .form-control {
           border: none;
-          background-color: transparent;
+          //background-color: transparent;
 
         }
         .form-control:focus {
