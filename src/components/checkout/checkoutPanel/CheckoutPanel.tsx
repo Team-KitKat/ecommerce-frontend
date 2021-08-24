@@ -21,7 +21,7 @@ const CheckoutPanel: React.FC = () => {
 
     useEffect( () => {
 
-        if(checkoutProducts.length == 0) {
+        if(checkoutProducts.length === 0) {
             setShowEmptyCart(true);
 
         }
@@ -69,7 +69,7 @@ const CheckoutPanel: React.FC = () => {
                 <Col className="py-5 text-center" md={5} xs={12}>
                     <h3>discount banner</h3>
                 </Col>
-                <CheckOutForm/>
+                    <CheckOutForm/>
                 </Row>
             </Container>
     );

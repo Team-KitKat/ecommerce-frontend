@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@apollo/client": "^3.4.5",
     "@reduxjs/toolkit": "^1.6.0",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
@@ -15,10 +16,13 @@
     "@types/react-dom": "^17.0.6",
     "@types/react-select": "^4.0.17",
     "@types/zxcvbn": "^4.4.1",
+    "apollo-boost": "^0.4.9",
     "bootstrap": "^4.6.0",
     "feather-icons": "^4.28.0",
+    "graphql": "^15.5.1",
     "node-sass": "^5.0.0",
     "react": "^17.0.2",
+    "react-apollo": "^3.1.5",
     "react-autocomplete": "^1.8.1",
     "react-bootstrap": "^1.6.1",
     "react-bootstrap-table-next": "^4.0.3",
@@ -39,6 +43,7 @@
     "zxcvbn": "^4.4.2"
   },
   "scripts": {
+    "proxy": "http://localhost:3001/graphql",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

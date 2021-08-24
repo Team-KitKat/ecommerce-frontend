@@ -7,24 +7,24 @@ const NewAddressForm:React.FC=()=>{
             <Form.Row>
                 <Form.Group as={Col} xs="12" className="my-1" controlId="formName">
                     <Form.Label className="my-0">Full Name*</Form.Label>
-                    <Form.Control size="sm" type="text" placeholder="Your Full Name" className="input-sm"/>
+                    <Form.Control size="sm" type="text" placeholder="Your Full Name" required className="input-sm"/>
                 </Form.Group>
 
                 <Form.Group as={Col} xs="12" className="my-1" controlId="formAddress">
                     <Form.Label className="my-0">Address*</Form.Label>
-                    <Form.Control size="sm" type="text" placeholder="Street Address"/>
+                    <Form.Control size="sm" type="text" required placeholder="Street Address"/>
                 </Form.Group>
                 <Form.Group as={Col} md="4" className="my-1" controlId="formCity/SubUrb">
                     <Form.Label className="my-0">City/SubUrb*</Form.Label>
-                    <Form.Control size="sm" type="text" placeholder="City/SubUrb"/>
+                    <Form.Control size="sm" type="text" required placeholder="City/SubUrb"/>
                 </Form.Group>
                 <Form.Group as={Col} md="4" className="my-1" controlId="formPostalCode">
                     <Form.Label className="my-0">Postal Code*</Form.Label>
-                    <Form.Control size="sm" type="text" placeholder="Postal Code"/>
+                    <Form.Control size="sm" type="text" required placeholder="Postal Code"/>
                 </Form.Group>
                 <Form.Group as={Col} md="4" className="my-1" controlId="formCountry">
                     <Form.Label className="my-0">Country*</Form.Label>
-                    <Form.Control size="sm" type="text" placeholder="Country"/>
+                    <Form.Control size="sm" type="text" required placeholder="Country"/>
                 </Form.Group>
                 <Form.Group as={Col} xs="12" className="my-1" controlId="formCountry">
                     <Form.Label className="my-0">Contact Number*</Form.Label>
@@ -38,6 +38,7 @@ const NewAddressForm:React.FC=()=>{
                             placeholder=""
                             aria-label=""
                             aria-describedby="basic-addon1"
+                            required
                         />
                     </InputGroup>
                 </Form.Group>

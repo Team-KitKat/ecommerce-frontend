@@ -5,12 +5,45 @@ import Credit from "../../../assets/images/PaymentMethods/icons8-credit-card-100
 import Money from "../../../assets/images/PaymentMethods/icons8-money-96.png";
 import NewAddressForm from "./NewAddressForm";
 import passwordStrengthChecker from "./PasswordStrengthChecker";
+import Select, {ValueType} from "react-select";
 
 const CheckOutForm: React.FC = () => {
     const [visibility, setVisibility] = useState(false);
     const [newFormVisisbilty,setnewFormVisisbilty] = useState(false);
     const[formStatus,setFormStatus]=useState("")
     const [password,setPassword]=useState("");
+    const[name,setName]=useState<string | null>("");
+    const[address,setAddress]=useState<string | null>("");
+    const[city,setCity]=useState<string | null>("");
+    const[postalCode,setPostalCode]=useState<string | null>("");
+    const [country,setCountry]=useState<string | null>("");
+    const [email,setEmail]=useState<string | null>("");
+    const [validated, setValidated] = useState(false);
+    const [selectedCountry, setSelectedCountry] = useState<string | null>(null);
+
+    const options = [
+        { value: 'United States',label:'United States'},
+        { value: 'Sri Lanka',label:'Sri Lanka' },
+        { value: 'India',label:'India' },
+        { value: 'Australia',label:'Australia' }
+    ]
+
+    const handleSubmit = (e: ChangeEvent<HTMLFormElement>) => {
+        const form = e.currentTarget;
+        e.preventDefault();
+        e.stopPropagation();
+        if (!form.checkValidity()) {
+            e.preventDefault();
+            e.stopPropagation();
+        }
+        setValidated(true);
+
+        if ((name === "" || null)||(address === "" || null)||(city === "" || null)||(postalCode === "" || null)||
+            (country === "" || null)||(email === "" || null)){
+            return;
+        }
+
+    };
 
     const passwordBar1=useRef<HTMLParagraphElement>(null);
     const passwordBar2=useRef<HTMLParagraphElement>(null);
@@ -67,8 +100,19 @@ const CheckOutForm: React.FC = () => {
         }
     }, [password])
 
+
+
+    const customStyles = {
+        control: (base:any) => ({
+            ...base,
+            height: 32,
+            minHeight: 25
+        })
+
+    };
+
     return (
-        <Col md={7} xs={12} className='p-0 m-0'>
+        <Col md={7} xs={12} className='p-0 m-0 mt-3'>
             <Container className="checkout-form-container p-0 m-0">
                 <Card>
                     <Card.Body>
@@ -82,28 +126,76 @@ const CheckOutForm: React.FC = () => {
                 <Card className="shipping-info-card mt-2">
                     <Card.Header className="shipping-info-card-header" style={{backgroundColor: 'white'}} as="h5">
                         Shipping and Billing Address</Card.Header>
-                    <Form className="mx-4 my-4">
+                    <Form className="mx-4 my-4" noValidate validated={validated} onSubmit={handleSubmit}>
                         <Form.Row>
                             <Form.Group as={Col} xs="12" className="my-1" controlId="formName">
                                 <Form.Label className="my-0">Full Name*</Form.Label>
-                                <Form.Control size="sm" type="text" placeholder="Your Full Name" className="input-sm"/>
+                                <Form.Control
+                                    size="sm"
+                                    type="text"
+                                    placeholder="Your Full Name"
+                                    className="input-sm"
+                                    required
+                                />
+                                <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+                                <Form.Control.Feedback type="invalid">Please Fill Empty Field!</Form.Control.Feedback>
                             </Form.Group>
 
                             <Form.Group as={Col} xs="12" className="my-1" controlId="formAddress">
                                 <Form.Label className="my-0">Address*</Form.Label>
-                                <Form.Control size="sm" type="text" placeholder="Street Address"/>
+                                <Form.Control
+                                    size="sm"
+                                    type="text"
+                                    placeholder="Street Address"
+                                    className="input-sm"
+                                    required
+                                />
+                                <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+                                <Form.Control.Feedback type="invalid">Please Fill Empty Field!</Form.Control.Feedback>
                             </Form.Group>
                             <Form.Group as={Col} md="4" className="my-1" controlId="formCity/SubUrb">
                                 <Form.Label className="my-0">City/SubUrb*</Form.Label>
-                                <Form.Control size="sm" type="text" placeholder="City/SubUrb"/>
+                                <Form.Control
+                                    size="sm"
+                                    type="text"
+                                    placeholder="City/SubUrb"
+                                    className="input-sm"
+                                    required
+                                />
+                                <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+                                <Form.Control.Feedback type="invalid">Please Fill Empty Field!</Form.Control.Feedback>
                             </Form.Group>
                             <Form.Group as={Col} md="4" className="my-1" controlId="formPostalCode">
                                 <Form.Label className="my-0">Postal Code*</Form.Label>
-                                <Form.Control size="sm" type="text" placeholder="Postal Code"/>
+                                <Form.Control
+                                    size="sm"
+                                    type="text"
+                                    placeholder="Postal Code"
+                                    required
+                                />
+                                <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+                                <Form.Control.Feedback type="invalid">Please Fill Empty Field!</Form.Control.Feedback>
                             </Form.Group>
                             <Form.Group as={Col} md="4" className="my-1" controlId="formCountry">
                                 <Form.Label className="my-0">Country*</Form.Label>
-                                <Form.Control size="sm" type="text" placeholder="Country"/>
+                                    <Select
+                                        className="country-select"
+                                        defaultValue={options[1]}
+                                        options={options}
+                                        styles={customStyles}
+                                        theme={theme => ({
+                                            ...theme,
+                                            borderRadius: 0,
+                                            colors: {
+                                                ...theme.colors,
+                                                primary25: 'neutral0',
+                                                primary: 'neutral0',
+                                            }
+                                            })
+                                        }
+                                    />
+                                <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+                                <Form.Control.Feedback type="invalid">Please Fill Empty Field!</Form.Control.Feedback>
                             </Form.Group>
                             <Form.Group as={Col} xs="12" className="my-1" controlId="formCountry">
                                 <Form.Label className="my-0">Contact Number*</Form.Label>
@@ -116,19 +208,36 @@ const CheckOutForm: React.FC = () => {
                                         size="sm"
                                         placeholder=""
                                         aria-label=""
+                                        required
                                         aria-describedby="basic-addon1"
                                     />
+                                    <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+                                    <Form.Control.Feedback type="invalid">Please Fill Empty Field!</Form.Control.Feedback>
                                 </InputGroup>
                             </Form.Group>
                         </Form.Row>
                         <Form.Row className="mb-2">
                             <Form.Group as={Col} md="6" className="mb-3" controlId="Email">
                                 <Form.Label className="my-0">Email*</Form.Label>
-                                <Form.Control size="sm" type="text" placeholder="Email"/>
+                                <Form.Control
+                                    size="sm"
+                                    type="text"
+                                    required
+                                    placeholder="Email"
+                                />
+                                <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+                                <Form.Control.Feedback type="invalid">Please Fill Empty Field!</Form.Control.Feedback>
                             </Form.Group>
                             <Form.Group as={Col} md="6" className="mb-3" controlId="Retype Email*">
                                 <Form.Label className="my-0">Retype Email*</Form.Label>
-                                <Form.Control size="sm" type="text" placeholder="Retype Email"/>
+                                <Form.Control
+                                    size="sm"
+                                    type="text"
+                                    required
+                                    placeholder="Retype Email"
+                                />
+                                <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+                                <Form.Control.Feedback type="invalid">Please Fill Empty Field!</Form.Control.Feedback>
                             </Form.Group>
                             <Form.Group as={Col} md="12" className="retype-email mb-3" controlId="Retype Email*">
                                 <Form.Label className="my-0">Choose your password*</Form.Label>
@@ -136,11 +245,14 @@ const CheckOutForm: React.FC = () => {
                                     <FormControl
                                         size="sm"
                                         placeholder=""
+                                        required
                                         type={visibility ? 'text' : 'password'}
                                         onChange={passwordHandler}
                                         aria-label=""
                                         aria-describedby="basic-addon1"
                                     />
+                                    <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+                                    <Form.Control.Feedback type="invalid">Please Fill Empty Field!</Form.Control.Feedback>
                                     <InputGroup.Prepend style={{backgroundColor: 'white', border: '0px'}} >
                                         <InputGroup.Text id="basic-addon1" style={{backgroundColor: 'white'}}> <i
                                             className={visibility ? 'feather-eye' : 'feather-eye-off'}
@@ -158,51 +270,52 @@ const CheckOutForm: React.FC = () => {
                             </Form.Group>
                         </Form.Row>
                         <i data-feather="eye"/>
+
+                        <Row className="mt-4 mx-0">
+                            <Col xs={12}>
+                                <p>Change Shipping Address</p>
+                            </Col>
+                            <Col xs={12} className="px-0">
+                                    <Form.Check name="radioBtn" value="same" label="Same as user address" onChange={radioHandler} type="radio" inline/>
+                                    <Form.Check name="radioBtn" value="new" label="Change shipping address"  onChange={radioHandler} type="radio" inline/>
+                                    {newFormVisisbilty?<NewAddressForm/>:<div/>}
+                                    <Form.Row className="mt-4 mx-0">
+                                        <p>Add Delivery Instructions (Optional)</p>
+                                        <Form.Control
+                                            as="textarea"
+                                            style={{height: '100px'}}
+                                            required
+                                        />
+                                    </Form.Row>
+                                    <Row className="payment-methods mt-4 mx-0">
+                                        <Col xs={12}>
+                                            <h5>Payment Methods</h5>
+                                        </Col>
+                                        <Row className="mx-0 px-3"style={{width:'100%'}} >
+                                            <Col md={5} xs={12} className=" Credit px-0 text-center">
+                                                <img alt="Credit" src={Credit}/>
+                                                <p>Credit/Debit Card</p>
+                                            </Col>
+                                            <Col md={{ span: 1, offset: 1}}/>
+                                            <Col md={5} xs={12} className=" Money px-0 text-center">
+                                                <img alt="Money" src={Money}/>
+                                                <p>Cash On Delivery</p>
+                                            </Col>
+                                        </Row>
+
+                                    </Row>
+                                    <Form.Row className="order-btn mb-4 mx-0">
+                                        <Col xs={12} className="mx-0 text-center">
+                                            <Button variant="primary" type="submit" className=" mt-3 pt-2 pb-2
+                                            pl-lg-5 pr-lg-5">
+                                                <p style={{marginTop:'0',marginBottom:'0'}}>Order</p></Button>
+                                        </Col>
+                                    </Form.Row>
+                            </Col>
+                        </Row>
                     </Form>
                 </Card>
-                <Row className="mt-4 mx-0">
-                    <Col xs={12}>
-                        <p>Change Shipping Address</p>
-                    </Col>
-                    <Col xs={12} className="px-0">
-                        <Form>
-                            <Form.Check name="radioBtn" value="same" label="Same as user address" onChange={radioHandler} type="radio" inline/>
-                            <Form.Check name="radioBtn" value="new" label="Change shipping address"  onChange={radioHandler} type="radio" inline/>
-                            {newFormVisisbilty?<NewAddressForm/>:<div/>}
-                            <Form.Row className="mt-4 mx-0">
-                                <p>Add Delivery Instructions (Optional)</p>
-                                <Form.Control
-                                    as="textarea"
-                                    style={{height: '100px'}}
-                                />
-                            </Form.Row>
-                            <Row className="payment-methods mt-4 mx-0">
-                                <Col xs={12}>
-                                    <h5>Payment Methods</h5>
-                                </Col>
-                                <Row className="mx-0 px-3"style={{width:'100%'}} >
-                                    <Col md={5} xs={12} className=" Credit px-0 text-center">
-                                        <img alt="Credit" src={Credit}/>
-                                        <p>Credit/Debit Card</p>
-                                    </Col>
-                                    <Col md={{ span: 1, offset: 1}}/>
-                                    <Col md={5} xs={12} className=" Money px-0 text-center">
-                                        <img alt="Money" src={Money}/>
-                                        <p>Cash On Delivery</p>
-                                    </Col>
-                                </Row>
 
-                            </Row>
-                            <Form.Row className="order-btn mb-4 mx-0">
-                                <Col xs={12} className="mx-0 text-center">
-                                    <Button variant="primary" className=" mt-3 pt-2 pb-2
-                                            pl-lg-5 pr-lg-5">
-                                        <p style={{marginTop:'0',marginBottom:'0'}}>Order</p></Button>
-                                </Col>
-                            </Form.Row>
-                        </Form>
-                    </Col>
-                </Row>
             </Container>
         </Col>
     );

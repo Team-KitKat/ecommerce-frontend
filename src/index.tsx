@@ -5,12 +5,35 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {Provider} from "react-redux";
 import {store} from "./redux/store";
+//import {ApolloClient} from 'apollo-boost'
+import {
+    ApolloClient,
+    InMemoryCache,
+    ApolloProvider,
+    gql, createHttpLink
+} from "@apollo/client";
+/*
+const client = new ApolloClient({
+    uri: 'https://manakal-api.herokuapp.com',
+    cache: new InMemoryCache()
+});
+*/
+const client = new ApolloClient({
+    link:createHttpLink({
+        uri:'http://localhost:3001/graphql',
+        //uri:'https://manakal-api.herokuapp.com',
+    }),
+    cache: new InMemoryCache(),
+});
 
 ReactDOM.render(
   <React.StrictMode>
+  <ApolloProvider client={client}>
       <Provider store={store}>
           <App />
       </Provider>
+  </ApolloProvider>
+      
   </React.StrictMode>,
   document.getElementById('root')
 );
