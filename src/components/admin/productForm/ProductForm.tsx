@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Button, Col, Row} from 'react-bootstrap';
 import Form from 'react-bootstrap/Form';
 import {IOption} from "../../../types/MainTypes";
@@ -45,13 +45,18 @@ const ProductForm: React.FC = () => {
             console.log(error);
         }
         if(data){
-            notify();
             console.log(data);
             reset();
-
         }
 
     };
+    useEffect(() => {
+        if(!data){
+            return;
+        }
+        notify();
+    }, [data]);
+
 
     return (
 
