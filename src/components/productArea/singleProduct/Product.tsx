@@ -24,6 +24,7 @@ const Product: React.FC<productProps> = (props) => {
         }
 
     }
+    console.log(props.productInfo);
     const handleUpdateCart = (addedProduct: IProduct, index: number) => {
         if ((index + 1) == addedProduct.id) {
             setShowUpdate(true);
@@ -58,10 +59,10 @@ const Product: React.FC<productProps> = (props) => {
     // }, [checkedProducts.length])
 
     return (
-        <Col xs={6} sm={6} lg={3} md={4} xl={3} className='m-0 px-xl-3 px-sm-3 px-lg-3 px-md-3 single-product'>
+        <Col xs={6} sm={6} lg={3} md={4} xl={3} className='m-0 px-xl-3 px-sm-3 px-lg-3 px-md-3 product-area single-product'>
             <Row className={'px-1 py-0  m-0 mb-3 text-center product-body'}>
-                <Col xs={12} className='p-0 m-0'>
-                    <Image
+                <Col xs={12} className='p-0 m-0'>s
+                    <img
                         className='m-0 px-0 px-lg-4 px-xl-5 px-md-3 px-sm-2  product-image'
                         src={productInfo.image} alt="product"/>
                 </Col>

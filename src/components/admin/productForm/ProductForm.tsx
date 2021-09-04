@@ -1,167 +1,126 @@
-import React, {ChangeEvent, FormEvent, useEffect, useRef, useState} from 'react';
-import {Button, Col, FormControl, InputGroup, Row} from 'react-bootstrap';
-import Form from 'react-bootstrap/Form'
-import Select, {ValueType} from 'react-select'
-import {IFormGroup, IOption} from "../../../types/MainTypes";
-import {useHistory} from "react-router-dom";
+import React, {useState} from 'react';
+import {Button, Col, Row} from 'react-bootstrap';
+import Form from 'react-bootstrap/Form';
+import {IOption} from "../../../types/MainTypes";
+import {useMutation} from "@apollo/client";
+import {CREATE_PRODUCT_ITEM} from "../../../Grapgql/Mutationn";
+import {useForm, Controller, SubmitHandler} from "react-hook-form";
+import Select from "react-select";
+import {categoryDetails} from "../../../cores/categoryDetails";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+type Inputs = {
+    productName: string,
+    productQty: number,
+    productPrice: number,
+    productDiscount: number,
+    categoryType: IOption,
+    expDate: Date,
+    image:File
 
-const options: IOption[] = [
-    {value: 'grocery', label: 'Grocery'},
-    {value: 'pharmacy', label: 'Pharmacy'},
-    {value: 'food', label: 'Food'}
-]
-
+};
 const ProductForm: React.FC = () => {
+    const [createProduct, {data, loading, error}] = useMutation(CREATE_PRODUCT_ITEM);
 
-    const [validated, setValidated] = useState(false);
-    const [selectorBorderColor, setSelectorBorderColor] = useState<string>('#cecece');
+    const {register, reset ,handleSubmit, control, watch, formState: {errors}} = useForm<Inputs>();
+    const notify = () => toast("Successfully Product Added.");
 
-    const [isSelectorValidate, setIsSelectorValidate] = useState<boolean>(false);
-    const [selectorValue, setSelectorValue] = useState<string | null>(null);
-
-    const [productName, setProductName] = useState<string>("");
-    const [productPrice, setProductPrice] = useState<string>("");
-    const [productOfferPrice, setProductOfferPrice] = useState<string>("");
-    const [productDescription, setProductDescription] = useState<string>("");
-    const [productExpireData, setProductExpireData] = useState<string>("");
-    const [productImage, setProductImage] = useState<string>("");
-
-
-    const handleOnProductNameChange = (e: ChangeEvent<HTMLInputElement>) => {
-        setProductName(e.target.value);
-    }
-
-    const handleOnProductPriceChange = (e: ChangeEvent<HTMLInputElement>) => {
-        setProductPrice(e.target.value)
-    }
-    const handleOnProductOfferPriceChange = (e: ChangeEvent<HTMLInputElement>) => {
-        setProductOfferPrice(e.target.value)
-    }
-    const handleOnProductExpireDateChange = (e: ChangeEvent<HTMLInputElement>) => {
-        setProductExpireData(e.target.value)
-    }
-    const handleOnProductDescriptionChange = (e: ChangeEvent<HTMLInputElement>) => {
-        setProductDescription(e.target.value)
-    }
-
-    const handleOnProductTypeChange = (option: ValueType<IOption, false>) => {
-        setSelectorValue(option ? option.value : null);
-        if (option) {
-            setSelectorBorderColor('#30b625');
-        } else {
-            setSelectorBorderColor('#f80046');
+    const onSubmit: SubmitHandler<Inputs> = async event => {
+        if(event.categoryType == null ) return;
+        const product = await createProduct(
+            {
+                variables: {
+                    id: event.productName + Math.floor(Math.random() * 1000000),
+                    name: event.productName,
+                    image: "https://www.applesfromny.com/wp-content/uploads/2020/06/SnapdragonNEW.png",
+                    price: Number(event.productPrice),
+                    offerPrice: Number(event.productDiscount),
+                    qty: Number(event.productQty),
+                    category: event.categoryType.value,
+                    expDate: event.expDate
+                }
+            }
+        )
+        if(error) {
+            console.log(error);
         }
-    }
+        if(data){
+            notify();
+            console.log(data);
+            reset();
 
-    const handleSubmit = (event: FormEvent) => {
-        const form = event.currentTarget;
-        event.preventDefault();
-        event.stopPropagation();
-        setValidated(true);
-        if (!selectorValue) {
-            setSelectorBorderColor("#f80046")
-        }
-        if (productName == "" || selectorValue == "" || productPrice == "" || productOfferPrice == "" || productExpireData == "" || productDescription == "") {
-            return;
-        } else {
-            history.push("/home")
         }
 
     };
 
-    const customStyles = {
-        control: (provided: any, state: any) => ({
-            ...provided,
-            border: `1px solid  ${selectorBorderColor}`,
-            borderRadius: '5px',
-            height: '25px',
-            marginBottom: '15px',
-            lineHeight: '30px',
-            outline: 'none',
-        }),
-    }
-    const history = useHistory();
-
     return (
-        <Form  noValidate validated={validated} onSubmit={handleSubmit} className="pb-5">
+
+        <Form onSubmit={handleSubmit(onSubmit)} className="pb-5">
+            <ToastContainer />
             <Row className='product-form pt-5 m-0'>
                 <Col xs={12} sm={12} md={12} lg={8} xl={8}>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
-                        <Form.Label> Product Name </Form.Label>
-                        <Form.Control
-                            type="text"
-                            onChange={handleOnProductNameChange}
-                            required
+                        <Form.Label> Product Category </Form.Label>
+                        <Controller
+                            name="categoryType"
+                            control={control}
+                            render={({field}) => <Select
+                                isClearable
+                                isSearchable
+                                {...field}
+                                options={categoryDetails}
+                            />}
                         />
-                        {<Form.Text className="text-danger ">
-                            required
-                        </Form.Text>}
+                        {watch("categoryType") == null && <Form.Text className="text-danger "> required </Form.Text>}
                     </Form.Group>
-                    <Form.Label> Product Type </Form.Label>
-                    <Select
-                        placeholder={""}
-                        isSearchable
-                        options={options}
-                        isClearable
-                        styles={customStyles}
-                        onChange={handleOnProductTypeChange}
-                    />
-                    <Form.Label> Product Price </Form.Label>
-                    <InputGroup className="mb-3">
-                        <InputGroup.Prepend>
-                            <InputGroup.Text>Rs</InputGroup.Text>
-                        </InputGroup.Prepend>
-                        <FormControl type="number"
-                                     onChange={handleOnProductPriceChange} required
-                                     aria-label="Amount (to the nearest dollar)"/>
-                        <InputGroup.Append>
-                            <InputGroup.Text>.00</InputGroup.Text>
-                        </InputGroup.Append>
-                    </InputGroup>
-                    <Form.Label> Offer Price </Form.Label>
-                    <InputGroup className="mb-3">
-                        <InputGroup.Prepend>
-                            <InputGroup.Text>Rs</InputGroup.Text>
-                        </InputGroup.Prepend>
-                        <FormControl type="number"
-                                     onChange={handleOnProductOfferPriceChange} required
-                                     aria-label="Amount (to the nearest dollar)"/>
-                        <InputGroup.Append>
-                            <InputGroup.Text>.00</InputGroup.Text>
-                        </InputGroup.Append>
-                    </InputGroup>
+
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label> Product Name </Form.Label>
-                        <Form.Control
-                            type="date"
-                            onChange={handleOnProductExpireDateChange}
-                            required
-                        />
-                        {<Form.Text className="text-danger ">
-                            required
-                        </Form.Text>}
+                        <Form.Control type="text" {...register("productName",
+                            {required: true, maxLength: 20})} />
+                        {errors.productName && <Form.Text className="text-danger "> required </Form.Text>}
                     </Form.Group>
+
                     <Form.Group className="mb-3" controlId="formBasicEmail">
-                        <Form.Label>Description</Form.Label>
-                        <Form.Control onChange={handleOnProductDescriptionChange} required
-                                      as="textarea" rows={3}/>
+                        <Form.Label> Current QTY (kg)</Form.Label>
+                        <Form.Control type="number" {...register("productQty",
+                            {required: true, maxLength: 20})} />
+                        {errors.productQty && <Form.Text className="text-danger "> required </Form.Text>}
                     </Form.Group>
+
+                    <Form.Group className="mb-3" controlId="formBasicEmail">
+                        <Form.Label> Product Price (Rs) </Form.Label>
+                        <Form.Control type="number" {...register("productPrice",
+                            {required: true, maxLength: 20})} />
+                        {errors.productPrice && <Form.Text className="text-danger "> required </Form.Text>}
+                    </Form.Group>
+
+                    <Form.Group className="mb-3" controlId="formBasicEmail">
+                        <Form.Label>Discounted Price (Rs) </Form.Label>
+                        <Form.Control type="number" {...register("productDiscount",
+                            {required: true, maxLength: 20})} />
+                        {errors.productDiscount && <Form.Text className="text-danger "> required </Form.Text>}
+                    </Form.Group>
+
+                    <Form.Group className="mb-3" controlId="formBasicEmail">
+                        <Form.Label> Expire Date </Form.Label>
+                        <Form.Control type="date" {...register("expDate",
+                            {required: true})} />
+                        {errors.expDate && <Form.Text className="text-danger "> required </Form.Text>}
+                    </Form.Group>
+
+                    <Form.Group className="mb-3" controlId="formBasicEmail">
+                        <Form.Label> Product Image </Form.Label>
+                        <Form.Control type="file" {...register("image",
+                            {required: true})} />
+                        {errors.image && <Form.Text className="text-danger "> required </Form.Text>}
+                    </Form.Group>
+
                     <Button variant="primary" className="btn btn-primary" type="submit">
-                        Add Product
+                        {   !loading ? "Add Product" : <div className="spinner-border p-1 " role="status"></div>    }
                     </Button>
                 </Col>
-                <Col xs={12} sm={12} md={12} lg={4} xl={4}>
-                    <Row>
-                        <Form.Group controlId="formFileLg" className="mb-3 m-auto p-3 ">
-                            <Form.Label>Product Image Upload</Form.Label>
-                            <Form.Control type="file" size="lg" required/>
-                        </Form.Group>
-                        {/*{*/}
-                        {/*    productName + " " + selectorValue + " " + productPrice + " " + productOfferPrice + " " + productExpireData + " " + productDescription*/}
-                        {/*}*/}
-                    </Row>
-                </Col>
-
+                <Col xs={12} sm={12} md={12} lg={4} xl={4}> </Col>
             </Row>
         </Form>
     );

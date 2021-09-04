@@ -7,8 +7,8 @@ const ProfileDetails: React.FC = () => {
     return (
         <React.Fragment>
             <ProfileImage/>
-            <ProfileName/>
-            <ProfileRoll/>
+            {/*<ProfileName/>*/}
+            {/*<ProfileRoll/>*/}
         </React.Fragment>
     );
 };
