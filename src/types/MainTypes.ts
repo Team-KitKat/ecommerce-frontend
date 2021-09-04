@@ -7,6 +7,7 @@ export interface IProduct {
     price: number
     discount: number
     total: number
+    isUpdate: boolean
 }
 
 export interface IOrder {

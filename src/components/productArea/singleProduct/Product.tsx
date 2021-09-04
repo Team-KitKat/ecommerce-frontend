@@ -4,6 +4,7 @@ import {IProduct} from "../../../types/MainTypes";
 import {useDispatch, useSelector} from "react-redux";
 import {add, updateCheckedProducts,} from "../../../redux/checkoutProductSlice";
 import {RootState} from "../../../redux/store";
+import {updateProducts} from "../../../redux/productSlice";
 
 type productProps = {
     productInfo: IProduct;
@@ -20,18 +21,30 @@ const Product: React.FC<productProps> = (props) => {
     const handleAddtoCart = (addedProduct: IProduct, index: number) => {
         dispatch(add(addedProduct));
         if ((index + 1) == addedProduct.id) {
-            setShowUpdate(true);
+            // setShowUpdate(true);
+            handleUpdateButton(addedProduct);
         }
 
     }
     const handleUpdateCart = (addedProduct: IProduct, index: number) => {
-        if ((index + 1) == addedProduct.id) {
-            setShowUpdate(true);
-        }
-        else {
-            setShowUpdate(false)
+        if (productInfo.id == addedProduct.id) {
+            setShowUpdate(addedProduct.isUpdate);
         }
 
+    }
+
+    const handleProductAdded = () => {
+        setProduct({
+            id: productInfo.id,
+            image: productInfo.image,
+            name: productInfo.name,
+            category: productInfo.category,
+            qty: productInfo.qty,
+            price: productInfo.price,
+            discount: productInfo.discount,
+            total: productInfo.total,
+            isUpdate: true
+        })
     }
 
     const handleCounter = (e: ChangeEvent<HTMLInputElement>) => {
@@ -44,18 +57,24 @@ const Product: React.FC<productProps> = (props) => {
             qty: productCount+1,
             price: productInfo.price,
             discount: productInfo.discount,
-            total: productInfo.total
+            total: productInfo.total,
+            isUpdate: true
         })
+    }
+
+    const handleUpdateButton = (addedProduct: IProduct) => {
+        handleProductAdded();
+        dispatch(updateProducts(addedProduct));
     }
 
     const handleCountUpdate = (updatedProduct: IProduct) => {
         dispatch(updateCheckedProducts(updatedProduct))
     }
-    // useEffect(() => {
-    //     checkedProducts.map((chProduct: IProduct) => (
-    //         handleUpdateCart(chProduct,index)
-    // ))
-    // }, [checkedProducts.length])
+    useEffect(() => {
+        checkedProducts.map((chProduct: IProduct) => (
+            handleUpdateCart(chProduct,index)
+    ))
+    }, [checkedProducts])
 
     return (
         <Col xs={6} sm={6} lg={3} md={4} xl={3} className='m-0 px-xl-3 px-sm-3 px-lg-3 px-md-3 single-product'>

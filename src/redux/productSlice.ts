@@ -11,15 +11,16 @@ interface ProductState {
 const initialState: ProductState = {
     value: [
         {
-        id: 1,
-        image: "https://store-images-soft.s3.us-east-2.amazonaws.com/avacado.jpg",
-        name: "Avacado",
-        category: "grocery",
-        qty: 1,
-        price: 300,
-        discount: 20,
-        total: 300
-    },
+            id: 1,
+            image: "https://store-images-soft.s3.us-east-2.amazonaws.com/avacado.jpg",
+            name: "Avacado",
+            category: "grocery",
+            qty: 1,
+            price: 300,
+            discount: 20,
+            total: 300,
+            isUpdate: false
+        },
         {
             id: 2,
             image: "https://store-images-soft.s3.us-east-2.amazonaws.com/avacado.jpg",
@@ -28,7 +29,8 @@ const initialState: ProductState = {
             qty: 1,
             price: 350,
             discount: 25,
-            total: 350
+            total: 350,
+            isUpdate: false
         },
         {
             id: 3,
@@ -38,7 +40,8 @@ const initialState: ProductState = {
             qty: 1,
             price: 300,
             discount: 20,
-            total: 300
+            total: 300,
+            isUpdate: false
         },
         {
             id: 4,
@@ -48,7 +51,8 @@ const initialState: ProductState = {
             qty: 1,
             price: 300,
             discount: 20,
-            total: 300
+            total: 300,
+            isUpdate: false
         },
         {
             id: 5,
@@ -58,7 +62,8 @@ const initialState: ProductState = {
             qty: 1,
             price: 300,
             discount: 20,
-            total: 300
+            total: 300,
+            isUpdate: false
         },
         {
             id: 6,
@@ -68,7 +73,8 @@ const initialState: ProductState = {
             qty: 1,
             price: 350,
             discount: 25,
-            total: 350
+            total: 350,
+            isUpdate: false
         },
         {
             id: 7,
@@ -78,7 +84,8 @@ const initialState: ProductState = {
             qty: 1,
             price: 300,
             discount: 20,
-            total: 300
+            total: 300,
+            isUpdate: false
         },
         {
             id: 8,
@@ -88,10 +95,11 @@ const initialState: ProductState = {
             qty: 1,
             price: 300,
             discount: 20,
-            total: 300
+            total: 300,
+            isUpdate: false
         },
 
-        ]
+    ]
 
 }
 
@@ -109,20 +117,20 @@ export const productSlice = createSlice({
                 qty: action.payload.qty,
                 price: action.payload.price,
                 discount: action.payload.discount,
-                total: action.payload.total
+                total: action.payload.total,
+                isUpdate: false
             }
             //state.push(newProduct);
         },
-        updateProducts:(state, action: PayloadAction<IProduct[]>)=>{
-            /*const newProducts: IProduct[] = state.value.slice();
-            newAuthorList.splice(index - 1, 1, updatedAuthor);*/
-            state.value=action.payload;
+        updateProducts:(state, action: PayloadAction<IProduct>)=>{
+            state.value=state.value.map(product => product.id === action.payload.id ? {...product, isUpdate: action.payload.isUpdate} : product)
+            // state.value=action.payload;
         }
 
     },
 })
 
-export const {add,updateProducts} = productSlice.actions
+export const {add, updateProducts} = productSlice.actions
 
 // Other code such as selectors can use the imported `RootState` type
 export const productState = (state: RootState) => state.products

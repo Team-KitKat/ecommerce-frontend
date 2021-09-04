@@ -48,7 +48,8 @@ export const checkoutProductSlice = createSlice({
                 qty: action.payload.qty,
                 price: action.payload.price,
                 discount: action.payload.discount,
-                total: action.payload.total
+                total: action.payload.total,
+                isUpdate: true
             }
             state.value.push(newProduct);
         },
