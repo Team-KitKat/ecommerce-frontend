@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {Button, Col, Row} from 'react-bootstrap';
 import Form from 'react-bootstrap/Form';
-import {IOption} from "../../../types/MainTypes";
+import {IOption, IProduct} from "../../../types/MainTypes";
 import {useMutation} from "@apollo/client";
 import {CREATE_PRODUCT_ITEM} from "../../../Grapgql/Mutationn";
 import {useForm, Controller, SubmitHandler} from "react-hook-form";
@@ -19,12 +19,13 @@ type Inputs = {
     image:File
 
 };
-const ProductForm: React.FC = () => {
+type ProductFormProps = {
+    ProductToUpdate: boolean | null;
+}
+const ProductForm: React.FC<ProductFormProps> = (props) => {
     const [createProduct, {data, loading, error}] = useMutation(CREATE_PRODUCT_ITEM);
-
     const {register, reset ,handleSubmit, control, watch, formState: {errors}} = useForm<Inputs>();
     const notify = () => toast("Successfully Product Added.");
-
     const onSubmit: SubmitHandler<Inputs> = async event => {
         if(event.categoryType == null ) return;
         const product = await createProduct(
@@ -122,7 +123,11 @@ const ProductForm: React.FC = () => {
                     </Form.Group>
 
                     <Button variant="primary" className="btn btn-primary" type="submit">
-                        {   !loading ? "Add Product" : <div className="spinner-border p-1 " role="status"></div>    }
+                        {
+                            props.ProductToUpdate?
+                                (!loading?  "Update Product" : <div className="spinner-border p-1 " role="status"></div>)
+                                : (!loading?  "Add Product" : <div className="spinner-border p-1 " role="status"></div>)
+                        }
                     </Button>
                 </Col>
                 <Col xs={12} sm={12} md={12} lg={4} xl={4}> </Col>

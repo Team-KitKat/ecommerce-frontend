@@ -6,7 +6,7 @@ const AddProducts: React.FC = () => {
     return (
         <React.Fragment>
             <PageTitle title={"Add Product "} subTitle={"48 products"}/>
-            <ProductForm/>
+            <ProductForm  ProductToUpdate={false}/>
         </React.Fragment>
     );
 };
