@@ -10,28 +10,30 @@ import {
 import ViewProducts from "../../components/admin/viewProducts/ViewProducts";
 import UpdateProducts from "../../components/admin/updateProducts/UpdateProducts";
 import AddProducts from "../../components/admin/addProducts/AddProducts";
+import AdminHeader from "../../components/admin/header/AdminHeader";
+
 const AdminHome: React.FC = () => {
     return (
-        <Router>
             <Container fluid={true} className="admin-layout">
+
                 <Row className="admin-container">
                     <SideNavBar/>
-                    <Col xs={12} sm={12} md={12} lg={9} xl={9} className="content-container">
+                    <Col className=" p-0 m-0 content-container ">
+                        <AdminHeader/>
                         <Switch>
-                            <Route exact path="/admin/add-product">
+                            <Route exact path="/dashboard/add-product">
                                 <AddProducts/>
                             </Route>
-                            <Route path="/admin/view-product">
+                            <Route path="/dashboard/view-product">
                                 <ViewProducts/>
                             </Route>
-                            <Route path="/admin/update-product">
+                            <Route path="/dashboard/update-product">
                                 <UpdateProducts/>
                             </Route>
                         </Switch>
                     </Col>
                 </Row>
             </Container>
-        </Router>
     );
 };
 

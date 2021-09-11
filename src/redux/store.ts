@@ -1,12 +1,14 @@
 import { configureStore } from '@reduxjs/toolkit'
 import productReducer from "./productSlice";
 import checkOutreducer from "./checkoutProductSlice";
+import templateProductSlice from "./templateProductSlice";
 
 
 export const store = configureStore({
     reducer: {
         products:productReducer,
         checkoutProducts:checkOutreducer,
+        templateProduct : templateProductSlice
     },
 })
 

@@ -1,14 +1,14 @@
-import React, {ChangeEvent} from 'react';
-import {CardDeck, Col, Container, Row} from "react-bootstrap";
+import React, { useEffect, useState} from 'react';
+import { Col, Container, Row} from "react-bootstrap";
 import Product from "../singleProduct/Product";
-import {useDispatch, useSelector} from "react-redux";
-import{RootState} from "../../../redux/store";
 import {IProduct} from "../../../types/MainTypes";
-import {updateCheckedProducts} from "../../../redux/checkoutProductSlice";
+import { useQuery} from "@apollo/client";
+import {All_PRODUCTS} from "../../../Grapgql/Queries";
+
 const ProductList: React.FC = () => {
-    const checkedProducts=useSelector((state:RootState)=>state.checkoutProducts.value);
-    const products=useSelector((state:RootState)=>state.products.value);
-    const dispatch = useDispatch();
+    const [productList, setProductList] = useState<IProduct[] | null>(null);
+    const { loading, error, data , refetch } = useQuery<{products: IProduct[]}>(All_PRODUCTS);
+
     // const UpdateProductCount=(count:number,product:IProduct,index:number)=>{
     //     console.log(count,index);
     //    const newProduct={
@@ -18,6 +18,20 @@ const ProductList: React.FC = () => {
     //    newProducts.splice(index,1,newProduct);
     //    dispatch(updateCheckedProducts(newProducts))
     // }
+
+    // const [getUser, {data, loading, error}] = useMutation(LOAD_PRODUCTS);
+
+    const handleOnGetProduct = () => {
+
+    }
+    useEffect(() => {
+        if(!data){
+            return;
+        }
+        setProductList(data.products);
+        console.log(data.products)
+    }, [data]);
+
     return (
         <Col xs={12}>
             <Container className='mb-5 product-list'>
@@ -28,7 +42,8 @@ const ProductList: React.FC = () => {
                 </Row>
                 <Row className='product-list-container'>
                     {
-                        products.map((product:IProduct,index:number) => (
+                        productList &&
+                        productList.map((product:IProduct,index:number) => (
 
                                 <Product productInfo={product} index={index} key={index}
                                          // UpdateProductCount={UpdateProductCount}

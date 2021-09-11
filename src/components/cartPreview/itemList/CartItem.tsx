@@ -1,11 +1,11 @@
 import React from 'react';
 import {Col, Image, Row} from "react-bootstrap";
-import {IProduct} from "../../../types/MainTypes";
+import {IOrderCheckout} from "../../../types/MainTypes";
 import {useDispatch} from "react-redux";
 import {deleteProduct} from "../../../redux/checkoutProductSlice";
 
 type cartProps={
-    checkedProducts:IProduct;
+    checkedProducts:IOrderCheckout;
 }
 const CartItem: React.FC <cartProps>= (props) => {
     const {checkedProducts}=props;
@@ -31,10 +31,10 @@ const CartItem: React.FC <cartProps>= (props) => {
                     </Row>
                     <Row className=''>
                         <Col xs={6}>
-                            <label className='text-secondary'>{checkedProducts.qty}</label>
+                            <label className='text-secondary'>{checkedProducts.c_qty}</label>
                         </Col>
                         <Col xs={6}>
-                            <label className='text-success'>{checkedProducts.price}</label>
+                            <label className='text-success'>{checkedProducts.total}</label>
 
                         </Col>
                     </Row>

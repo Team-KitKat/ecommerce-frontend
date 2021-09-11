@@ -1,148 +1,173 @@
-$border-radius-value: 20px;
+$border-radius-value: 0px;
+$padding-value: 12px;
+
 .admin-layout {
-  background-color: white;
   min-height: 100vh;
-  padding: 20px 40px 20px 40px;
-  box-sizing: border-box;
-  padding: 30px;
+  font-size: 1.2em;
 
   .admin-container {
     min-height: 100vh;
-    box-shadow: 1px 1px 5px #999999;
     border-radius: $border-radius-value;
 
     .side-navbar {
-      background-color: white;
-      //min-height: 100vh;
+      background-color: $side_nav_bg_color;
       border-radius: $border-radius-value 0 0 $border-radius-value;
-
-      a {
-        text-decoration: none;
-      }
+      box-shadow: 5px 0 6px rgba(90, 90, 90, 0.15);
+      z-index: 5;
+      position: fixed;
+      min-height: 100vh;
+      height: 100%;
+      width: 80px;
+      font-size: .9em;
 
       .nav {
-        background-color: #ffffff;
-
+        margin-top: 60px;
         .nav-link {
-          margin: auto;
-          background-color: #ffffff;
-          border-radius: 1px;
-          color: #666666;
-          margin-top: 5px;
+          display: flex;
+          justify-content: center;
+          flex-direction: column;
+          align-items: center;
+          color: white;
+          text-shadow: 1px 1px 1px rgba(26, 26, 26, 0.72);
+          padding: 0;
+          margin: 0;
           font-size: 0.98em;
           transition: .3s;
         }
+      }
+      .nav-icon{
+        background-color: $side_nav_bg_color;
+        box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.33);
+        padding: 15px;
+        margin: 5px;
+        cursor: pointer;
+      }
+      .nav-icon:hover{
+        box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.61);
+        background-color: $common-green;
+        transition: .3s;
+        border-radius: 5px;
+      }
+      .profile-image-container {
+        display: flex;
+        justify-content: center;
 
-        .nav-link.nav-link:hover {
-          background-color: #ffffff;
-          color: green;
-          padding: 20px;
-          transition: .3s;
-
+        .profile-image {
+          width: 40px;
+          padding-top: 20px;
+          padding-bottom: 20px;
         }
-
       }
 
-      .profile-image {
-        width: 100px;
-        padding-top: 30px;
-        padding-bottom: 20px;
-      }
 
       .profile-title-container {
-        font-size: 1em;
+        font-size: 1.2em;
+        text-align: center;
+        color: $side_nav_font_color;
+        text-shadow: 1px 1px 1px rgba(26, 26, 26, 0.8);
       }
 
       .profile-role-container {
         font-size: 0.85em;
         padding-bottom: 20px;
+        text-align: center;
+        color: $side_nav_font_color;
+        text-shadow: 1px 1px 1px rgba(26, 26, 26, 0.72);
+        border-bottom: 2px solid rgba(243, 243, 243, 0.29);
+        margin-bottom: 20px;
       }
     }
 
     .content-container {
       padding: 2rem 2rem 5rem 2rem;
-      background-color: azure;
+      background-color: rgba(252, 252, 252, 0.27);
       border-radius: 0 $border-radius-value $border-radius-value 0;
-
+      margin-left: auto !important;
+      padding-left: 80px !important;
       .product-form {
         font-size: 0.9em;
+        background-color: rgba(178, 193, 246, 0.2);
+        box-shadow: 1px 0 1px rgba(90, 90, 90, 0.15);
+        padding: 20px;
 
         .css-g1d714-ValueContainer {
-          //padding: 0px 0 0 0px;
           height: 35px;
+          outline: 0 !important;
+          border: 0 !important;
 
           .css-1uccc91-singleValue {
             line-height: 50px;
             height: 40px;
-
           }
         }
 
         input {
-          height: 35px;
+          height: 40px;
         }
 
         .input-group-text {
-          height: 35px;
+          height: 40px;
+
+        }
+
+        button {
+          background-color: $primary-color;
+          border: 0;
+          color: white;
+          font-weight: 400;
+          font-size: 1.1em;
+          margin-top: 20px;
         }
 
         .image-upload-container {
-          background-color: rgba(217, 217, 217, 0.62);
-          display: flex;
-          justify-content: center;
-          align-content: center;
-          height: 300px;
-          border-radius: 10px;
-          margin: auto;
-          margin-top: 10px;
-          margin-bottom: 20px;
           cursor: pointer;
 
           .image-upload-btn {
+            input {
+              height: 45px;
+            }
 
             svg {
               color: #2570cd;
             }
           }
         }
+
+        .attribute_container {
+          border: 1px dashed $gray_border;
+          border-radius: 5px;
+        }
       }
+
       .page-title {
-        padding: 20px;
+        padding: 50px 50px 0 50px;
       }
 
     }
 
   }
 
+  .template_product_name_container{
+    .template_product_name{
+      border: 1px dashed rgba(128, 128, 128, 0.22);
+      padding: 30px;
+    }
+    .details-container{
+      display: flex;
+      padding: 0 10px;
+    }
+    .details-container div{
+      padding: 5px 15px;
+    }
+    .details-container Button{
+      font-size: 0.6em;
+    }
+  }
 }
 
+
 @include media-breakpoint-down(md) {
-  .col-12 {
-    background-color: transparent!important;
+  .profile-image {
+    width: 40px;
   }
-  .admin-layout {
-    padding: 30px;
-  }
-  .admin-container {
-    min-height: 0 !important;
-    background-color: transparent;
-    border-radius: 20px;
-  }
-  .side-navbar {
-    min-height: 200px;
-    border-radius: 20px;
-  }
-  .product-form {
-    flex-direction: column-reverse;
-
-  }
-  .content-container {
-    padding: 2px !important;
-    border-radius: 20px;
-  }
-  .page-title {
-    padding: 0;
-    text-align: center;
-  }
-
 }

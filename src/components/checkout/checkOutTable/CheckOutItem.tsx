@@ -1,7 +1,7 @@
 import React from 'react';
 import Item from '../../../assets/images/onions.png';
 import {Col, Image, Row} from "react-bootstrap";
-import {IProduct} from "../../../types/MainTypes";
+import {IOrderCheckout} from "../../../types/MainTypes";
 import paginationFactory from "react-bootstrap-table2-paginator";
 import BootstrapTable from "react-bootstrap-table-next";
 import {useDispatch, useSelector} from "react-redux";
@@ -161,9 +161,9 @@ const CheckOutItem: React.FC = () => {
 
 
 
-    const productsGenerator = (products: IProduct[]): any[] => {
+    const productsGenerator = (products: IOrderCheckout[]): any[] => {
         const generatedProductList: any[] = [];
-        products.forEach((product: IProduct, index: number) => {
+        products.forEach((product: IOrderCheckout, index: number) => {
             // <CheckOutItem key={index} num={index+1} product={product}/>
             generatedProductList.push({
                 id: <p className='text-center' key={index}>{index + 1}</p>,

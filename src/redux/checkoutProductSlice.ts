@@ -1,36 +1,15 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit'
 import type {RootState} from './store'
-import {IProduct} from "../types/MainTypes";
+import { IOrderCheckout} from "../types/MainTypes";
 
 // Define a type for the slice state
 interface ProductState {
-    value: IProduct[]
+    value: IOrderCheckout[]
 }
 
 // Define the initial state using that type
 const initialState: ProductState = {
-    value: [
-        // {
-        //     id: "1",
-        //     image: "https://store-images-soft.s3.us-east-2.amazonaws.com/avacado.jpg",
-        //     name: "Avacado",
-        //     category: "grocery",
-        //     qty: 1,
-        //     price: 300,
-        //     discount: 20,
-        //     total: 300
-        // },
-        // {
-        //     id: "1",
-        //     image: "https://store-images-soft.s3.us-east-2.amazonaws.com/avacado.jpg",
-        //     name: "Avacado Large",
-        //     category: "grocery",
-        //     qty: 1,
-        //     price: 350,
-        //     discount: 25,
-        //     total: 350
-        // }
-    ]
+    value: []
 
 }
 
@@ -39,8 +18,8 @@ export const checkoutProductSlice = createSlice({
     // `createSlice` will infer the state type from the `initialState` argument
     initialState,
     reducers: {
-        add: (state, action: PayloadAction<IProduct>) => {
-            const newProduct = {
+        add: (state, action: PayloadAction<IOrderCheckout>) => {
+            const newProduct:IOrderCheckout = {
                 id: action.payload.id,
                 image: action.payload.image,
                 name: action.payload.name,
@@ -48,16 +27,18 @@ export const checkoutProductSlice = createSlice({
                 qty: action.payload.qty,
                 price: action.payload.price,
                 discount: action.payload.discount,
-                total: action.payload.total
+                total: action.payload.total,
+                c_qty: action.payload.c_qty
             }
             state.value.push(newProduct);
         },
-        deleteProduct: (state, action: PayloadAction<IProduct>) => {
+        deleteProduct: (state, action: PayloadAction<IOrderCheckout>) => {
             state.value = (state.value.filter(product => product.id !== action.payload.id))
         },
-        updateCheckedProducts:(state, action: PayloadAction<IProduct>)=>{
-            state.value=state.value.map(product => product.id === action.payload.id ? {...product, qty: action.payload.qty} : product)
-            // state.value=action.payload;
+        updateCheckedProducts:(state, action: PayloadAction<IOrderCheckout>)=>{
+            // state.value=state.value.map(product => product.id == action.payload.id ? {...product, qty: action.payload.qty} : product)
+            state.value=state.value.map(product =>  product.id == action.payload.id ?  action.payload : product );
+            console.log(state.value);
         }
 
 

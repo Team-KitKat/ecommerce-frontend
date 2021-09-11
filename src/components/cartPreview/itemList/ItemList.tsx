@@ -1,10 +1,9 @@
 import React from 'react';
-import {Col, Container, Row} from "react-bootstrap";
+import {Col, Container} from "react-bootstrap";
 import CartItem from "./CartItem";
-import {useDispatch, useSelector} from "react-redux";
+import {useSelector} from "react-redux";
 import {RootState} from "../../../redux/store";
-import {IProduct} from "../../../types/MainTypes";
-import Product from "../../productArea/singleProduct/Product";
+import {IOrderCheckout} from "../../../types/MainTypes";
 
 const ItemList: React.FC = () => {
     const checkoutProducts=useSelector((state:RootState)=>state.checkoutProducts.value);
@@ -13,8 +12,9 @@ const ItemList: React.FC = () => {
             <Col xs={12}>
                 <ul className='ml-0 pl-0 list-unstyled'>
                     {
-                        checkoutProducts.map((product:IProduct,index:number) => (
-                            <CartItem checkedProducts={product} key={index}/>
+                        checkoutProducts.map((product:IOrderCheckout,index:number) => (
+                            <CartItem checkedProducts={product} key={index} />
+                            // <h1>Hansana</h1>
                         ))
                     }
                 </ul>
