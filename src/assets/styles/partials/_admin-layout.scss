@@ -140,13 +140,29 @@ $padding-value: 12px;
       }
 
       .page-title {
-        padding: 50px 50px 0px 50px;
+        padding: 50px 50px 0 50px;
       }
 
     }
 
   }
 
+  .template_product_name_container{
+    .template_product_name{
+      border: 1px dashed rgba(128, 128, 128, 0.22);
+      padding: 30px;
+    }
+    .details-container{
+      display: flex;
+      padding: 0 10px;
+    }
+    .details-container div{
+      padding: 5px 15px;
+    }
+    .details-container Button{
+      font-size: 0.6em;
+    }
+  }
 }
 
 

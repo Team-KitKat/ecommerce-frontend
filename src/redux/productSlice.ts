@@ -9,90 +9,7 @@ interface ProductState {
 
 // Define the initial state using that type
 const initialState: ProductState = {
-    value: [
-        {
-        id: 1,
-        image: "https://store-images-soft.s3.us-east-2.amazonaws.com/avacado.jpg",
-        name: "Avacado",
-        category: "grocery",
-        qty: 1,
-        price: 300,
-        discount: 20,
-        total: 300
-    },
-        {
-            id: 2,
-            image: "https://store-images-soft.s3.us-east-2.amazonaws.com/avacado.jpg",
-            name: "Avacado Large",
-            category: "grocery",
-            qty: 1,
-            price: 350,
-            discount: 25,
-            total: 350
-        },
-        {
-            id: 3,
-            image: "https://store-images-soft.s3.us-east-2.amazonaws.com/avacado.jpg",
-            name: "Avacado",
-            category: "grocery",
-            qty: 1,
-            price: 300,
-            discount: 20,
-            total: 300
-        },
-        {
-            id: 4,
-            image: "https://store-images-soft.s3.us-east-2.amazonaws.com/avacado.jpg",
-            name: "Avacado",
-            category: "grocery",
-            qty: 1,
-            price: 300,
-            discount: 20,
-            total: 300
-        },
-        {
-            id: 5,
-            image: "https://store-images-soft.s3.us-east-2.amazonaws.com/avacado.jpg",
-            name: "Avacado",
-            category: "grocery",
-            qty: 1,
-            price: 300,
-            discount: 20,
-            total: 300
-        },
-        {
-            id: 6,
-            image: "https://store-images-soft.s3.us-east-2.amazonaws.com/avacado.jpg",
-            name: "Avacado Large",
-            category: "grocery",
-            qty: 1,
-            price: 350,
-            discount: 25,
-            total: 350
-        },
-        {
-            id: 7,
-            image: "https://store-images-soft.s3.us-east-2.amazonaws.com/avacado.jpg",
-            name: "Avacado",
-            category: "grocery",
-            qty: 1,
-            price: 300,
-            discount: 20,
-            total: 300
-        },
-        {
-            id: 8,
-            image: "https://store-images-soft.s3.us-east-2.amazonaws.com/avacado.jpg",
-            name: "Avacado",
-            category: "grocery",
-            qty: 1,
-            price: 300,
-            discount: 20,
-            total: 300
-        },
-
-        ]
-
+    value: []
 }
 
 export const productSlice = createSlice({
@@ -102,7 +19,7 @@ export const productSlice = createSlice({
     reducers: {
         add: (state, action: PayloadAction<IProduct>) => {
             const newProduct = {
-                id: action.payload.id,
+                id: action.payload._id,
                 image: action.payload.image,
                 name: action.payload.name,
                 category: action.payload.category,

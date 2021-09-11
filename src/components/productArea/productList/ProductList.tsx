@@ -1,19 +1,13 @@
-import React, {ChangeEvent, useEffect, useState} from 'react';
-import {CardDeck, Col, Container, Row} from "react-bootstrap";
+import React, { useEffect, useState} from 'react';
+import { Col, Container, Row} from "react-bootstrap";
 import Product from "../singleProduct/Product";
-import {useDispatch, useSelector} from "react-redux";
-import{RootState} from "../../../redux/store";
 import {IProduct} from "../../../types/MainTypes";
-import {updateCheckedProducts} from "../../../redux/checkoutProductSlice";
-import {useMutation, useQuery} from "@apollo/client";
+import { useQuery} from "@apollo/client";
 import {All_PRODUCTS} from "../../../Grapgql/Queries";
-// import {LOAD_PRODUCTS} from "../../../Grapgql/Queries";
 
 const ProductList: React.FC = () => {
-    const checkedProducts=useSelector((state:RootState)=>state.checkoutProducts.value);
     const [productList, setProductList] = useState<IProduct[] | null>(null);
-    const dispatch = useDispatch();
-    const { loading, error, data } = useQuery<{products: IProduct[]}>(All_PRODUCTS);
+    const { loading, error, data , refetch } = useQuery<{products: IProduct[]}>(All_PRODUCTS);
 
     // const UpdateProductCount=(count:number,product:IProduct,index:number)=>{
     //     console.log(count,index);

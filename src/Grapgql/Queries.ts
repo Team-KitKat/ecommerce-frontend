@@ -6,7 +6,7 @@ export  const All_PRODUCTS = gql`
             name
             price
             image
-            offerPrice
+            discount
             qty
             category
         }

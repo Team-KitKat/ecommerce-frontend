@@ -1,6 +1,6 @@
 import React, {ChangeEvent, useEffect, useState} from 'react';
-import {Button, Col, Form, FormControl, Image, Row} from "react-bootstrap";
-import {IProduct} from "../../../types/MainTypes";
+import {Button, Col, Form, FormControl, Row} from "react-bootstrap";
+import {IOrderCheckout, IProduct} from "../../../types/MainTypes";
 import {useDispatch, useSelector} from "react-redux";
 import {add, updateCheckedProducts,} from "../../../redux/checkoutProductSlice";
 import {RootState} from "../../../redux/store";
@@ -18,27 +18,38 @@ const Product: React.FC<productProps> = (props) => {
     const dispatch = useDispatch();
     const [productCount, setProductCount] = useState<number>(1);
     const handleAddtoCart = (addedProduct: IProduct, index: number) => {
-        dispatch(add(addedProduct));
-        if ((index + 1) == addedProduct.id) {
-            setShowUpdate(true);
+        const orderItem:IOrderCheckout = {
+            id: String(addedProduct._id),
+            image: addedProduct.image,
+            name: addedProduct.name,
+            category: addedProduct.category,
+            qty: addedProduct.qty,
+            price: addedProduct.price,
+            discount: addedProduct.discount,
+            total: addedProduct.discount * productCount,
+            c_qty: productCount
         }
+        dispatch(add(orderItem));
+        setShowUpdate(true);
+        // if ((index + 1) == addedProduct.id) {
+        //     setShowUpdate(true);
+        // }
 
     }
-    console.log(props.productInfo);
     const handleUpdateCart = (addedProduct: IProduct, index: number) => {
-        if ((index + 1) == addedProduct.id) {
-            setShowUpdate(true);
-        }
-        else {
-            setShowUpdate(false)
-        }
+        // if ((index + 1) == addedProduct.id) {
+        //     setShowUpdate(true);
+        // }
+        // else {
+        //     setShowUpdate(false)
+        // }
 
     }
 
     const handleCounter = (e: ChangeEvent<HTMLInputElement>) => {
         setProductCount(parseInt(e.target.value));
         setProduct({
-            id: productInfo.id,
+            _id: productInfo._id,
             image: productInfo.image,
             name: productInfo.name,
             category: productInfo.category,
@@ -50,13 +61,33 @@ const Product: React.FC<productProps> = (props) => {
     }
 
     const handleCountUpdate = (updatedProduct: IProduct) => {
-        dispatch(updateCheckedProducts(updatedProduct))
+        // dispatch(updateCheckedProducts(updatedProduct))
+        const orderItem:IOrderCheckout = {
+            id: String(updatedProduct._id),
+            image: updatedProduct.image,
+            name: updatedProduct.name,
+            category: updatedProduct.category,
+            qty: updatedProduct.qty,
+            price: updatedProduct.price,
+            discount: updatedProduct.discount,
+            total: updatedProduct.discount * productCount,
+            c_qty: productCount
+        }
+        dispatch(updateCheckedProducts(orderItem));
     }
     // useEffect(() => {
     //     checkedProducts.map((chProduct: IProduct) => (
     //         handleUpdateCart(chProduct,index)
     // ))
     // }, [checkedProducts.length])
+
+    useEffect(() => {
+       if(!props.productInfo) return;
+       const isUpdate = checkedProducts.filter( (item:IOrderCheckout) => { return item.id == props.productInfo._id });
+       if(!isUpdate){
+           setShowUpdate(true);
+       }
+    }, [props.productInfo]);
 
     return (
         <Col xs={6} sm={6} lg={3} md={4} xl={3} className='m-0 px-xl-3 px-sm-3 px-lg-3 px-md-3 product-area single-product'>
@@ -72,10 +103,10 @@ const Product: React.FC<productProps> = (props) => {
                 <Col xs={12} className='mt-3 mt-sm-4 p-0 mb-0'>
                     <Row className=''>
                         <Col xs={5} className={'price-tag text-secondary'}>
-                            <label><s>{productInfo.discount}</s></label>
+                            <label><s>Rs.{productInfo.price}.00</s></label>
                         </Col>
                         <Col xs={7} className={'pl-0 pl-sm-5 pl-xl-5 pl-md-5 pl-lg-5 price-tag text-success'}>
-                            <label className=''><b>Rs.{productInfo.price}</b></label>
+                            <label className=''><b>Rs.{productInfo.discount}.00</b></label>
                         </Col>
                     </Row>
                     <Form className='add-product-form px-sm-2'>

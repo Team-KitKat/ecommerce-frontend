@@ -1,14 +1,24 @@
 export interface IProduct {
-    id: number
+    _id: string
     image: string
     name: string
     category: string
     qty: number | 1
     price: number
     discount: number
-    total: number
+    total?: number
 }
-
+export interface IOrderCheckout {
+    id: string
+    image: string
+    name: string
+    category: string
+    qty: number | 1
+    price: number
+    discount: number
+    c_qty: number
+    total?: number
+}
 export interface IOrder {
     id: string
     productList: IProduct[] | null

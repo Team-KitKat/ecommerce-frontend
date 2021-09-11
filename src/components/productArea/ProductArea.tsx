@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Alert, Button, Col, Container, Row} from "react-bootstrap";
+import {Alert, Col, Container, Row} from "react-bootstrap";
 import SearchBar from "./searchBar/SearchBar";
 import ProductCategory from "./productCategory/ProductCategory";
 import ProductList from "./productList/ProductList";
@@ -19,7 +19,7 @@ const ProductArea: React.FC = () => {
             </Col>
             <Col xs={12}>
                 {isMessageVisible && <Container className='message-box mt-4'>
-                    <Alert variant='info' onClose={handleOnCloseClick}dismissible>
+                    <Alert variant='info' onClose={handleOnCloseClick} dismissible>
                         <i><sup>*</sup>Products listed here are demo purpose only. They are not available for sale</i>
                     </Alert>
                 </Container>}

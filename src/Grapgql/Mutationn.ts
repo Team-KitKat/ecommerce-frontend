@@ -7,7 +7,7 @@ export const CREATE_PRODUCT_ITEM = gql`
         name: $name
         image:$image
         price:$price
-        offerPrice: $offerPrice
+        discount: $offerPrice
         qty:$qty
         category:$category
         expDate: $expDate
@@ -16,7 +16,7 @@ export const CREATE_PRODUCT_ITEM = gql`
         name
         image
         price
-        offerPrice
+        discount
         qty
         category
       }
