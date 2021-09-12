@@ -95,7 +95,7 @@ const ViewProductTable: React.FC = () => {
                 </Form>
             </Col>
             <Col xs={12} className="m-0 p-0">
-                <Table striped bordered hover className="">
+                <Table striped bordered hover responsive className="">
                     <thead>
                     <tr>
                         <th>Id</th>
@@ -121,7 +121,7 @@ const ViewProductTable: React.FC = () => {
                                 <td>{item.price}</td>
                                 <td>{item.discount}</td>
                                 <td className="action_container">
-                                    <Button> Add Quantity </Button>
+                                    <Button> Add  </Button>
                                     <Button className="btn-danger"> Block </Button>
                                     <Button className="btn-danger"> Delete</Button>
                                 </td>

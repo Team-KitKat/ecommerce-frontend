@@ -24,7 +24,7 @@
     justify-content: start;
     padding: 20px;
     margin-bottom: 10px;
-
+    height: fit-content;
     .form-group {
       max-width: 300px;
       margin: 0 20px;
@@ -36,6 +36,7 @@
     Button {
       height: 42px;
       margin-top: auto;
+      width: 200px;
     }
   }
 }

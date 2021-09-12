@@ -4,6 +4,7 @@ import {IOrderCheckout, IProduct} from "../../../types/MainTypes";
 import {useDispatch, useSelector} from "react-redux";
 import {add, updateCheckedProducts,} from "../../../redux/checkoutProductSlice";
 import {RootState} from "../../../redux/store";
+import axios from "axios";
 
 type productProps = {
     productInfo: IProduct;
@@ -17,8 +18,9 @@ const Product: React.FC<productProps> = (props) => {
     const [product, setProduct] = useState<IProduct>(() => productInfo);
     const dispatch = useDispatch();
     const [productCount, setProductCount] = useState<number>(1);
+    const [imageURL, setImageURL] = useState<string>("");
     const handleAddtoCart = (addedProduct: IProduct, index: number) => {
-        const orderItem:IOrderCheckout = {
+        const orderItem: IOrderCheckout = {
             id: String(addedProduct._id),
             image: addedProduct.image,
             name: addedProduct.name,
@@ -45,6 +47,25 @@ const Product: React.FC<productProps> = (props) => {
         // }
 
     }
+    const getImageAccessUrl = ( ) => {
+        const generateGetUrl = 'http://localhost:4000/generate-get-url';
+        const options = {
+            params: {
+                Key: props.productInfo.image,
+                ContentType: 'image/jpeg'
+            }
+        };
+        axios.get(generateGetUrl, options).then(res => {
+            const { data: getURL } = res;
+            setImageURL(getURL);
+        });
+    }
+
+    useEffect(() => {
+        if(!props.productInfo) return;
+
+        getImageAccessUrl();
+    }, [props.productInfo]);
 
     const handleCounter = (e: ChangeEvent<HTMLInputElement>) => {
         setProductCount(parseInt(e.target.value));
@@ -53,7 +74,7 @@ const Product: React.FC<productProps> = (props) => {
             image: productInfo.image,
             name: productInfo.name,
             category: productInfo.category,
-            qty: productCount+1,
+            qty: productCount + 1,
             price: productInfo.price,
             discount: productInfo.discount,
             total: productInfo.total
@@ -62,7 +83,7 @@ const Product: React.FC<productProps> = (props) => {
 
     const handleCountUpdate = (updatedProduct: IProduct) => {
         // dispatch(updateCheckedProducts(updatedProduct))
-        const orderItem:IOrderCheckout = {
+        const orderItem: IOrderCheckout = {
             id: String(updatedProduct._id),
             image: updatedProduct.image,
             name: updatedProduct.name,
@@ -82,20 +103,23 @@ const Product: React.FC<productProps> = (props) => {
     // }, [checkedProducts.length])
 
     useEffect(() => {
-       if(!props.productInfo) return;
-       const isUpdate = checkedProducts.filter( (item:IOrderCheckout) => { return item.id == props.productInfo._id });
-       if(!isUpdate){
-           setShowUpdate(true);
-       }
+        if (!props.productInfo) return;
+        const isUpdate = checkedProducts.filter((item: IOrderCheckout) => {
+            return item.id == props.productInfo._id
+        });
+        if (!isUpdate) {
+            setShowUpdate(true);
+        }
     }, [props.productInfo]);
 
     return (
-        <Col xs={6} sm={6} lg={3} md={4} xl={3} className='m-0 px-xl-3 px-sm-3 px-lg-3 px-md-3 product-area single-product'>
+        <Col xs={6} sm={6} lg={3} md={4} xl={3}
+             className='m-0 px-xl-3 px-sm-3 px-lg-3 px-md-3 product-area single-product'>
             <Row className={'px-1 py-0  m-0 mb-3 text-center product-body'}>
-                <Col xs={12} className='p-0 m-0'>s
+                <Col xs={12} className='p-0 m-0 pt-3'>
                     <img
                         className='m-0 px-0 px-lg-4 px-xl-5 px-md-3 px-sm-2  product-image'
-                        src={productInfo.image} alt="product"/>
+                        src={imageURL} width="100px" alt="product"/>
                 </Col>
                 <Col xs={12} className='mt-3 mb-3 mb-lg-4 mb-xl-4 mb-md-4 mb-sm-4 p-0 text-center title'>
                     <h5 className={'ml-0 ml-sm-2 pb-0 pb-sm-2'}>{productInfo.name}</h5>
