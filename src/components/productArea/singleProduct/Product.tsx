@@ -119,7 +119,7 @@ const Product: React.FC<productProps> = (props) => {
                 <Col xs={12} className='p-0 m-0 pt-3'>
                     <img
                         className='m-0 px-0 px-lg-4 px-xl-5 px-md-3 px-sm-2  product-image'
-                        src={imageURL} width="100px" alt="product"/>
+                        src={imageURL} height="100px" alt="product"/>
                 </Col>
                 <Col xs={12} className='mt-3 mb-3 mb-lg-4 mb-xl-4 mb-md-4 mb-sm-4 p-0 text-center title'>
                     <h5 className={'ml-0 ml-sm-2 pb-0 pb-sm-2'}>{productInfo.name}</h5>
