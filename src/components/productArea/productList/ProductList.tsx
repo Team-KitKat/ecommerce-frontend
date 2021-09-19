@@ -29,7 +29,6 @@ const ProductList: React.FC = () => {
             return;
         }
         setProductList(data.products);
-        console.log(data.products)
     }, [data]);
 
     return (

@@ -8,7 +8,7 @@ const PageTitle: React.FC<PageTitleProps> = (props) => {
     return (
             <div className="page-title">
                 <h3> {props.title} </h3>
-                <span className="sub-title"> {props.subTitle} </span>
+                <span className="sub-title"> SpeedLanka / Admin</span>
             </div>
 
 

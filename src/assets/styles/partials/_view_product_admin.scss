@@ -1,0 +1,42 @@
+.admin-view-products {
+  table {
+    font-size: 0.8em !important;
+  }
+
+  th {
+    color: rgba(0, 0, 0, 0.73);
+  }
+
+  td {
+    line-height: 50px;
+  }
+
+  .action_container Button {
+    //display: block;
+    //width: 100%;
+    margin: 0 5px;
+  }
+
+  .product-view-search-form {
+    background-color: rgba(18, 18, 45, 0.06);
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: start;
+    padding: 20px;
+    margin-bottom: 10px;
+    height: fit-content;
+    .form-group {
+      max-width: 300px;
+      margin: 0 20px;
+      height: 60px;
+    }
+    .form-control {
+      height: 42px;
+    }
+    Button {
+      height: 42px;
+      margin-top: auto;
+      width: 200px;
+    }
+  }
+}
